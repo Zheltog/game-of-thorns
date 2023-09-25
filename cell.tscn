@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5qur1xj0i2g"]
+
+[ext_resource type="Script" path="res://Cell.cs" id="1_2jxgb"]
+[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://cell.png" id="2_68yam"]
+
+[node name="Cell" type="Node2D"]
+script = ExtResource("1_2jxgb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_68yam")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
