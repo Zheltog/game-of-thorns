@@ -3,20 +3,18 @@ using Godot;
 public partial class GameController : Node2D
 {
 	[Export]
-	private int _cellsNumHor;
+	private int _initialThornsNum;
 
-	[Export]
-	private int _cellsNumVer;
+	private int _currentThornsNum;
 
-	[Export]
-	private int _cellSize;
-
-	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
+	private Field _field;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		InitCells();
+		GameControllerProxy.Init(this);
+		_field = GetNode<Field>("Field");
+		_currentThornsNum = _initialThornsNum;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,17 +22,19 @@ public partial class GameController : Node2D
 	{
 	}
 
-	private void InitCells()
+	public bool CanTakeThorn()
 	{
-		for (int x = 0; x < _cellsNumHor; x++)
+		return _currentThornsNum > 0;
+	}
+
+	public void TakeThorn()
+	{
+		_currentThornsNum--;
+		GD.Print(_currentThornsNum + " thorns remaining");
+
+		if (_currentThornsNum == 0)
 		{
-			for (int y = 0; y < _cellsNumVer; y++)
-			{
-				Cell cell = _scene.Instantiate<Cell>();
-				cell.Name = "Cell[" + x + "," + y + "]";
-				AddChild(cell);
-				cell.Position = new Vector2(x * _cellSize, y * _cellSize);
-			}
+			_field.RemoveUnprotectedCells();
 		}
 	}
 }

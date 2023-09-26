@@ -17,4 +17,4 @@ offset_right = 25.0
 offset_bottom = 25.0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="OnButtonPressed"]

@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=4 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://GameController.cs" id="1_hkewm"]
+[ext_resource type="Script" path="res://Cat.cs" id="2_8ojcj"]
+[ext_resource type="Script" path="res://Field.cs" id="3_y612l"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
+_initialThornsNum = 10
+
+[node name="Cat" type="Node2D" parent="."]
+script = ExtResource("2_8ojcj")
+
+[node name="Field" type="Node2D" parent="."]
+script = ExtResource("3_y612l")
 _cellsNumHor = 10
 _cellsNumVer = 10
 _cellSize = 50
