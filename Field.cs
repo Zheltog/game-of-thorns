@@ -1,4 +1,5 @@
 using System.Threading;
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Field : Node2D
@@ -44,15 +45,31 @@ public partial class Field : Node2D
 		}
 	}
 
-	public void RemoveUnprotectedCells()
+	public async Task RemoveUnprotectedCells()
 	{
-		RemoveCellsFromUpToDown();
-		RemoveCellsFromDownToUp();
-		RemoveCellsFromLeftToRight();
-		RemoveCellsFromRifhtToLeft();
+		await RemoveCellsFromUpToDown();
+		await RemoveCellsFromDownToUp();
+		await RemoveCellsFromLeftToRight();
+		await RemoveCellsFromRifhtToLeft();
 	}
 
-	private async void RemoveCellsFromUpToDown()
+	public async Task SetThornedCellsDefault()
+	{
+		for (int x = 0; x < _cellsNumHor; x++)
+		{
+			for (int y = 0; y < _cellsNumVer; y++)
+			{
+				Cell cell = _cells[x, y];
+				if (cell.CurrentStatus == Cell.Status.Thorned)
+				{
+					cell.SetDefault();
+				}
+				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
+			}
+		}
+	}
+
+	private async Task RemoveCellsFromUpToDown()
 	{
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
@@ -67,7 +84,7 @@ public partial class Field : Node2D
 		}
 	}
 
-	private async void RemoveCellsFromDownToUp()
+	private async Task RemoveCellsFromDownToUp()
 	{
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
@@ -82,7 +99,7 @@ public partial class Field : Node2D
 		}
 	}
 
-	private async void RemoveCellsFromLeftToRight()
+	private async Task RemoveCellsFromLeftToRight()
 	{
 		for (int y = 0; y < _cellsNumVer; y++)
 		{
@@ -97,7 +114,7 @@ public partial class Field : Node2D
 		}
 	}
 
-	private async void RemoveCellsFromRifhtToLeft()
+	private async Task RemoveCellsFromRifhtToLeft()
 	{
 		for (int y = 0; y < _cellsNumHor; y++)
 		{
@@ -115,7 +132,7 @@ public partial class Field : Node2D
 	private bool TryRemoveCell(int x, int y)
 	{
 		Cell cell = _cells[x, y];
-		if (cell.CurrentStatus == Cell.Status.Default)
+		if (cell.CurrentStatus != Cell.Status.Thorned)
 		{
 			cell.SetRemoved();
 			return false;

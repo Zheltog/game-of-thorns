@@ -3,7 +3,7 @@ using Godot;
 public partial class Cell : Node2D
 {
 	[Export]
-	public Color _defaultColor = new(0, 0, 0);
+	public Color _defaultColor = new(1, 1, 1);
 
 	[Export]
 	public Color _thornedColor = new(0, 0, 1);
@@ -30,6 +30,11 @@ public partial class Cell : Node2D
 	{
 		CurrentStatus = Status.Removed;
 		_sprite.Modulate = _removedColor;
+	}
+	public void SetDefault()
+	{
+		CurrentStatus = Status.Default;
+		_sprite.Modulate = _defaultColor;
 	}
 	
 	public void OnButtonPressed()

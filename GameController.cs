@@ -1,3 +1,4 @@
+using System.Threading;
 using Godot;
 
 public partial class GameController : Node2D
@@ -7,6 +8,8 @@ public partial class GameController : Node2D
 
 	private int _currentThornsNum;
 
+	private int _roundNumber;
+
 	private Field _field;
 
 	// Called when the node enters the scene tree for the first time.
@@ -15,6 +18,9 @@ public partial class GameController : Node2D
 		GameControllerProxy.Init(this);
 		_field = GetNode<Field>("Field");
 		_currentThornsNum = _initialThornsNum;
+		_roundNumber = 0;
+
+		StartNewRound();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,7 +40,22 @@ public partial class GameController : Node2D
 
 		if (_currentThornsNum == 0)
 		{
-			_field.RemoveUnprotectedCells();
+			FinishRound();
 		}
+	}
+
+	private async void FinishRound()
+	{
+		await _field.RemoveUnprotectedCells();
+		await _field.SetThornedCellsDefault();
+		StartNewRound();
+	}
+
+	private void StartNewRound()
+	{
+		_roundNumber++;
+		_currentThornsNum = _initialThornsNum - _roundNumber + 1;
+		GD.Print("Round #" + _roundNumber);
+		GD.Print("You got " + _currentThornsNum + " thorns");
 	}
 }
