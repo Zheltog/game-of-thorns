@@ -2,6 +2,8 @@ using Godot;
 
 public partial class Cell : Node2D
 {
+	public static Vector2 Size { get; private set; }
+
 	[Export]
 	public Color _defaultColor = new(1, 1, 1);
 
@@ -15,10 +17,21 @@ public partial class Cell : Node2D
 
 	private Sprite2D _sprite;
 
+	private static bool _isSizeInitialized;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_sprite = GetNode<Sprite2D>("Sprite2D");
+
+		if (!_isSizeInitialized)
+		{
+			int x = _sprite.Texture.GetWidth();
+			int y = _sprite.Texture.GetHeight();
+			Size = new(x, y);
+			_isSizeInitialized = true;
+			GD.Print("Cell size initialized");
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -15,6 +15,8 @@ public partial class GameController : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print(GetViewportRect().Size.X);
+
 		GameControllerProxy.Init(this);
 		_field = GetNode<Field>("Field");
 		_currentThornsNum = _initialThornsNum;

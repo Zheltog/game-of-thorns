@@ -6,7 +6,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
-_initialThornsNum = 20
+_initialThornsNum = 5
 
 [node name="Cat" type="Node2D" parent="."]
 script = ExtResource("2_8ojcj")
@@ -15,4 +15,3 @@ script = ExtResource("2_8ojcj")
 script = ExtResource("3_y612l")
 _cellsNumHor = 20
 _cellsNumVer = 20
-_cellSize = 50

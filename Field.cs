@@ -10,9 +10,6 @@ public partial class Field : Node2D
 	[Export]
 	private int _cellsNumVer;
 
-	[Export]
-	private int _cellSize;
-
 	private Cell[,] _cells;
 
 	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
@@ -39,7 +36,7 @@ public partial class Field : Node2D
 				Cell cell = _scene.Instantiate<Cell>();
 				AddChild(cell);
 				cell.Name = "Cell[" + x + "," + y + "]";
-				cell.Position = new Vector2(x * _cellSize, y * _cellSize);
+				cell.Position = new Vector2(x * Cell.Size.X, y * Cell.Size.Y);
 				_cells[x, y] = cell;
 			}
 		}
