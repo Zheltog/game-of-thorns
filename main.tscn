@@ -6,15 +6,15 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
-_initialThornsNum = 5
+_initialThornsNum = 20
 
 [node name="Cat" type="Node2D" parent="."]
 script = ExtResource("2_8ojcj")
 
 [node name="Field" type="Node2D" parent="."]
 script = ExtResource("3_y612l")
-_cellsNumHor = 20
-_cellsNumVer = 20
+_cellsNumHor = 12
+_cellsNumVer = 12
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 7

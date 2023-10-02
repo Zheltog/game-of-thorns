@@ -10,6 +10,12 @@ public partial class Field : Node2D
 	[Export]
 	private int _cellsNumVer;
 
+	// TODO
+	[Export]
+	private int _cellSize = 50;
+
+	private Vector2 _center;
+
 	private Cell[,] _cells;
 
 	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
@@ -17,6 +23,7 @@ public partial class Field : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		InitCenter();
 		InitCells();
 	}
 
@@ -25,9 +32,21 @@ public partial class Field : Node2D
 	{
 	}
 
+	private void InitCenter()
+	{
+		float width = GetViewportRect().Size.X;
+		float height = GetViewportRect().Size.Y;
+		_center = new(width / 2, height / 2);
+	}
+
 	private void InitCells()
 	{
 		_cells = new Cell[_cellsNumHor, _cellsNumVer];
+		float leftTopX = _center.X - (_cellsNumHor * _cellSize / 2);
+		float leftTopY = _center.Y - (_cellsNumVer * _cellSize / 2);
+
+		GD.Print(leftTopX);
+		GD.Print(leftTopY);
 
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
@@ -36,7 +55,7 @@ public partial class Field : Node2D
 				Cell cell = _scene.Instantiate<Cell>();
 				AddChild(cell);
 				cell.Name = "Cell[" + x + "," + y + "]";
-				cell.Position = new Vector2(x * Cell.Size.X, y * Cell.Size.Y);
+				cell.Position = new Vector2(leftTopX + x * _cellSize, leftTopY + y * _cellSize);
 				_cells[x, y] = cell;
 			}
 		}
