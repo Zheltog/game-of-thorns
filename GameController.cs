@@ -12,13 +12,14 @@ public partial class GameController : Node2D
 
 	private Field _field;
 
+	private Label _label;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GD.Print(GetViewportRect().Size.X);
-
 		GameControllerProxy.Init(this);
 		_field = GetNode<Field>("Field");
+		_label = GetNode<Label>("Label");
 		_currentThornsNum = _initialThornsNum;
 		_roundNumber = 0;
 
@@ -38,7 +39,7 @@ public partial class GameController : Node2D
 	public void TakeThorn()
 	{
 		_currentThornsNum--;
-		GD.Print(_currentThornsNum + " thorns remaining");
+		_label.Text = _currentThornsNum + " thorns remaining";
 
 		if (_currentThornsNum == 0)
 		{
@@ -57,7 +58,7 @@ public partial class GameController : Node2D
 	{
 		_roundNumber++;
 		_currentThornsNum = _initialThornsNum - _roundNumber + 1;
-		GD.Print("Round #" + _roundNumber);
-		GD.Print("You got " + _currentThornsNum + " thorns");
+		_label.Text = "Round #" + _roundNumber +
+			"\nYou got " + _currentThornsNum + " thorns";
 	}
 }
