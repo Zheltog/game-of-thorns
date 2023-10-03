@@ -6,9 +6,14 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
-_initialThornsNum = 10
+_initialThornsNum = 30
 _cellsNumHor = 10
 _cellsNumVer = 10
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.376471, 0.501961, 0.501961, 1)
+offset_right = 720.0
+offset_bottom = 1280.0
 
 [node name="Cat" type="Node2D" parent="."]
 script = ExtResource("2_8ojcj")

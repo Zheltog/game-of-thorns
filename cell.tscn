@@ -17,13 +17,16 @@ offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Base" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_68yam")
 
 [node name="Salami" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("3_4t6wg")
 
 [node name="Thorn" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 texture = ExtResource("4_g2e80")
 
 [connection signal="pressed" from="Button" to="." method="OnButtonPressed"]

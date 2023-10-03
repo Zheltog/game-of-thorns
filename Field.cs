@@ -7,6 +7,7 @@ public partial class Field : Node2D
 	private int _cellsNumHor;
 	private int _cellsNumVer;
 	private int _cellSize;
+	private int _cellsRemaining;
 	private Vector2 _center;
 	private Cell[,] _cells;
 	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
@@ -25,6 +26,7 @@ public partial class Field : Node2D
 	{
 		_cellsNumHor = cellsNumHor;
 		_cellsNumVer = cellsNumVer;
+		_cellsRemaining = _cellsNumHor * _cellsNumVer;
 
 		float screenWidth = GetViewportRect().Size.X;
 		float screenHeight = GetViewportRect().Size.Y;
@@ -59,12 +61,18 @@ public partial class Field : Node2D
 		}
 	}
 
+	public bool AreCallsRemaining()
+	{
+		return _cellsRemaining > 0;
+	}
+
 	public async Task RemoveUnprotectedCells()
 	{
 		await RemoveCellsFromUpToDown();
 		await RemoveCellsFromDownToUp();
 		await RemoveCellsFromLeftToRight();
 		await RemoveCellsFromRifhtToLeft();
+		GD.Print(_cellsRemaining + " cells remaining");
 	}
 
 	public async Task SetThornedCellsDefault()
@@ -101,6 +109,7 @@ public partial class Field : Node2D
 				}
 
 				_cells[x, y].SetRemoved();
+				_cellsRemaining--;
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -124,6 +133,7 @@ public partial class Field : Node2D
 				}
 
 				_cells[x, y].SetRemoved();
+				_cellsRemaining--;
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -147,6 +157,7 @@ public partial class Field : Node2D
 				}
 
 				_cells[x, y].SetRemoved();
+				_cellsRemaining--;
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -170,6 +181,7 @@ public partial class Field : Node2D
 				}
 
 				_cells[x, y].SetRemoved();
+				_cellsRemaining--;
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}

@@ -14,7 +14,7 @@ public partial class GameController : Node2D
 
 	private int _currentThornsNum;
 
-	private int _roundNumber;
+	private int _roundNumber = 0;
 
 	private Field _field;
 
@@ -63,8 +63,22 @@ public partial class GameController : Node2D
 
 	private void StartNewRound()
 	{
+		_currentThornsNum = _initialThornsNum - _roundNumber;
+
+		if (_currentThornsNum == 0)
+		{
+			_label.Text = "Game over\nNo thorns remaining\nYou reached round " + _roundNumber;
+			return;
+		}
+
+		if (!_field.AreCallsRemaining())
+		{
+			_label.Text = "Game over\nNo salami remaining\nYou reached round " + _roundNumber;
+			return;
+		}
+
 		_roundNumber++;
-		_currentThornsNum = _initialThornsNum - _roundNumber + 1;
+
 		_label.Text = "Round #" + _roundNumber +
 			"\nYou got " + _currentThornsNum + " thorns";
 	}
