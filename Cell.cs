@@ -2,36 +2,24 @@ using Godot;
 
 public partial class Cell : Node2D
 {
-	public static Vector2 Size { get; private set; }
-
-	[Export]
-	public Color _defaultColor = new(1, 1, 1);
-
-	[Export]
-	public Color _thornedColor = new(0, 0, 1);
-
-	[Export]
-	public Color _removedColor = new(1, 0, 0);
-
 	public Status CurrentStatus { get; private set; } = Status.Default;
 
-	private Sprite2D _sprite;
+	private Sprite2D _base;
+	private Sprite2D _salami;
+	private Sprite2D _thorn;
 
-	private static bool _isSizeInitialized;
+	private float _initialSizeX;
+	private float _initialSizeY;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_sprite = GetNode<Sprite2D>("Sprite2D");
+		_base = GetNode<Sprite2D>("Base");
+		_salami = GetNode<Sprite2D>("Salami");
+		_thorn = GetNode<Sprite2D>("Thorn");
 
-		if (!_isSizeInitialized)
-		{
-			int x = _sprite.Texture.GetWidth();
-			int y = _sprite.Texture.GetHeight();
-			Size = new(x, y);
-			_isSizeInitialized = true;
-			GD.Print("Cell size initialized");
-		}
+		_initialSizeX = _base.Texture.GetSize().X;
+		_initialSizeY = _base.Texture.GetSize().Y;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,15 +27,26 @@ public partial class Cell : Node2D
 	{
 	}
 
+	public void SetSize(float sizeX, float sizeY)
+	{
+		Vector2 scale = new(sizeX / _initialSizeX, sizeY / _initialSizeY);
+		Scale = scale;
+	}
+
 	public void SetRemoved()
 	{
 		CurrentStatus = Status.Removed;
-		_sprite.Modulate = _removedColor;
+		_base.Modulate = new Color(1, 1, 1, 0.5f);
+		_salami.Modulate = new Color(1, 1, 1, 0);
+		_thorn.Modulate = new Color(1, 1, 1, 0);
 	}
+
 	public void SetDefault()
 	{
 		CurrentStatus = Status.Default;
-		_sprite.Modulate = _defaultColor;
+		_base.Modulate = new Color(1, 1, 1, 1);
+		_salami.Modulate = new Color(1, 1, 1, 1);
+		_thorn.Modulate = new Color(1, 1, 1, 0);
 	}
 	
 	public void OnButtonPressed()
@@ -58,7 +57,7 @@ public partial class Cell : Node2D
 
 	private void TrySetThorned()
 	{
-		if (GameControllerProxy.CanTakeThorn())
+		if (GameControllerProxy.CanTakeThorn() && CurrentStatus == Status.Default)
 		{
 			GameControllerProxy.TakeThorn();
 			SetThorned();
@@ -68,7 +67,9 @@ public partial class Cell : Node2D
 	private void SetThorned()
 	{
 		CurrentStatus = Status.Thorned;
-		_sprite.Modulate = _thornedColor;
+		_base.Modulate = new Color(1, 1, 1, 1);
+		_salami.Modulate = new Color(1, 1, 1, 0.5f);
+		_thorn.Modulate = new Color(1, 1, 1, 1);
 	}
 
 	public enum Status

@@ -54,6 +54,7 @@ public partial class Field : Node2D
 			{
 				Cell cell = _scene.Instantiate<Cell>();
 				AddChild(cell);
+				cell.SetSize(_cellSize, _cellSize);
 				cell.Name = "Cell[" + x + "," + y + "]";
 				cell.Position = new Vector2(leftTopX + x * _cellSize, leftTopY + y * _cellSize);
 				_cells[x, y] = cell;

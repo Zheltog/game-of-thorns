@@ -1,20 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba5qur1xj0i2g"]
+[gd_scene load_steps=5 format=3 uid="uid://ba5qur1xj0i2g"]
 
 [ext_resource type="Script" path="res://Cell.cs" id="1_2jxgb"]
 [ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://cell.png" id="2_68yam"]
+[ext_resource type="Texture2D" uid="uid://woip37a88ewt" path="res://salami.png" id="3_4t6wg"]
+[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://thorn.png" id="4_g2e80"]
 
 [node name="Cell" type="Node2D"]
 script = ExtResource("1_2jxgb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_68yam")
-
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_68yam")
+
+[node name="Salami" type="Sprite2D" parent="."]
+texture = ExtResource("3_4t6wg")
+
+[node name="Thorn" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("4_g2e80")
 
 [connection signal="pressed" from="Button" to="." method="OnButtonPressed"]
