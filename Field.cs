@@ -4,27 +4,16 @@ using Godot;
 
 public partial class Field : Node2D
 {
-	[Export]
 	private int _cellsNumHor;
-
-	[Export]
 	private int _cellsNumVer;
-
-	// TODO
-	[Export]
-	private int _cellSize = 50;
-
+	private int _cellSize;
 	private Vector2 _center;
-
 	private Cell[,] _cells;
-
 	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		InitCenter();
-		InitCells();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,21 +21,29 @@ public partial class Field : Node2D
 	{
 	}
 
-	private void InitCenter()
+	public void Init(int cellsNumHor, int cellsNumVer)
 	{
-		float width = GetViewportRect().Size.X;
-		float height = GetViewportRect().Size.Y;
-		_center = new(width / 2, height / 2);
+		_cellsNumHor = cellsNumHor;
+		_cellsNumVer = cellsNumVer;
+
+		float screenWidth = GetViewportRect().Size.X;
+		float screenHeight = GetViewportRect().Size.Y;
+
+		_center = new(screenWidth / 2, screenHeight / 2);
+		_cellSize = (int) screenWidth / (_cellsNumHor + 2);
+
+		InitCells();
 	}
 
 	private void InitCells()
 	{
 		_cells = new Cell[_cellsNumHor, _cellsNumVer];
+
 		float leftTopX = _center.X - (_cellsNumHor * _cellSize / 2);
 		float leftTopY = _center.Y - (_cellsNumVer * _cellSize / 2);
 
-		GD.Print(leftTopX);
-		GD.Print(leftTopY);
+		float initPosX = leftTopX + _cellSize / 2;
+		float initPosY = leftTopY + _cellSize / 2;
 
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
@@ -56,7 +53,7 @@ public partial class Field : Node2D
 				AddChild(cell);
 				cell.SetSize(_cellSize, _cellSize);
 				cell.Name = "Cell[" + x + "," + y + "]";
-				cell.Position = new Vector2(leftTopX + x * _cellSize, leftTopY + y * _cellSize);
+				cell.Position = new Vector2(initPosX + x * _cellSize, initPosY + y * _cellSize);
 				_cells[x, y] = cell;
 			}
 		}
@@ -92,10 +89,18 @@ public partial class Field : Node2D
 		{
 			for (int y = 0; y < _cellsNumVer; y++)
 			{
-				if (TryRemoveCell(x, y))
+				Cell.Status status = _cells[x, y].CurrentStatus;
+
+				if (status == Cell.Status.Thorned)
 				{
 					break;
 				}
+				else if (status == Cell.Status.Removed)
+				{
+					continue;
+				}
+
+				_cells[x, y].SetRemoved();
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -107,10 +112,18 @@ public partial class Field : Node2D
 		{
 			for (int y = _cellsNumVer - 1; y >= 0; y--)
 			{
-				if (TryRemoveCell(x, y))
+				Cell.Status status = _cells[x, y].CurrentStatus;
+				
+				if (status == Cell.Status.Thorned)
 				{
 					break;
 				}
+				else if (status == Cell.Status.Removed)
+				{
+					continue;
+				}
+
+				_cells[x, y].SetRemoved();
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -122,10 +135,18 @@ public partial class Field : Node2D
 		{
 			for (int x = 0; x < _cellsNumHor; x++)
 			{
-				if (TryRemoveCell(x, y))
+				Cell.Status status = _cells[x, y].CurrentStatus;
+				
+				if (status == Cell.Status.Thorned)
 				{
 					break;
 				}
+				else if (status == Cell.Status.Removed)
+				{
+					continue;
+				}
+
+				_cells[x, y].SetRemoved();
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
@@ -137,23 +158,20 @@ public partial class Field : Node2D
 		{
 			for (int x = _cellsNumHor - 1; x >= 0; x--)
 			{
-				if (TryRemoveCell(x, y))
+				Cell.Status status = _cells[x, y].CurrentStatus;
+				
+				if (status == Cell.Status.Thorned)
 				{
 					break;
 				}
+				else if (status == Cell.Status.Removed)
+				{
+					continue;
+				}
+
+				_cells[x, y].SetRemoved();
 				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
-	}
-
-	private bool TryRemoveCell(int x, int y)
-	{
-		Cell cell = _cells[x, y];
-		if (cell.CurrentStatus != Cell.Status.Thorned)
-		{
-			cell.SetRemoved();
-			return false;
-		}
-		return true;
 	}
 }

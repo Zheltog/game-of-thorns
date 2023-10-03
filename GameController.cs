@@ -6,6 +6,12 @@ public partial class GameController : Node2D
 	[Export]
 	private int _initialThornsNum;
 
+	[Export]
+	private int _cellsNumHor;
+
+	[Export]
+	private int _cellsNumVer;
+
 	private int _currentThornsNum;
 
 	private int _roundNumber;
@@ -23,6 +29,7 @@ public partial class GameController : Node2D
 		_currentThornsNum = _initialThornsNum;
 		_roundNumber = 0;
 
+		_field.Init(_cellsNumHor, _cellsNumVer);
 		StartNewRound();
 	}
 

@@ -51,7 +51,6 @@ public partial class Cell : Node2D
 	
 	public void OnButtonPressed()
 	{
-		GD.Print("Clicked");
 		TrySetThorned();
 	}
 
