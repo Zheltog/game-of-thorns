@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=5 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://GameController.cs" id="1_hkewm"]
 [ext_resource type="Script" path="res://Cat.cs" id="2_8ojcj"]
 [ext_resource type="Script" path="res://Field.cs" id="3_y612l"]
+[ext_resource type="Texture2D" uid="uid://dfnh56pjmls2u" path="res://porcupine.png" id="4_d0whm"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
@@ -39,3 +40,9 @@ text = "Sample text
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Porcupine" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(592, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("4_d0whm")
