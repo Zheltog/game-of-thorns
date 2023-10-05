@@ -25,7 +25,7 @@ public partial class GameController : Node2D
 	{
 		GameControllerProxy.Init(this);
 		_field = GetNode<Field>("Field");
-		_label = GetNode<Label>("Label");
+		_label = GetNode<Label>("StatusLabel");
 		_currentThornsNum = _initialThornsNum;
 		_roundNumber = 0;
 
