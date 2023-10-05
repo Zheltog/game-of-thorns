@@ -93,6 +93,7 @@ public partial class Field : Node2D
 		cell.RemoveAll();
 		_cellsRemaining--;
 		await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
+		GD.Print(_cellsRemaining + " cells remaining");
 	}
 
 	private async Task<bool> ProcessAndReturnWasThorned(int x, int y)

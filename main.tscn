@@ -7,7 +7,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hkewm")
-_initialThornsNum = 10
+_initialThornsNum = 15
 _cellsNumHor = 10
 _cellsNumVer = 10
 

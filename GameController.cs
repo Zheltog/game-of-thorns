@@ -22,12 +22,12 @@ public partial class GameController : Node2D
 
 	private Field _field;
 
-	private List<Field.AttackDirection> _allDirections = Enum
+	private readonly List<Field.AttackDirection> _allDirections = Enum
 		.GetValues(typeof(Field.AttackDirection))
 		.Cast<Field.AttackDirection>()
 		.ToList();
 
-	private int _currentDirection;
+	private Field.AttackDirection _nextDirection;
 
 	public override void _Ready()
 	{
@@ -65,22 +65,16 @@ public partial class GameController : Node2D
 
 	private async void FinishRound()
 	{
-		await _field.AttackOnSalami(NextDirection());
+		await _field.AttackOnSalami(_nextDirection);
 		NextRound();
 	}
 
-	private Field.AttackDirection NextDirection()
+	private void SetRandomNextAttackDirection()
 	{
-		Field.AttackDirection nextDirection = _allDirections[_currentDirection];
-
-		_currentDirection++;
-
-		if (_currentDirection >= _allDirections.Count)
-		{
-			_currentDirection = 0;
-		}
-
-		return nextDirection;
+		Random random = new();
+		int randomIndex = random.Next(0, _allDirections.Count - 1);
+		Field.AttackDirection randomDirection = _allDirections[randomIndex];
+		_nextDirection = randomDirection;
 	}
 
 	private void NextRound()
@@ -100,8 +94,16 @@ public partial class GameController : Node2D
 		}
 
 		_roundNumber++;
+		SetRandomNextAttackDirection();
+
+		if (_roundNumber == 1)
+		{
+			_label.Text = "Round #1\nProtect salami with your thorns!\nNext attack: " + _nextDirection;
+			return;
+		}
 
 		_label.Text = "Round #" + _roundNumber +
-			"\nYou got " + _currentThornsNum + " thorns";
+			"\nYou got " + _currentThornsNum +
+			" thorns\nNext attack: " + _nextDirection;
 	}
 }
