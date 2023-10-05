@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Cell : Node2D
 {
-	public Status CurrentStatus { get; private set; } = Status.Default;
+	public Status CurrentStatus { get; private set; } = Status.Salami;
 
 	private Sprite2D _base;
 	private Sprite2D _salami;
@@ -11,7 +11,6 @@ public partial class Cell : Node2D
 	private float _initialSizeX;
 	private float _initialSizeY;
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_base = GetNode<Sprite2D>("Base");
@@ -22,7 +21,6 @@ public partial class Cell : Node2D
 		_initialSizeY = _base.Texture.GetSize().Y;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -33,17 +31,17 @@ public partial class Cell : Node2D
 		Scale = scale;
 	}
 
-	public void SetRemoved()
+	public void RemoveAll()
 	{
-		CurrentStatus = Status.Removed;
+		CurrentStatus = Status.Empty;
 		_base.Modulate = new Color(1, 1, 1, 0.5f);
 		_salami.Modulate = new Color(1, 1, 1, 0);
 		_thorn.Modulate = new Color(1, 1, 1, 0);
 	}
 
-	public void SetDefault()
+	public void RemoveThorn()
 	{
-		CurrentStatus = Status.Default;
+		CurrentStatus = Status.Salami;
 		_base.Modulate = new Color(1, 1, 1, 1);
 		_salami.Modulate = new Color(1, 1, 1, 1);
 		_thorn.Modulate = new Color(1, 1, 1, 0);
@@ -51,19 +49,19 @@ public partial class Cell : Node2D
 	
 	public void OnButtonPressed()
 	{
-		TrySetThorned();
+		TrySetThorn();
 	}
 
-	private void TrySetThorned()
+	private void TrySetThorn()
 	{
-		if (GameControllerProxy.CanTakeThorn() && CurrentStatus == Status.Default)
+		if (GameControllerProxy.CanTakeThorn() && CurrentStatus == Status.Salami)
 		{
 			GameControllerProxy.TakeThorn();
-			SetThorned();
+			SetThorn();
 		}
 	}
 
-	private void SetThorned()
+	private void SetThorn()
 	{
 		CurrentStatus = Status.Thorned;
 		_base.Modulate = new Color(1, 1, 1, 1);
@@ -73,6 +71,6 @@ public partial class Cell : Node2D
 
 	public enum Status
 	{
-		Default, Thorned, Removed
+		Salami, Thorned, Empty
 	}
 }

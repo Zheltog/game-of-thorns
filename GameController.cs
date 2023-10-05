@@ -1,4 +1,6 @@
-using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public partial class GameController : Node2D
@@ -16,24 +18,31 @@ public partial class GameController : Node2D
 
 	private int _roundNumber = 0;
 
-	private Field _field;
-
 	private Label _label;
 
-	// Called when the node enters the scene tree for the first time.
+	private Field _field;
+
+	private List<Field.AttackDirection> _allDirections = Enum
+		.GetValues(typeof(Field.AttackDirection))
+		.Cast<Field.AttackDirection>()
+		.ToList();
+
+	private int _currentDirection;
+
 	public override void _Ready()
 	{
 		GameControllerProxy.Init(this);
-		_field = GetNode<Field>("Field");
+
 		_label = GetNode<Label>("StatusLabel");
+		_field = GetNode<Field>("Field");
+
+		_field.Init(_cellsNumHor, _cellsNumVer);
 		_currentThornsNum = _initialThornsNum;
 		_roundNumber = 0;
 
-		_field.Init(_cellsNumHor, _cellsNumVer);
-		StartNewRound();
+		NextRound();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -56,12 +65,25 @@ public partial class GameController : Node2D
 
 	private async void FinishRound()
 	{
-		await _field.RemoveUnprotectedCells();
-		await _field.SetThornedCellsDefault();
-		StartNewRound();
+		await _field.AttackOnSalami(NextDirection());
+		NextRound();
 	}
 
-	private void StartNewRound()
+	private Field.AttackDirection NextDirection()
+	{
+		Field.AttackDirection nextDirection = _allDirections[_currentDirection];
+
+		_currentDirection++;
+
+		if (_currentDirection >= _allDirections.Count)
+		{
+			_currentDirection = 0;
+		}
+
+		return nextDirection;
+	}
+
+	private void NextRound()
 	{
 		_currentThornsNum = _initialThornsNum - _roundNumber;
 
@@ -71,7 +93,7 @@ public partial class GameController : Node2D
 			return;
 		}
 
-		if (!_field.AreCallsRemaining())
+		if (!_field.HasSalamiLeft())
 		{
 			_label.Text = "Game over\nNo salami remaining\nYou reached round " + _roundNumber;
 			return;

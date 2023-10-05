@@ -1,5 +1,3 @@
-using Godot;
-
 public static class GameControllerProxy
 {
     private static GameController _controller;

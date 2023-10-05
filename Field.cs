@@ -1,4 +1,3 @@
-using System.Threading;
 using System.Threading.Tasks;
 using Godot;
 
@@ -12,12 +11,10 @@ public partial class Field : Node2D
 	private Cell[,] _cells;
 	private PackedScene _scene = GD.Load<PackedScene>("res://cell.tscn");
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -61,129 +58,117 @@ public partial class Field : Node2D
 		}
 	}
 
-	public bool AreCallsRemaining()
+	public bool HasSalamiLeft()
 	{
 		return _cellsRemaining > 0;
 	}
 
-	public async Task RemoveUnprotectedCells()
+	public async Task AttackOnSalami(AttackDirection direction)
 	{
-		await RemoveCellsFromUpToDown();
-		await RemoveCellsFromDownToUp();
-		await RemoveCellsFromLeftToRight();
-		await RemoveCellsFromRifhtToLeft();
-		GD.Print(_cellsRemaining + " cells remaining");
-	}
-
-	public async Task SetThornedCellsDefault()
-	{
-		for (int x = 0; x < _cellsNumHor; x++)
+		switch (direction)
 		{
-			for (int y = 0; y < _cellsNumVer; y++)
-			{
-				Cell cell = _cells[x, y];
-				if (cell.CurrentStatus == Cell.Status.Thorned)
-				{
-					cell.SetDefault();
-				}
-				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
-			}
+			case AttackDirection.Up:
+				await AttackFromDownToUp();
+				break;
+			case AttackDirection.Down:
+				await AttackFromUpToDown();
+				break;
+			case AttackDirection.Left:
+				await AttackFromRifhtToLeft();
+				break;
+			case AttackDirection.Right:
+				await AttackFromLeftToRight();
+				break;
 		}
 	}
 
-	private async Task RemoveCellsFromUpToDown()
+	private async Task RemoveThornAndPause(Cell cell)
+	{
+		cell.RemoveThorn();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
+	}
+
+	private async Task RemoveAllAndPause(Cell cell)
+	{
+		cell.RemoveAll();
+		_cellsRemaining--;
+		await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
+	}
+
+	private async Task<bool> ProcessAndReturnWasThorned(int x, int y)
+	{
+		Cell cell = _cells[x, y];
+		Cell.Status status = cell.CurrentStatus;
+		if (status == Cell.Status.Thorned)
+		{
+			await RemoveThornAndPause(cell);
+			return true;
+		}
+		else if (status == Cell.Status.Salami)
+		{
+			await RemoveAllAndPause(cell);
+		}
+		return false;
+	}
+
+	private async Task AttackFromUpToDown()
 	{
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
 			for (int y = 0; y < _cellsNumVer; y++)
 			{
-				Cell.Status status = _cells[x, y].CurrentStatus;
-
-				if (status == Cell.Status.Thorned)
+				if (await ProcessAndReturnWasThorned(x, y))
 				{
 					break;
 				}
-				else if (status == Cell.Status.Removed)
-				{
-					continue;
-				}
-
-				_cells[x, y].SetRemoved();
-				_cellsRemaining--;
-				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
 	}
 
-	private async Task RemoveCellsFromDownToUp()
+	private async Task AttackFromDownToUp()
 	{
 		for (int x = 0; x < _cellsNumHor; x++)
 		{
 			for (int y = _cellsNumVer - 1; y >= 0; y--)
 			{
-				Cell.Status status = _cells[x, y].CurrentStatus;
-				
-				if (status == Cell.Status.Thorned)
+				if (await ProcessAndReturnWasThorned(x, y))
 				{
 					break;
 				}
-				else if (status == Cell.Status.Removed)
-				{
-					continue;
-				}
-
-				_cells[x, y].SetRemoved();
-				_cellsRemaining--;
-				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
 	}
 
-	private async Task RemoveCellsFromLeftToRight()
+	private async Task AttackFromLeftToRight()
 	{
 		for (int y = 0; y < _cellsNumVer; y++)
 		{
 			for (int x = 0; x < _cellsNumHor; x++)
 			{
-				Cell.Status status = _cells[x, y].CurrentStatus;
-				
-				if (status == Cell.Status.Thorned)
+				if (await ProcessAndReturnWasThorned(x, y))
 				{
 					break;
 				}
-				else if (status == Cell.Status.Removed)
-				{
-					continue;
-				}
-
-				_cells[x, y].SetRemoved();
-				_cellsRemaining--;
-				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
 	}
 
-	private async Task RemoveCellsFromRifhtToLeft()
+	private async Task AttackFromRifhtToLeft()
 	{
 		for (int y = 0; y < _cellsNumHor; y++)
 		{
 			for (int x = _cellsNumHor - 1; x >= 0; x--)
 			{
-				Cell.Status status = _cells[x, y].CurrentStatus;
-				
-				if (status == Cell.Status.Thorned)
+				if (await ProcessAndReturnWasThorned(x, y))
 				{
 					break;
 				}
-				else if (status == Cell.Status.Removed)
-				{
-					continue;
-				}
-
-				_cells[x, y].SetRemoved();
-				_cellsRemaining--;
-				await ToSignal(GetTree().CreateTimer(0.0f), "timeout");
 			}
 		}
+	}
+
+	public enum AttackDirection
+	{
+		Up, Down, Left, Right
 	}
 }
