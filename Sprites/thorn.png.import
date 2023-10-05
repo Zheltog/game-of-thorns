@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2easth2crq28"
-path="res://.godot/imported/cat.png-d389335c1c7006e0460b77c11cf92d79.ctex"
+uid="uid://dhiwskk6mp05p"
+path="res://.godot/imported/thorn.png-1d7b64113dade90f0e8d0d3f5c5bd383.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cat.png"
-dest_files=["res://.godot/imported/cat.png-d389335c1c7006e0460b77c11cf92d79.ctex"]
+source_file="res://Sprites/thorn.png"
+dest_files=["res://.godot/imported/thorn.png-1d7b64113dade90f0e8d0d3f5c5bd383.ctex"]
 
 [params]
 

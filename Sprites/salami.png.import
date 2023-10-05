@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhiwskk6mp05p"
-path="res://.godot/imported/thorn.png-b05b3deec4765bd22ac5be62061ed489.ctex"
+uid="uid://woip37a88ewt"
+path="res://.godot/imported/salami.png-2fc3efff22a81267b398d66e39a1fc4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://thorn.png"
-dest_files=["res://.godot/imported/thorn.png-b05b3deec4765bd22ac5be62061ed489.ctex"]
+source_file="res://Sprites/salami.png"
+dest_files=["res://.godot/imported/salami.png-2fc3efff22a81267b398d66e39a1fc4f.ctex"]
 
 [params]
 

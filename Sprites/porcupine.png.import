@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ok0difxqjo0i"
-path="res://.godot/imported/cell.png-d2e896f835a3e7099cb9e14019efc1fe.ctex"
+uid="uid://dfnh56pjmls2u"
+path="res://.godot/imported/porcupine.png-e9023a13918004898c902abf551853d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cell.png"
-dest_files=["res://.godot/imported/cell.png-d2e896f835a3e7099cb9e14019efc1fe.ctex"]
+source_file="res://Sprites/porcupine.png"
+dest_files=["res://.godot/imported/porcupine.png-e9023a13918004898c902abf551853d1.ctex"]
 
 [params]
 

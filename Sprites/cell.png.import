@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://woip37a88ewt"
-path="res://.godot/imported/salami.png-14ab341e5962076425c9441493bb003c.ctex"
+uid="uid://ok0difxqjo0i"
+path="res://.godot/imported/cell.png-537e034acef1daef80b5429296c7f859.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://salami.png"
-dest_files=["res://.godot/imported/salami.png-14ab341e5962076425c9441493bb003c.ctex"]
+source_file="res://Sprites/cell.png"
+dest_files=["res://.godot/imported/cell.png-537e034acef1daef80b5429296c7f859.ctex"]
 
 [params]
 
