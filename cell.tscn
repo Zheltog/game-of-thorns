@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba5qur1xj0i2g"]
 
-[ext_resource type="Script" path="res://Scripts/Cell.cs" id="1_ua1ub"]
+[ext_resource type="Script" path="res://Scripts/cell.gd" id="1_oklhr"]
 [ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="2_i7k65"]
 [ext_resource type="Texture2D" uid="uid://woip37a88ewt" path="res://Sprites/salami.png" id="3_r00mr"]
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="4_fnwnk"]
 
 [node name="Cell" type="Node2D"]
-script = ExtResource("1_ua1ub")
+script = ExtResource("1_oklhr")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -29,4 +29,4 @@ modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 texture = ExtResource("4_fnwnk")
 
-[connection signal="pressed" from="Button" to="." method="OnButtonPressed"]
+[connection signal="pressed" from="Button" to="." method="on_button_pressed"]
