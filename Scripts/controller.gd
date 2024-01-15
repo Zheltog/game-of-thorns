@@ -1,6 +1,6 @@
 class_name GameController
 
-extends Node2D
+extends CanvasLayer
 
 @export var initial_thorns_num: int
 @export var cells_num_hor: int
