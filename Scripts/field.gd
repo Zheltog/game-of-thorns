@@ -24,6 +24,20 @@ func init(cells_num_hor: int, cells_num_ver: int):
 	_center = Vector2(screen_width / 2, screen_height / 2)
 	_cell_size = screen_width / (cells_num_hor + 2)
 	_init_cells()
+			
+func has_salami_left():
+	return _cells_remaining > 0
+
+func attack_on_salami(direction: AttackDirection):
+	match(direction):
+		AttackDirection.UP:
+			await _attack_from_down_to_up()
+		AttackDirection.DOWN:
+			await _attack_from_up_to_down()
+		AttackDirection.LEFT:
+			await _attack_from_right_to_left()
+		AttackDirection.RIGHT:
+			await _attack_from_left_to_right()
 
 func _set_thorn(x: int, y: int):
 	_cells[x * _cells_num_hor + y].set_thorn()
@@ -44,20 +58,6 @@ func _init_cells():
 			cell.name = str("Cell[", x, ",", y, "]")
 			cell.position = Vector2(init_pos_x + x * _cell_size, init_pos_y + y * _cell_size)
 			_cells[x * _cells_num_hor + y] = cell
-			
-func has_salami_left():
-	return _cells_remaining > 0
-
-func attack_on_salami(direction: AttackDirection):
-	match(direction):
-		AttackDirection.UP:
-			await _attack_from_down_to_up()
-		AttackDirection.DOWN:
-			await _attack_from_up_to_down()
-		AttackDirection.LEFT:
-			await _attack_from_right_to_left()
-		AttackDirection.RIGHT:
-			await _attack_from_left_to_right()
 
 func _remove_thorn_and_pause(cell: Cell):
 	cell.remove_throrn()

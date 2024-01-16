@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcl2cdu08j88h"]
 
-[ext_resource type="Script" path="res://Scripts/controller.gd" id="1_arb3i"]
-[ext_resource type="Script" path="res://Scripts/field.gd" id="2_po1pt"]
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ny4n4"]
+[ext_resource type="Script" path="res://Scripts/Field.gd" id="2_gj08q"]
 [ext_resource type="Texture2D" uid="uid://2easth2crq28" path="res://Sprites/cat.png" id="3_hvmiq"]
 [ext_resource type="Texture2D" uid="uid://dfnh56pjmls2u" path="res://Sprites/porcupine.png" id="4_ec4uo"]
 
 [node name="Base" type="CanvasLayer"]
-script = ExtResource("1_arb3i")
+script = ExtResource("1_ny4n4")
 initial_thorns_num = 15
 cells_num_hor = 10
 cells_num_ver = 10
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Field" type="Node2D" parent="."]
-script = ExtResource("2_po1pt")
+script = ExtResource("2_gj08q")
 
 [node name="StatusLabel" type="Label" parent="."]
 anchors_preset = 2

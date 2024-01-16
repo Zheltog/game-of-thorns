@@ -14,8 +14,7 @@ var _next_direction: Field.AttackDirection = Field.AttackDirection.UP
 var _all_directions: Array
 
 func _ready():
-	EventBus.cell_pressed.connect(try_set_thorn)
-	
+	EventBus.cell_pressed.connect(_try_set_thorn)
 	_label = get_node("StatusLabel")
 	_field = get_node("Field")
 	_field.init(cells_num_hor, cells_num_ver)
@@ -23,19 +22,13 @@ func _ready():
 	_round_number = 0
 	_init_directions_array()
 	_next_round()
-
-func _process(delta):
-	pass
 	
-func try_set_thorn(x: int, y: int):
-	if can_take_thorn():
-		take_thorn()
+func _try_set_thorn(x: int, y: int):
+	if _current_thorns_num > 0:
+		_take_thorn()
 		EventBus.set_thorn.emit(x, y)
-	
-func can_take_thorn():
-	return _current_thorns_num > 0
 
-func take_thorn():
+func _take_thorn():
 	_current_thorns_num = _current_thorns_num - 1
 	_label.text = str(_current_thorns_num, " thorns remaining")
 	if _current_thorns_num == 0:
