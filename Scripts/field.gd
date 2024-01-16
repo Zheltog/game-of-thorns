@@ -13,10 +13,7 @@ var _cells: Array
 var _scene: PackedScene = load("res://cell.tscn")
 
 func _ready():
-	pass
-
-func _process(delta):
-	pass
+	EventBus.set_thorn.connect(_set_thorn)
 	
 func init(cells_num_hor: int, cells_num_ver: int):
 	_cells_num_hor = cells_num_hor
@@ -27,7 +24,10 @@ func init(cells_num_hor: int, cells_num_ver: int):
 	_center = Vector2(screen_width / 2, screen_height / 2)
 	_cell_size = screen_width / (cells_num_hor + 2)
 	_init_cells()
-	
+
+func _set_thorn(x: int, y: int):
+	_cells[x * _cells_num_hor + y].set_thorn()
+
 func _init_cells():
 	_cells.resize(_cells_num_hor * _cells_num_ver)
 	var left_top_x = _center.x - (_cells_num_hor * _cell_size / 2)
@@ -40,6 +40,7 @@ func _init_cells():
 			var cell: Cell = _scene.instantiate()
 			add_child(cell)
 			cell.set_size(_cell_size, _cell_size)
+			cell.set_coordinates(x, y)
 			cell.name = str("Cell[", x, ",", y, "]")
 			cell.position = Vector2(init_pos_x + x * _cell_size, init_pos_y + y * _cell_size)
 			_cells[x * _cells_num_hor + y] = cell

@@ -14,7 +14,8 @@ var _next_direction: Field.AttackDirection = Field.AttackDirection.UP
 var _all_directions: Array
 
 func _ready():
-	GameControllerProxy.init(self)
+	EventBus.cell_pressed.connect(try_set_thorn)
+	
 	_label = get_node("StatusLabel")
 	_field = get_node("Field")
 	_field.init(cells_num_hor, cells_num_ver)
@@ -25,6 +26,11 @@ func _ready():
 
 func _process(delta):
 	pass
+	
+func try_set_thorn(x: int, y: int):
+	if can_take_thorn():
+		take_thorn()
+		EventBus.set_thorn.emit(x, y)
 	
 func can_take_thorn():
 	return _current_thorns_num > 0
