@@ -16,6 +16,8 @@ var _all_directions: Array
 
 func _ready():
 	EventBus.cell_pressed.connect(_try_set_thorn)
+	EventBus.no_cells_for_thorns.connect(_finish_round)
+	
 	_label = get_node("StatusLabel")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
@@ -24,6 +26,7 @@ func _ready():
 
 func _new_game():
 	_field.init(cells_num_hor, cells_num_ver)
+	_field.reset_cells_thorned()
 	_menu.hide()
 	_current_thorns_num = initial_thorns_num
 	_round_number = 0

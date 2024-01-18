@@ -8,6 +8,7 @@ var _cells_num_hor: int
 var _cells_num_ver: int
 var _cell_size: int
 var _cells_remaining: int
+var _current_cells_thorned: int
 var _center: Vector2
 var _cells: Array
 var _scene: PackedScene = load("res://cell.tscn")
@@ -24,7 +25,10 @@ func init(cells_num_hor: int, cells_num_ver: int):
 	_center = Vector2(screen_width / 2, screen_height / 2)
 	_cell_size = screen_width / (cells_num_hor + 2)
 	_init_cells()
-			
+
+func reset_cells_thorned():
+	_current_cells_thorned = 0
+
 func has_salami_left():
 	return _cells_remaining > 0
 
@@ -41,6 +45,10 @@ func attack_on_salami(direction: AttackDirection):
 
 func _set_thorn(x: int, y: int):
 	_cells[x * _cells_num_hor + y].set_thorn()
+	_current_cells_thorned += 1
+	
+	if (_cells_remaining - _current_cells_thorned) == 0:
+		EventBus.no_cells_for_thorns.emit()
 
 func _init_cells():
 	if _cells.size() > 0:
@@ -69,6 +77,7 @@ func _destroy_old_cells():
 
 func _remove_thorn_and_pause(cell: Cell):
 	cell.remove_throrn()
+	_current_cells_thorned -= 1
 	await get_tree().create_timer(0.1).timeout
 	
 func _remove_all_and_pause(cell: Cell):

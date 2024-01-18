@@ -7,9 +7,9 @@
 
 [node name="Base" type="CanvasLayer"]
 script = ExtResource("1_ny4n4")
-initial_thorns_num = 1
-cells_num_hor = 10
-cells_num_ver = 10
+initial_thorns_num = 10
+cells_num_hor = 5
+cells_num_ver = 5
 
 [node name="BasePanel" type="ColorRect" parent="."]
 modulate = Color(0.164706, 0.25098, 0.25098, 1)
