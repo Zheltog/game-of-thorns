@@ -43,6 +43,10 @@ func _set_thorn(x: int, y: int):
 	_cells[x * _cells_num_hor + y].set_thorn()
 
 func _init_cells():
+	if _cells.size() > 0:
+		_destroy_old_cells()
+	
+	_cells.clear()
 	_cells.resize(_cells_num_hor * _cells_num_ver)
 	var left_top_x = _center.x - (_cells_num_hor * _cell_size / 2)
 	var left_top_y = _center.y - (_cells_num_ver * _cell_size / 2)
@@ -58,6 +62,10 @@ func _init_cells():
 			cell.name = str("Cell[", x, ",", y, "]")
 			cell.position = Vector2(init_pos_x + x * _cell_size, init_pos_y + y * _cell_size)
 			_cells[x * _cells_num_hor + y] = cell
+
+func _destroy_old_cells():
+	for cell in _cells:
+		cell.queue_free()
 
 func _remove_thorn_and_pause(cell: Cell):
 	cell.remove_throrn()

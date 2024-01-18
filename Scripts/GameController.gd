@@ -10,6 +10,7 @@ var _current_thorns_num: int
 var _round_number: int = 0
 var _label: Label
 var _field: Field
+var _menu: ColorRect
 var _next_direction: Field.AttackDirection = Field.AttackDirection.UP
 var _all_directions: Array
 
@@ -17,11 +18,19 @@ func _ready():
 	EventBus.cell_pressed.connect(_try_set_thorn)
 	_label = get_node("StatusLabel")
 	_field = get_node("Field")
+	_menu = get_node("MenuPanel")
+	_init_directions_array()
+	_new_game()
+
+func _new_game():
 	_field.init(cells_num_hor, cells_num_ver)
+	_menu.hide()
 	_current_thorns_num = initial_thorns_num
 	_round_number = 0
-	_init_directions_array()
 	_next_round()
+	
+func _exit():
+	get_tree().quit()
 	
 func _try_set_thorn(x: int, y: int):
 	if _current_thorns_num > 0:
@@ -50,10 +59,10 @@ func _set_random_next_attack_direction():
 func _next_round():
 	_current_thorns_num = initial_thorns_num - _round_number
 	if _current_thorns_num == 0:
-		_label.text = str("Game over\nNo thorns remaining\nYou reached round ", _round_number)
+		_game_over(str("Game over\nNo thorns remaining\nYou reached round ", _round_number))
 		return
 	if (!_field.has_salami_left()):
-		_label.text = str("Game over\nNo salami remaining\nYou reached round ", _round_number)
+		_game_over(str("Game over\nNo salami remaining\nYou reached round ", _round_number))
 		return
 	_round_number = _round_number + 1
 	_set_random_next_attack_direction()
@@ -62,3 +71,13 @@ func _next_round():
 		_label.text = str("Round #1\nProtect salami with your thorns!\nNext attack: ", next_direction_str)
 		return
 	_label.text = str("Round #", _round_number, "\nYou got ", _current_thorns_num, " thorns\nNext attack: ", next_direction_str)
+
+func _game_over(text: String):
+	_label.text = text
+	_menu.show()
+
+func _on_new_game_button_pressed():
+	_new_game()
+
+func _on_exit_button_pressed():
+	_exit()
