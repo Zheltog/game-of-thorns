@@ -12,7 +12,7 @@ cells_num_hor = 5
 cells_num_ver = 5
 
 [node name="BasePanel" type="ColorRect" parent="."]
-modulate = Color(0.164706, 0.25098, 0.25098, 1)
+modulate = Color(0.0627451, 0.12549, 0.12549, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,21 +21,6 @@ grow_vertical = 2
 
 [node name="Field" type="Node2D" parent="."]
 script = ExtResource("2_gj08q")
-
-[node name="StatusLabel" type="Label" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -256.0
-offset_right = 464.0
-offset_bottom = -32.0
-grow_vertical = 0
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 42
-text = "Sample text"
-vertical_alignment = 2
-autowrap_mode = 3
 
 [node name="InfoLabel" type="Label" parent="."]
 anchors_preset = 1
@@ -76,6 +61,97 @@ grow_vertical = 0
 scale = Vector2(4, 4)
 texture = ExtResource("4_ec4uo")
 
+[node name="StatusPanel" type="ColorRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -256.0
+offset_right = 448.0
+offset_bottom = -16.0
+grow_vertical = 0
+color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[node name="RoundNameLabel" type="Label" parent="StatusPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 42
+text = "round:"
+
+[node name="RoundValueLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 2
+
+[node name="ThornsNameLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -30.5
+offset_right = 216.0
+offset_bottom = 30.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "thorns:"
+
+[node name="ThornsValueLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -30.5
+offset_right = -16.0
+offset_bottom = 30.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 2
+
+[node name="NextAttackNameLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -77.0
+offset_right = 257.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "next attack:"
+
+[node name="NextAttackValueLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -77.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 2
+
 [node name="MenuPanel" type="ColorRect" parent="."]
 self_modulate = Color(0, 0, 0, 0.25098)
 anchors_preset = 15
@@ -115,6 +191,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "exit"
+
+[node name="MessageLabel" type="Label" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -320.0
+offset_right = 312.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "protect salami with your thorns!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="MenuPanel/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuPanel/ExitButton" to="." method="_on_exit_button_pressed"]
