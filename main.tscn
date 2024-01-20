@@ -7,9 +7,9 @@
 
 [node name="Base" type="CanvasLayer"]
 script = ExtResource("1_ny4n4")
-initial_thorns_num = 10
-cells_num_hor = 5
-cells_num_ver = 5
+initial_thorns_num = 15
+cells_num_hor = 10
+cells_num_ver = 10
 
 [node name="BasePanel" type="ColorRect" parent="."]
 modulate = Color(0.0627451, 0.12549, 0.12549, 1)
@@ -21,22 +21,6 @@ grow_vertical = 2
 
 [node name="Field" type="Node2D" parent="."]
 script = ExtResource("2_gj08q")
-
-[node name="InfoLabel" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -464.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = 256.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 42
-text = "game of thorns
-by belog
-v. 0.1"
-horizontal_alignment = 2
-autowrap_mode = 3
 
 [node name="Cat" type="TextureRect" parent="."]
 texture_filter = 1
@@ -153,6 +137,7 @@ theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
 [node name="MenuPanel" type="ColorRect" parent="."]
+visible = false
 self_modulate = Color(0, 0, 0, 0.25098)
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,6 +195,52 @@ text = "protect salami with your thorns!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="InfoPanel" type="ColorRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -448.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 256.0
+grow_horizontal = 0
+color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[node name="VersionLabel" type="Label" parent="InfoPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -77.0
+offset_right = 416.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "ver. 0.1"
+
+[node name="AuthorLabel" type="Label" parent="InfoPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -30.5
+offset_right = 416.0
+offset_bottom = 30.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "by belog"
+
+[node name="GameTitleLabel" type="Label" parent="InfoPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 42
+text = "game of thorns"
 
 [connection signal="pressed" from="MenuPanel/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuPanel/ExitButton" to="." method="_on_exit_button_pressed"]
