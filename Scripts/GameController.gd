@@ -5,6 +5,9 @@ extends CanvasLayer
 @export var initial_thorns_num: int
 @export var cells_num_hor: int
 @export var cells_num_ver: int
+@export var remove_all_pause_sec: float = 0.05
+@export var remove_thorn_pause_sec: float = 0.1
+@export var idle_round_pause_sec: float = 1.0
 
 var _current_thorns_num: int
 var _round_number: int = 0
@@ -16,6 +19,7 @@ var _field: Field
 var _menu: ColorRect
 var _next_direction: Field.AttackDirection = Field.AttackDirection.UP
 var _all_directions: Array
+var _can_move: bool
 
 func _ready():
 	EventBus.cell_pressed.connect(_try_set_thorn)
@@ -39,7 +43,7 @@ func _new_game():
 	_thorns_value_label.text = ""
 	_next_attack_value_label.text = ""
 	_field.show()
-	_field.init(cells_num_hor, cells_num_ver)
+	_field.init(cells_num_hor, cells_num_ver, remove_all_pause_sec, remove_thorn_pause_sec)
 	_field.reset_cells_thorned()
 	_menu.hide()
 	_current_thorns_num = initial_thorns_num
@@ -50,7 +54,7 @@ func _exit():
 	get_tree().quit()
 	
 func _try_set_thorn(x: int, y: int):
-	if _current_thorns_num > 0:
+	if _current_thorns_num > 0 and _can_move:
 		_take_thorn()
 		EventBus.set_thorn.emit(x, y)
 
@@ -65,6 +69,7 @@ func _init_directions_array():
 		_all_directions.push_back(direction)
 		
 func _finish_round():
+	_can_move = false
 	await _field.attack_on_salami(_next_direction)
 	_next_round()
 	
@@ -75,14 +80,20 @@ func _set_random_next_attack_direction():
 	
 func _next_round():
 	_current_thorns_num = initial_thorns_num - _round_number
-	if _current_thorns_num == 0:
-		_open_menu(str("game over\nno thorns remaining\nyou reached round ", _round_number))
-		return
+	_current_thorns_num = max(_current_thorns_num, 0)
 	if (!_field.has_salami_left()):
 		_open_menu(str("game over\nno salami remaining\nyou reached round ", _round_number))
 		return
 	_round_number = _round_number + 1
 	_set_random_next_attack_direction()
+	_update_statuses()
+	if _current_thorns_num != 0:
+		_can_move = true
+	else:
+		await get_tree().create_timer(idle_round_pause_sec).timeout
+		_finish_round()
+
+func _update_statuses():
 	var next_direction_str: String = Field.AttackDirection.keys()[_next_direction]
 	_round_value_label.text = str(_round_number)
 	_thorns_value_label.text = str(_current_thorns_num)

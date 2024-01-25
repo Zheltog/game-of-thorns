@@ -12,11 +12,18 @@ var _current_cells_thorned: int
 var _center: Vector2
 var _cells: Array
 var _scene: PackedScene = load("res://cell.tscn")
+var _remove_all_pause_sec: float = 0.12
+var _remove_thorn_pause_sec: float = 0.25
 
 func _ready():
 	EventBus.set_thorn.connect(_set_thorn)
 	
-func init(cells_num_hor: int, cells_num_ver: int):
+func init(
+	cells_num_hor: int,
+	cells_num_ver: int,
+	remove_all_pause_sec: float,
+	remove_thorn_pause_sec: float
+):
 	_cells_num_hor = cells_num_hor
 	_cells_num_ver = cells_num_ver
 	_cells_remaining = cells_num_hor * cells_num_ver
@@ -24,6 +31,8 @@ func init(cells_num_hor: int, cells_num_ver: int):
 	var screen_height = get_viewport_rect().size.y
 	_center = Vector2(screen_width / 2, screen_height / 2)
 	_cell_size = screen_width / (cells_num_hor + 2)
+	_remove_all_pause_sec = remove_all_pause_sec
+	_remove_thorn_pause_sec = remove_thorn_pause_sec
 	_init_cells()
 
 func reset_cells_thorned():
@@ -78,12 +87,12 @@ func _destroy_old_cells():
 func _remove_thorn_and_pause(cell: Cell):
 	cell.remove_throrn()
 	_current_cells_thorned -= 1
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(_remove_thorn_pause_sec).timeout
 	
 func _remove_all_and_pause(cell: Cell):
 	cell.remove_all()
 	_cells_remaining = _cells_remaining - 1
-	await get_tree().create_timer(0.0).timeout
+	await get_tree().create_timer(_remove_all_pause_sec).timeout
 	
 func _process_and_return_was_thorned(x: int, y: int):
 	var cell = _cells[x * _cells_num_hor + y]
