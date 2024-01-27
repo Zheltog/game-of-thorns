@@ -30,8 +30,13 @@ func _ready():
 	_message_label = get_node("MenuPanel/MessageLabel")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
+	_process_mode()
 	_init_directions_array()
 	_open_menu("protect salami with your thorns!")
+
+func _process_mode():
+	var mode = GameSettings.current_mode
+	print("mode = ", mode)
 
 func _open_menu(text: String):
 	_message_label.text = text
@@ -50,8 +55,8 @@ func _new_game():
 	_round_number = 0
 	_next_round()
 	
-func _exit():
-	get_tree().quit()
+func _back_to_menu():
+	get_tree().change_scene_to_file("res://menu.tscn")
 	
 func _try_set_thorn(x: int, y: int):
 	if _current_thorns_num > 0 and _can_move:
@@ -113,5 +118,5 @@ func _update_statuses():
 func _on_new_game_button_pressed():
 	_new_game()
 
-func _on_exit_button_pressed():
-	_exit()
+func _on_menu_button_pressed():
+	_back_to_menu()

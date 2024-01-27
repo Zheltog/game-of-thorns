@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://d06lanv8p7jhy"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_xh13t"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_xh13t")
+
+[node name="BasePanel" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.12549, 0.12549, 1)
+
+[node name="VersionLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -328.0
+offset_top = 232.0
+offset_right = -128.0
+offset_bottom = 322.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 42
+text = "ver. 0.1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AuthorLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+offset_left = 128.0
+offset_top = 232.0
+offset_right = 328.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 42
+text = "by belog"
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 126.0
+offset_right = 231.0
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 63
+text = "game of thorns"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayQuickButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "play (quick)"
+
+[node name="PlayLongButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "play (long)"
+
+[node name="StatsQuickButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "stats (quick)"
+
+[node name="StatsLongButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 210.0
+offset_right = 200.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "stats (long)"
+
+[node name="ExitButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 340.0
+offset_right = 200.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "exit"
+
+[connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]
+[connection signal="pressed" from="BasePanel/PlayLongButton" to="." method="_on_play_long_button_pressed"]
+[connection signal="pressed" from="BasePanel/StatsQuickButton" to="." method="_on_stats_quick_button_pressed"]
+[connection signal="pressed" from="BasePanel/StatsLongButton" to="." method="_on_stats_long_button_pressed"]
+[connection signal="pressed" from="BasePanel/ExitButton" to="." method="_on_exit_button_pressed"]

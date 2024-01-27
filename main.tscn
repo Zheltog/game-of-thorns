@@ -161,7 +161,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "new game"
 
-[node name="ExitButton" type="Button" parent="MenuPanel"]
+[node name="MenuButton" type="Button" parent="MenuPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,7 +175,7 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "exit"
+text = "menu"
 
 [node name="MessageLabel" type="Label" parent="MenuPanel"]
 layout_mode = 1
@@ -243,4 +243,5 @@ theme_override_font_sizes/font_size = 42
 text = "game of thorns"
 
 [connection signal="pressed" from="MenuPanel/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="MenuPanel/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_exit_button_pressed"]
