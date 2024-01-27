@@ -7,9 +7,6 @@
 
 [node name="Base" type="CanvasLayer"]
 script = ExtResource("1_ny4n4")
-initial_thorns_num = 20
-cells_num_hor = 10
-cells_num_ver = 10
 
 [node name="BasePanel" type="ColorRect" parent="."]
 modulate = Color(0.0627451, 0.12549, 0.12549, 1)
@@ -145,7 +142,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NewGameButton" type="Button" parent="MenuPanel"]
+[node name="PlayButton" type="Button" parent="MenuPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -159,7 +156,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "new game"
+text = "play"
 
 [node name="MenuButton" type="Button" parent="MenuPanel"]
 layout_mode = 1
@@ -242,6 +239,5 @@ offset_bottom = 77.0
 theme_override_font_sizes/font_size = 42
 text = "game of thorns"
 
-[connection signal="pressed" from="MenuPanel/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuPanel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_exit_button_pressed"]

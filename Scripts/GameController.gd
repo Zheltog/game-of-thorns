@@ -2,13 +2,22 @@ class_name GameController
 
 extends CanvasLayer
 
-@export var initial_thorns_num: int
-@export var cells_num_hor: int
-@export var cells_num_ver: int
+@export var init_thorns_num_quick: int = 10
+@export var init_thorns_num_long: int = 20
+@export var cells_num_hor_quick: int = 5
+@export var cells_num_hor_long: int = 10
+@export var cells_num_ver_quick: int = 5
+@export var cells_num_ver_long: int = 10
+@export var double_attack_on_every_round_quick: int = 2
+@export var double_attack_on_every_round_long: int = 4
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
 @export var idle_round_pause_sec: float = 1.0
 
+var _init_thorns_num: int
+var _cells_num_hor: int
+var _cells_num_ver: int
+var _double_attack_on_every_round: int
 var _current_thorns_num: int
 var _round_number: int = 0
 var _round_value_label: Label
@@ -35,8 +44,17 @@ func _ready():
 	_open_menu("protect salami with your thorns!")
 
 func _process_mode():
-	var mode = GameSettings.current_mode
-	print("mode = ", mode)
+	match GameSettings.current_mode:
+		GameSettings.Mode.QUICK:
+			_init_thorns_num = init_thorns_num_quick
+			_cells_num_hor = cells_num_hor_quick
+			_cells_num_ver = cells_num_ver_quick
+			_double_attack_on_every_round = double_attack_on_every_round_quick
+		GameSettings.Mode.LONG:
+			_init_thorns_num = init_thorns_num_long
+			_cells_num_hor = cells_num_hor_long
+			_cells_num_ver = cells_num_ver_long
+			_double_attack_on_every_round = double_attack_on_every_round_long
 
 func _open_menu(text: String):
 	_message_label.text = text
@@ -48,10 +66,10 @@ func _new_game():
 	_thorns_value_label.text = ""
 	_next_attacks_value_label.text = ""
 	_field.show()
-	_field.init(cells_num_hor, cells_num_ver, remove_all_pause_sec, remove_thorn_pause_sec)
+	_field.init(_cells_num_hor, _cells_num_ver, remove_all_pause_sec, remove_thorn_pause_sec)
 	_field.reset_cells_thorned()
 	_menu.hide()
-	_current_thorns_num = initial_thorns_num
+	_current_thorns_num = _init_thorns_num
 	_round_number = 0
 	_next_round()
 	
@@ -88,7 +106,7 @@ func _generate_next_attacks():
 		_next_attacks[i] = random_direction
 	
 func _next_round():
-	_current_thorns_num = initial_thorns_num - _round_number
+	_current_thorns_num = _init_thorns_num - _round_number
 	_current_thorns_num = max(_current_thorns_num, 0)
 	if (!_field.has_salami_left()):
 		_open_menu(str("game over\nno salami remaining\nyou reached round ", _round_number))
@@ -115,7 +133,7 @@ func _update_statuses():
 			next_attacks_str += "+" + attack_str
 	_next_attacks_value_label.text = next_attacks_str
 
-func _on_new_game_button_pressed():
+func _on_play_button_pressed():
 	_new_game()
 
 func _on_menu_button_pressed():
