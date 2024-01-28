@@ -85,7 +85,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "play (long)"
 
-[node name="StatsQuickButton" type="Button" parent="BasePanel"]
+[node name="StatsButton" type="Button" parent="BasePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,9 +99,9 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "stats (quick)"
+text = "stats"
 
-[node name="StatsLongButton" type="Button" parent="BasePanel"]
+[node name="SettingsButton" type="Button" parent="BasePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,7 +115,7 @@ offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "stats (long)"
+text = "settings"
 
 [node name="ExitButton" type="Button" parent="BasePanel"]
 layout_mode = 1
@@ -135,6 +135,6 @@ text = "exit"
 
 [connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]
 [connection signal="pressed" from="BasePanel/PlayLongButton" to="." method="_on_play_long_button_pressed"]
-[connection signal="pressed" from="BasePanel/StatsQuickButton" to="." method="_on_stats_quick_button_pressed"]
-[connection signal="pressed" from="BasePanel/StatsLongButton" to="." method="_on_stats_long_button_pressed"]
+[connection signal="pressed" from="BasePanel/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="BasePanel/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="BasePanel/ExitButton" to="." method="_on_exit_button_pressed"]
