@@ -29,6 +29,7 @@ var _menu: ColorRect
 var _next_attacks: Array[Field.AttackDirection]
 var _all_directions: Array
 var _can_move: bool
+var _save_data: SaveData
 
 func _ready():
 	EventBus.cell_pressed.connect(_try_set_thorn)
@@ -39,6 +40,7 @@ func _ready():
 	_message_label = get_node("MenuPanel/MessageLabel")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
+	_save_data = SaveManager.load()
 	_process_mode()
 	_init_directions_array()
 	_open_menu("protect salami with your thorns!")
@@ -109,7 +111,7 @@ func _next_round():
 	_current_thorns_num = _init_thorns_num - _round_number
 	_current_thorns_num = max(_current_thorns_num, 0)
 	if (!_field.has_salami_left()):
-		_open_menu(str("game over\nno salami remaining\nyou reached round ", _round_number))
+		_process_game_over()
 		return
 	_round_number = _round_number + 1
 	_generate_next_attacks()
@@ -119,6 +121,24 @@ func _next_round():
 	else:
 		await get_tree().create_timer(idle_round_pause_sec).timeout
 		_finish_round()
+
+func _process_game_over():
+	var result_string = str("game over\nyou reached round ", _round_number)
+	var record_round: int
+	match GameSettings.current_mode:
+		GameSettings.Mode.QUICK:
+			record_round = _save_data.record_round_quick
+		GameSettings.Mode.LONG:
+			record_round = _save_data.record_round_long
+	if _round_number > record_round:
+		result_string = str(result_string, "\nrecord!")
+		match GameSettings.current_mode:
+			GameSettings.Mode.QUICK:
+				_save_data.record_round_quick = _round_number
+			GameSettings.Mode.LONG:
+				_save_data.record_round_long = _round_number
+		SaveManager.save(_save_data)
+	_open_menu(result_string)
 
 func _update_statuses():
 	_round_value_label.text = str(_round_number)
