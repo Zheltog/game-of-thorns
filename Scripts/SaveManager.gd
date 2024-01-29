@@ -9,6 +9,8 @@ static func save(data: SaveData):
 
 static func load() -> SaveData:
 	var file = FileAccess.open(save_file_path, FileAccess.READ)
+	if file == null:
+		return SaveData.new()
 	var json_string = file.get_line()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)

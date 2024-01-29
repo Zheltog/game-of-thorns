@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcig5ddyqrngx"]
 
-[ext_resource type="Script" path="res://Stats.gd" id="1_owyxa"]
+[ext_resource type="Script" path="res://Scripts/Stats.gd" id="1_owyxa"]
 
 [node name="Stats" type="CanvasLayer"]
 script = ExtResource("1_owyxa")
@@ -29,6 +29,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="AuthorLabel" type="Label" parent="BasePanel"]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 232.0
 offset_right = 328.0
@@ -98,7 +99,7 @@ offset_bottom = 45.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "99"
+text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -130,7 +131,7 @@ offset_bottom = 175.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "99"
+text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 

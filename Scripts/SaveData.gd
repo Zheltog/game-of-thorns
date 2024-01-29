@@ -1,7 +1,7 @@
 class_name SaveData
 
-var record_round_quick: int
-var record_round_long: int
+var record_round_quick: int = 0
+var record_round_long: int = 0
 
 func to_dictionary() -> Dictionary:
 	return {

@@ -10,6 +10,8 @@ extends CanvasLayer
 @export var cells_num_ver_long: int = 10
 @export var double_attack_on_every_round_quick: int = 2
 @export var double_attack_on_every_round_long: int = 4
+@export var init_timer_sec_quick: float = 15
+@export var init_timer_sec_long: float = 30
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
 @export var idle_round_pause_sec: float = 1.0
@@ -18,11 +20,13 @@ var _init_thorns_num: int
 var _cells_num_hor: int
 var _cells_num_ver: int
 var _double_attack_on_every_round: int
+var _init_timer_sec: int
 var _current_thorns_num: int
 var _round_number: int = 0
 var _round_value_label: Label
 var _thorns_value_label: Label
 var _next_attacks_value_label: Label
+var _timer_value_label: Label
 var _message_label: Label
 var _field: Field
 var _menu: ColorRect
@@ -30,20 +34,26 @@ var _next_attacks: Array[Field.AttackDirection]
 var _all_directions: Array
 var _can_move: bool
 var _save_data: SaveData
+var _timer: Timer
 
 func _ready():
 	EventBus.cell_pressed.connect(_try_set_thorn)
 	EventBus.no_cells_for_thorns.connect(_finish_round)
-	_round_value_label = get_node("StatusPanel/RoundValueLabel")
-	_thorns_value_label = get_node("StatusPanel/ThornsValueLabel")
-	_next_attacks_value_label = get_node("StatusPanel/NextAttacksValueLabel")
+	_round_value_label = get_node("DownPanel/RoundValueLabel")
+	_thorns_value_label = get_node("DownPanel/ThornsValueLabel")
+	_next_attacks_value_label = get_node("UpperPanel/NextAttacksValueLabel")
+	_timer_value_label = get_node("UpperPanel/TimerValueLabel")
 	_message_label = get_node("MenuPanel/MessageLabel")
+	_timer = get_node("Timer")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
 	_save_data = SaveManager.load()
 	_process_mode()
 	_init_directions_array()
 	_open_menu("protect salami with your thorns!")
+
+func _process(delta: float):
+	_timer_value_label.text = str(_timer.time_left as int)
 
 func _process_mode():
 	match GameSettings.current_mode:
@@ -52,11 +62,13 @@ func _process_mode():
 			_cells_num_hor = cells_num_hor_quick
 			_cells_num_ver = cells_num_ver_quick
 			_double_attack_on_every_round = double_attack_on_every_round_quick
+			_init_timer_sec = init_timer_sec_quick
 		GameSettings.Mode.LONG:
 			_init_thorns_num = init_thorns_num_long
 			_cells_num_hor = cells_num_hor_long
 			_cells_num_ver = cells_num_ver_long
 			_double_attack_on_every_round = double_attack_on_every_round_long
+			_init_timer_sec = init_timer_sec_long
 
 func _open_menu(text: String):
 	_message_label.text = text
@@ -116,6 +128,7 @@ func _next_round():
 	_round_number = _round_number + 1
 	_generate_next_attacks()
 	_update_statuses()
+	_restart_timer()
 	if _current_thorns_num != 0:
 		_can_move = true
 	else:
@@ -153,8 +166,19 @@ func _update_statuses():
 			next_attacks_str += "+" + attack_str
 	_next_attacks_value_label.text = next_attacks_str
 
+func _restart_timer():
+	_timer_value_label.text = str(_init_timer_sec)
+	_timer.wait_time = _init_timer_sec
+	_timer.start()
+
+func _process_timer_timeout():
+	_finish_round()
+
 func _on_play_button_pressed():
 	_new_game()
 
 func _on_menu_button_pressed():
 	_back_to_menu()
+
+func _on_timer_timeout():
+	_process_timer_timeout()
