@@ -48,8 +48,6 @@ func set_thorn():
 
 func on_button_pressed():
 	if current_status == Status.SALAMI:
-		print("SALAMI")
 		EventBus.set_thorn_request.emit(_x, _y)
 	elif current_status == Status.THORNED:
-		print("THORNED")
 		EventBus.remove_thorn_request.emit(_x, _y)

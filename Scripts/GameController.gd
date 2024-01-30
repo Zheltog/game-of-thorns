@@ -14,7 +14,7 @@ extends CanvasLayer
 @export var init_timer_sec_long: float = 30
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
-@export var idle_round_pause_sec: float = 1.0
+@export var before_attack_pause_sec: float = 1.0
 
 var _init_thorns_num: int
 var _cells_num_hor: int
@@ -117,6 +117,8 @@ func _init_directions_array():
 		
 func _finish_round():
 	_can_move = false
+	_timer.stop()
+	await get_tree().create_timer(before_attack_pause_sec).timeout
 	for attack in _next_attacks:
 		await _field.attack_on_salami(attack)
 	_next_round()
@@ -142,7 +144,6 @@ func _next_round():
 	if _current_thorns_num != 0:
 		_can_move = true
 	else:
-		await get_tree().create_timer(idle_round_pause_sec).timeout
 		_finish_round()
 
 func _process_game_over():
