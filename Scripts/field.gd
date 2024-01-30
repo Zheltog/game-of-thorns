@@ -17,6 +17,7 @@ var _remove_thorn_pause_sec: float = 0.25
 
 func _ready():
 	EventBus.set_thorn.connect(_set_thorn)
+	EventBus.remove_thorn.connect(_remove_thorn)
 	
 func init(
 	cells_num_hor: int,
@@ -59,6 +60,10 @@ func _set_thorn(x: int, y: int):
 	if (_cells_remaining - _current_cells_thorned) == 0:
 		EventBus.no_cells_for_thorns.emit()
 
+func _remove_thorn(x: int, y: int):
+	_cells[x * _cells_num_hor + y].remove_thorn()
+	_current_cells_thorned -= 1
+
 func _init_cells():
 	if _cells.size() > 0:
 		_destroy_old_cells()
@@ -85,7 +90,7 @@ func _destroy_old_cells():
 		cell.queue_free()
 
 func _remove_thorn_and_pause(cell: Cell):
-	cell.remove_throrn()
+	cell.remove_thorn()
 	_current_cells_thorned -= 1
 	await get_tree().create_timer(_remove_thorn_pause_sec).timeout
 	

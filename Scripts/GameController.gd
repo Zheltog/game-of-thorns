@@ -37,7 +37,8 @@ var _save_data: SaveData
 var _timer: Timer
 
 func _ready():
-	EventBus.cell_pressed.connect(_try_set_thorn)
+	EventBus.set_thorn_request.connect(_try_set_thorn)
+	EventBus.remove_thorn_request.connect(_try_remove_thorn)
 	EventBus.no_cells_for_thorns.connect(_finish_round)
 	_round_value_label = get_node("DownPanel/RoundValueLabel")
 	_thorns_value_label = get_node("DownPanel/ThornsValueLabel")
@@ -95,12 +96,21 @@ func _try_set_thorn(x: int, y: int):
 		_take_thorn()
 		EventBus.set_thorn.emit(x, y)
 
+func _try_remove_thorn(x: int, y: int):
+	if _can_move:
+		_return_thorn()
+		EventBus.remove_thorn.emit(x, y)
+
 func _take_thorn():
-	_current_thorns_num = _current_thorns_num - 1
+	_current_thorns_num -= 1
 	_thorns_value_label.text = str(_current_thorns_num)
 	if _current_thorns_num == 0:
 		_finish_round()
-		
+
+func _return_thorn():
+	_current_thorns_num += 1
+	_thorns_value_label.text = str(_current_thorns_num)
+
 func _init_directions_array():
 	for direction in Field.AttackDirection:
 		_all_directions.push_back(direction)

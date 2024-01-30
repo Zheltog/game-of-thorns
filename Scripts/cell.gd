@@ -34,7 +34,7 @@ func remove_all():
 	_salami.modulate.a = 0
 	_thorn.modulate.a = 0
 	
-func remove_throrn():
+func remove_thorn():
 	current_status = Status.SALAMI
 	_base.modulate.a = 1
 	_salami.modulate.a = 1
@@ -48,4 +48,8 @@ func set_thorn():
 
 func on_button_pressed():
 	if current_status == Status.SALAMI:
-		EventBus.cell_pressed.emit(_x, _y)
+		print("SALAMI")
+		EventBus.set_thorn_request.emit(_x, _y)
+	elif current_status == Status.THORNED:
+		print("THORNED")
+		EventBus.remove_thorn_request.emit(_x, _y)
