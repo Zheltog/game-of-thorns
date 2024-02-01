@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=29 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ny4n4"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_gj08q"]
@@ -8,6 +8,66 @@
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="5_b53ss"]
 [ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="5_u6g7o"]
 [ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="7_wlhp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dphu"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hbww"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2u87"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xay18"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tn880"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_turmb"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjevp"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0q8d"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h2sm"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8wj8"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioiu3"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biid6"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy66"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gwml"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jus0x"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npuni"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st6p5"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xkob"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4wjt"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpcsi"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Base" type="CanvasLayer"]
 script = ExtResource("1_ny4n4")
@@ -69,6 +129,11 @@ offset_top = -128.0
 offset_bottom = -32.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_6dphu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1hbww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g2u87")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xay18")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tn880")
 text = "menu"
 
 [node name="NextAttacksNameLabel" type="Label" parent="UpperPanel"]
@@ -203,6 +268,11 @@ offset_right = 200.0
 offset_bottom = 128.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_turmb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sjevp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y0q8d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7h2sm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
 text = "replay"
 
 [node name="RoundPic" type="TextureRect" parent="DownPanel"]
@@ -245,6 +315,11 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ioiu3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_biid6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ywy66")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1gwml")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jus0x")
 text = "play"
 
 [node name="MenuButton" type="Button" parent="MenuPanel"]
@@ -261,6 +336,11 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_npuni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_st6p5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7xkob")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t4wjt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gpcsi")
 text = "menu"
 
 [node name="MessageLabel" type="Label" parent="MenuPanel"]

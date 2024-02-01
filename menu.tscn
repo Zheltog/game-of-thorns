@@ -1,6 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://d06lanv8p7jhy"]
+[gd_scene load_steps=27 format=3 uid="uid://d06lanv8p7jhy"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_xh13t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hobt6"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgh17"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jp00y"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d24i"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvmui"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1n8q"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ml5yd"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34mpr"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hc4dk"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp8w8"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ka6s"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhrcp"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80vtm"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h24la"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvatg"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu3e"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txx6j"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbay5"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j618e"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgayj"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qqr4"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygt2u"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuls4"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiivi"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgidg"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_xh13t")
@@ -67,6 +142,11 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_hobt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tgh17")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jp00y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7d24i")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pvmui")
 text = "play (quick)"
 
 [node name="PlayLongButton" type="Button" parent="BasePanel"]
@@ -83,6 +163,11 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_x1n8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ml5yd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_34mpr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hc4dk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fp8w8")
 text = "play (long)"
 
 [node name="StatsButton" type="Button" parent="BasePanel"]
@@ -99,6 +184,11 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ka6s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nhrcp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_80vtm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h24la")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jvatg")
 text = "stats"
 
 [node name="SettingsButton" type="Button" parent="BasePanel"]
@@ -115,6 +205,11 @@ offset_bottom = 310.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_seu3e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_txx6j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbay5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j618e")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bgayj")
 text = "settings"
 
 [node name="ExitButton" type="Button" parent="BasePanel"]
@@ -131,6 +226,11 @@ offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_5qqr4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ygt2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fuls4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yiivi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rgidg")
 text = "exit"
 
 [connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]

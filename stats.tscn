@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcig5ddyqrngx"]
+[gd_scene load_steps=7 format=3 uid="uid://dcig5ddyqrngx"]
 
 [ext_resource type="Script" path="res://Scripts/Stats.gd" id="1_owyxa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2d80"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72hnc"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib2u5"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuolf"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e734f"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Stats" type="CanvasLayer"]
 script = ExtResource("1_owyxa")
@@ -142,13 +157,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -100.0
 offset_top = 340.0
-offset_right = 200.0
+offset_right = 100.0
 offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_b2d80")
+theme_override_styles/hover = SubResource("StyleBoxFlat_72hnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ib2u5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uuolf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e734f")
 text = "back
 "
 
