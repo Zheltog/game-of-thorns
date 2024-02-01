@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=9 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ny4n4"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_gj08q"]
 [ext_resource type="Texture2D" uid="uid://2easth2crq28" path="res://Sprites/cat.png" id="3_hvmiq"]
 [ext_resource type="Texture2D" uid="uid://dfnh56pjmls2u" path="res://Sprites/porcupine.png" id="4_ec4uo"]
+[ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="5_34rcb"]
+[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="5_b53ss"]
+[ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="5_u6g7o"]
+[ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="7_wlhp6"]
 
 [node name="Base" type="CanvasLayer"]
 script = ExtResource("1_ny4n4")
@@ -69,8 +73,8 @@ text = "menu"
 
 [node name="NextAttacksNameLabel" type="Label" parent="UpperPanel"]
 layout_mode = 1
-offset_left = 8.0
-offset_right = 208.0
+offset_left = 64.0
+offset_right = 223.0
 offset_bottom = 61.0
 theme_override_font_sizes/font_size = 42
 text = "attacks:"
@@ -80,8 +84,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -208.0
-offset_right = -8.0
+offset_left = -116.0
+offset_right = -16.0
 offset_bottom = 61.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
@@ -92,12 +96,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
+offset_left = 64.0
 offset_top = -61.0
-offset_right = 208.0
+offset_right = 283.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
-text = "remains:"
+text = "remaining:"
 
 [node name="TimerValueLabel" type="Label" parent="UpperPanel"]
 layout_mode = 1
@@ -106,13 +110,30 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -208.0
+offset_left = -116.0
 offset_top = -61.0
-offset_right = -8.0
+offset_right = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
+
+[node name="AttackPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_34rcb")
+
+[node name="TImerPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = 80.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_u6g7o")
 
 [node name="DownPanel" type="ColorRect" parent="."]
 anchors_preset = 2
@@ -127,8 +148,8 @@ color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="RoundNameLabel" type="Label" parent="DownPanel"]
 layout_mode = 1
-offset_left = 8.0
-offset_right = 208.0
+offset_left = 64.0
+offset_right = 200.0
 offset_bottom = 61.0
 theme_override_font_sizes/font_size = 42
 text = "round:"
@@ -138,8 +159,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -208.0
-offset_right = -8.0
+offset_left = -116.0
+offset_right = -16.0
 offset_bottom = 61.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
@@ -150,9 +171,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
+offset_left = 64.0
 offset_top = -61.0
-offset_right = 208.0
+offset_right = 211.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "thorns:"
@@ -164,9 +185,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -208.0
+offset_left = -116.0
 offset_top = -61.0
-offset_right = -8.0
+offset_right = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
@@ -183,6 +204,23 @@ offset_bottom = 128.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "replay"
+
+[node name="RoundPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+texture = ExtResource("7_wlhp6")
+
+[node name="ThornPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = 80.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_b53ss")
 
 [node name="MenuPanel" type="ColorRect" parent="."]
 visible = false
