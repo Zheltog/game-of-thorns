@@ -12,6 +12,8 @@ extends CanvasLayer
 @export var double_attack_on_every_round_long: int = 4
 @export var init_timer_sec_quick: float = 15
 @export var init_timer_sec_long: float = 30
+@export var timer_reduce_delta_sec_quick: float = 3
+@export var timer_reduce_delta_sec_long: float = 3
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
 @export var before_attack_pause_sec: float = 1.0
@@ -21,6 +23,8 @@ var _cells_num_hor: int
 var _cells_num_ver: int
 var _double_attack_on_every_round: int
 var _init_timer_sec: int
+var _timer_reduce_delta_sec: int
+var _current_init_timer_sec: int
 var _current_thorns_num: int
 var _round_number: int = 0
 var _round_value_label: Label
@@ -64,12 +68,14 @@ func _process_mode():
 			_cells_num_ver = cells_num_ver_quick
 			_double_attack_on_every_round = double_attack_on_every_round_quick
 			_init_timer_sec = init_timer_sec_quick
+			_timer_reduce_delta_sec = timer_reduce_delta_sec_quick
 		GameSettings.Mode.LONG:
 			_init_thorns_num = init_thorns_num_long
 			_cells_num_hor = cells_num_hor_long
 			_cells_num_ver = cells_num_ver_long
 			_double_attack_on_every_round = double_attack_on_every_round_long
 			_init_timer_sec = init_timer_sec_long
+			_timer_reduce_delta_sec = timer_reduce_delta_sec_long
 
 func _open_menu(text: String):
 	_message_label.text = text
@@ -86,6 +92,7 @@ func _new_game():
 	_menu.hide()
 	_current_thorns_num = _init_thorns_num
 	_round_number = 0
+	_current_init_timer_sec = _init_timer_sec
 	_next_round()
 	
 func _back_to_menu():
@@ -138,6 +145,7 @@ func _next_round():
 		_process_game_over()
 		return
 	_round_number = _round_number + 1
+	_update_timer()
 	_generate_next_attacks()
 	_update_statuses()
 	_restart_timer()
@@ -177,9 +185,13 @@ func _update_statuses():
 			next_attacks_str += "+" + attack_str
 	_next_attacks_value_label.text = next_attacks_str
 
+func _update_timer():
+	if _round_number % 4 == 0:
+		_current_init_timer_sec -= _timer_reduce_delta_sec
+
 func _restart_timer():
-	_timer_value_label.text = str(_init_timer_sec)
-	_timer.wait_time = _init_timer_sec
+	_timer_value_label.text = str(_current_init_timer_sec)
+	_timer.wait_time = _current_init_timer_sec
 	_timer.start()
 
 func _process_timer_timeout():
