@@ -197,6 +197,12 @@ func _restart_timer():
 func _process_timer_timeout():
 	_finish_round()
 
+func _on_replay_button_pressed():
+	_new_game()
+
+func _on_next_button_pressed():
+	_finish_round()
+
 func _on_play_button_pressed():
 	_new_game()
 

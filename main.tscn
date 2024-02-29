@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=31 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ny4n4"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_gj08q"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="5_34rcb"]
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="5_b53ss"]
 [ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="5_u6g7o"]
+[ext_resource type="Texture2D" uid="uid://ctsl1b1ls62mx" path="res://Sprites/reset.png" id="7_jnu60"]
 [ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="7_wlhp6"]
+[ext_resource type="Texture2D" uid="uid://dg3a83o8vb2iv" path="res://Sprites/next.png" id="8_cb88c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dphu"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -258,13 +260,13 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
-[node name="PlayButton" type="Button" parent="DownPanel"]
+[node name="ReplayButton" type="Button" parent="DownPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = 32.0
-offset_right = 200.0
+offset_right = 168.0
 offset_bottom = 128.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
@@ -273,7 +275,59 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_sjevp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y0q8d")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_7h2sm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
-text = "replay"
+text = "new "
+alignment = 2
+
+[node name="NextButton" type="Button" parent="DownPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = 32.0
+offset_bottom = 128.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_turmb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sjevp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y0q8d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7h2sm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
+text = "skip "
+alignment = 2
+
+[node name="ResetPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 64.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("7_jnu60")
+
+[node name="NextPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = 48.0
+offset_right = -152.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("8_cb88c")
 
 [node name="RoundPic" type="TextureRect" parent="DownPanel"]
 texture_filter = 1
@@ -366,7 +420,8 @@ autowrap_mode = 3
 one_shot = true
 
 [connection signal="pressed" from="UpperPanel/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="DownPanel/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="DownPanel/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="DownPanel/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="MenuPanel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
