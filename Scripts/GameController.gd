@@ -54,6 +54,8 @@ func _ready():
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
 	_save_data = SaveManager.load()
+	_localize_buttons()
+	_localize_labels()
 	_process_mode()
 	_init_directions_array()
 	_open_menu("protect salami with your thorns!")
@@ -195,6 +197,19 @@ func _restart_timer():
 	_timer_value_label.text = str(_current_init_timer_sec)
 	_timer.wait_time = _current_init_timer_sec
 	_timer.start()
+
+func _localize_buttons():
+	Localization.try_localize_button(get_node("UpperPanel/MenuButton"), " ")
+	Localization.try_localize_button(get_node("DownPanel/ReplayButton"), " ")
+	Localization.try_localize_button(get_node("DownPanel/NextButton"), " ")
+	Localization.try_localize_button(get_node("MenuPanel/PlayButton"), " ")
+	Localization.try_localize_button(get_node("MenuPanel/MenuButton"), " ")
+
+func _localize_labels():
+	Localization.try_localize_label(get_node("UpperPanel/NextAttacksNameLabel"), ":")
+	Localization.try_localize_label(get_node("UpperPanel/TimerNameLabel"), ":")
+	Localization.try_localize_label(get_node("DownPanel/RoundNameLabel"), ":")
+	Localization.try_localize_label(get_node("DownPanel/ThornsNameLabel"), ":")
 
 func _process_timer_timeout():
 	_finish_round()
