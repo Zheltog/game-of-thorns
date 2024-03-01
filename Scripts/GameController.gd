@@ -26,6 +26,7 @@ var _init_timer_sec: int
 var _timer_reduce_delta_sec: int
 var _current_init_timer_sec: int
 var _current_thorns_num: int
+var _thorns_remaining: int
 var _round_number: int = 0
 var _round_value_label: Label
 var _thorns_value_label: Label
@@ -91,6 +92,7 @@ func _new_game():
 	_field.reset_cells_thorned()
 	_menu.hide()
 	_current_thorns_num = _init_thorns_num
+	_thorns_remaining = 0
 	_round_number = 0
 	_current_init_timer_sec = _init_timer_sec
 	_next_round()
@@ -125,6 +127,7 @@ func _init_directions_array():
 func _finish_round():
 	_can_move = false
 	_timer.stop()
+	_thorns_remaining = _current_thorns_num
 	await get_tree().create_timer(before_attack_pause_sec).timeout
 	for attack in _next_attacks:
 		await _field.attack_on_salami(attack)
@@ -139,8 +142,7 @@ func _generate_next_attacks():
 		_next_attacks[i] = random_direction
 	
 func _next_round():
-	_current_thorns_num = _init_thorns_num - _round_number
-	_current_thorns_num = max(_current_thorns_num, 0)
+	_current_thorns_num = _thorns_remaining + max(_init_thorns_num - _round_number, 0)
 	if (!_field.has_salami_left()):
 		_process_game_over()
 		return
