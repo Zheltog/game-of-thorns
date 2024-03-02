@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://Scripts/EventBus.gd"
-Localization="*res://Scripts/Localization.gd"
+LocalManager="*res://Scripts/LocalManager.gd"
 
 [display]
 

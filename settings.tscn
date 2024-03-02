@@ -171,5 +171,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ht6s2")
 text = "back
 "
 
+[connection signal="item_selected" from="BasePanel/LangOptionButton" to="." method="_on_lang_option_button_item_selected"]
 [connection signal="toggled" from="BasePanel/AdsCheckBox" to="." method="_on_ads_check_box_toggled"]
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,10 @@
+{
+	"MenuButton" : "меню",
+	"PlayButton": "играть",
+	"NextButton": "всё",
+	"ReplayButton": "ещё",
+	"NextAttacksNameLabel": "аттаки",
+	"TimerNameLabel": "тик-так",
+	"RoundNameLabel": "раунд",
+	"ThornsNameLabel": "шипов"
+}

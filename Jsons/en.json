@@ -1,0 +1,10 @@
+{
+	"MenuButton" : "menu",
+	"PlayButton": "play",
+	"NextButton": "skip",
+	"ReplayButton": "new",
+	"NextAttacksNameLabel": "attacks",
+	"TimerNameLabel": "remaining",
+	"RoundNameLabel": "round",
+	"ThornsNameLabel": "thorns"
+}

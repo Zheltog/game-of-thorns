@@ -199,17 +199,17 @@ func _restart_timer():
 	_timer.start()
 
 func _localize_buttons():
-	Localization.try_localize_button(get_node("UpperPanel/MenuButton"), " ")
-	Localization.try_localize_button(get_node("DownPanel/ReplayButton"), " ")
-	Localization.try_localize_button(get_node("DownPanel/NextButton"), " ")
-	Localization.try_localize_button(get_node("MenuPanel/PlayButton"), " ")
-	Localization.try_localize_button(get_node("MenuPanel/MenuButton"), " ")
+	LocalManager.try_localize_button(get_node("UpperPanel/MenuButton"), " ")
+	LocalManager.try_localize_button(get_node("DownPanel/ReplayButton"), " ")
+	LocalManager.try_localize_button(get_node("DownPanel/NextButton"), " ")
+	LocalManager.try_localize_button(get_node("MenuPanel/PlayButton"), " ")
+	LocalManager.try_localize_button(get_node("MenuPanel/MenuButton"), " ")
 
 func _localize_labels():
-	Localization.try_localize_label(get_node("UpperPanel/NextAttacksNameLabel"), ":")
-	Localization.try_localize_label(get_node("UpperPanel/TimerNameLabel"), ":")
-	Localization.try_localize_label(get_node("DownPanel/RoundNameLabel"), ":")
-	Localization.try_localize_label(get_node("DownPanel/ThornsNameLabel"), ":")
+	LocalManager.try_localize_label(get_node("UpperPanel/NextAttacksNameLabel"), ":")
+	LocalManager.try_localize_label(get_node("UpperPanel/TimerNameLabel"), ":")
+	LocalManager.try_localize_label(get_node("DownPanel/RoundNameLabel"), ":")
+	LocalManager.try_localize_label(get_node("DownPanel/ThornsNameLabel"), ":")
 
 func _process_timer_timeout():
 	_finish_round()
