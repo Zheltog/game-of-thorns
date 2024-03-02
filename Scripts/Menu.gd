@@ -12,11 +12,7 @@ func _on_stats_button_pressed():
 	get_tree().change_scene_to_file("res://stats.tscn")
 
 func _on_settings_button_pressed():
-	#var data = SaveData.new()
-	#data.record_round_long = 0
-	#data.record_round_quick = 0
-	#SaveManager.save(data)
-	pass
+	get_tree().change_scene_to_file("res://settings.tscn")
 
 func _on_exit_button_pressed():
 	_exit()

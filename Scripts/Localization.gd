@@ -1,5 +1,7 @@
 extends Node
 
+enum Lang { EN, RU }
+
 var map: Dictionary
 
 func _ready():

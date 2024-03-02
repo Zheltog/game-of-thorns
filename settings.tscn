@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=3 uid="uid://b25fwrn84xib4"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_hj3wi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_casa0"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dovy"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk4yg"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtnyj"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht6s2"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_hj3wi")
+
+[node name="BasePanel" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.12549, 0.12549, 1)
+
+[node name="VersionLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -328.0
+offset_top = 232.0
+offset_right = -128.0
+offset_bottom = 322.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 42
+text = "ver. 0.1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AuthorLabel" type="Label" parent="BasePanel"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 232.0
+offset_right = 328.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 42
+text = "by belog"
+vertical_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 126.0
+offset_right = 231.0
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 63
+text = "game of thorns"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -192.0
+offset_right = 100.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 63
+text = "settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LangNameLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = 85.0
+offset_right = 477.0
+offset_bottom = 175.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "language:"
+vertical_alignment = 1
+
+[node name="LangOptionButton" type="OptionButton" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = 101.0
+offset_right = -96.0
+offset_bottom = 167.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Русский"
+popup/item_1/id = 1
+
+[node name="AdsNameLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = -45.0
+offset_right = 475.0
+offset_bottom = 45.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "ads:"
+vertical_alignment = 1
+
+[node name="AdsCheckBox" type="CheckBox" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -12.0
+offset_right = -96.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 340.0
+offset_right = 100.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_casa0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3dovy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qk4yg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_dtnyj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ht6s2")
+text = "back
+"
+
+[connection signal="toggled" from="BasePanel/AdsCheckBox" to="." method="_on_ads_check_box_toggled"]
+[connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
