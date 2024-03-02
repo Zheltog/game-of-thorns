@@ -100,7 +100,7 @@ func _new_game():
 	_next_round()
 	
 func _back_to_menu():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func _try_set_thorn(x: int, y: int):
 	if _current_thorns_num > 0 and _can_move:

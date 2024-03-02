@@ -11,7 +11,7 @@ var _cells_remaining: int
 var _current_cells_thorned: int
 var _center: Vector2
 var _cells: Array
-var _scene: PackedScene = load("res://cell.tscn")
+var _scene: PackedScene = load("res://Scenes/cell.tscn")
 var _remove_all_pause_sec: float = 0.12
 var _remove_thorn_pause_sec: float = 0.25
 

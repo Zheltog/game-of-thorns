@@ -1,6 +1,19 @@
 extends CanvasLayer
 
-var _main_scene: PackedScene = load("res://main.tscn")
+var _main_scene: PackedScene = load("res://Scenes/main.tscn")
+var version_label_prefix = "ver. "
+
+func _ready():
+	var version = MetaManager.meta_data.version
+	($BasePanel/VersionLabel).text = version_label_prefix + version
+	_localize_buttons()
+
+func _localize_buttons():
+	LocalManager.try_localize_button(get_node("BasePanel/PlayQuickButton"))
+	LocalManager.try_localize_button(get_node("BasePanel/PlayLongButton"))
+	LocalManager.try_localize_button(get_node("BasePanel/StatsButton"))
+	LocalManager.try_localize_button(get_node("BasePanel/SettingsButton"))
+	LocalManager.try_localize_button(get_node("BasePanel/ExitButton"))
 
 func _on_play_quick_button_pressed():
 	_play(GameSettings.Mode.QUICK)
@@ -9,10 +22,10 @@ func _on_play_long_button_pressed():
 	_play(GameSettings.Mode.LONG)
 
 func _on_stats_button_pressed():
-	get_tree().change_scene_to_file("res://stats.tscn")
+	get_tree().change_scene_to_file("res://Scenes/stats.tscn")
 
 func _on_settings_button_pressed():
-	get_tree().change_scene_to_file("res://settings.tscn")
+	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
 
 func _on_exit_button_pressed():
 	_exit()

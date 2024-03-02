@@ -1,16 +1,16 @@
 [gd_scene load_steps=32 format=3 uid="uid://bcl2cdu08j88h"]
 
-[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ny4n4"]
-[ext_resource type="Script" path="res://Scripts/Field.gd" id="2_gj08q"]
-[ext_resource type="Texture2D" uid="uid://2easth2crq28" path="res://Sprites/cat.png" id="3_hvmiq"]
-[ext_resource type="Texture2D" uid="uid://dfnh56pjmls2u" path="res://Sprites/porcupine.png" id="4_ec4uo"]
-[ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="5_34rcb"]
-[ext_resource type="Texture2D" uid="uid://dyiw75f4vagnc" path="res://Sprites/exit.png" id="5_108e7"]
-[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="5_b53ss"]
-[ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="5_u6g7o"]
-[ext_resource type="Texture2D" uid="uid://ctsl1b1ls62mx" path="res://Sprites/reset.png" id="7_jnu60"]
-[ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="7_wlhp6"]
-[ext_resource type="Texture2D" uid="uid://dg3a83o8vb2iv" path="res://Sprites/next.png" id="8_cb88c"]
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_uihb3"]
+[ext_resource type="Script" path="res://Scripts/Field.gd" id="2_uiuq2"]
+[ext_resource type="Texture2D" uid="uid://2easth2crq28" path="res://Sprites/cat.png" id="3_l52h7"]
+[ext_resource type="Texture2D" uid="uid://dfnh56pjmls2u" path="res://Sprites/porcupine.png" id="4_uvjqk"]
+[ext_resource type="Texture2D" uid="uid://dyiw75f4vagnc" path="res://Sprites/exit.png" id="5_y71lx"]
+[ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="6_4ophl"]
+[ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="7_dtlhl"]
+[ext_resource type="Texture2D" uid="uid://ctsl1b1ls62mx" path="res://Sprites/reset.png" id="8_u1muo"]
+[ext_resource type="Texture2D" uid="uid://dg3a83o8vb2iv" path="res://Sprites/next.png" id="9_txn78"]
+[ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="10_6lca8"]
+[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="11_a7v3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dphu"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -73,7 +73,7 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Base" type="CanvasLayer"]
-script = ExtResource("1_ny4n4")
+script = ExtResource("1_uihb3")
 
 [node name="BasePanel" type="ColorRect" parent="."]
 modulate = Color(0.0627451, 0.12549, 0.12549, 1)
@@ -84,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Field" type="Node2D" parent="."]
-script = ExtResource("2_gj08q")
+script = ExtResource("2_uiuq2")
 
 [node name="Cat" type="TextureRect" parent="."]
 texture_filter = 1
@@ -93,7 +93,7 @@ offset_top = 32.0
 offset_right = 96.0
 offset_bottom = 96.0
 scale = Vector2(4, 4)
-texture = ExtResource("3_hvmiq")
+texture = ExtResource("3_l52h7")
 
 [node name="Porcupine" type="TextureRect" parent="."]
 texture_filter = 1
@@ -109,7 +109,7 @@ offset_bottom = -224.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(4, 4)
-texture = ExtResource("4_ec4uo")
+texture = ExtResource("4_uvjqk")
 
 [node name="UpperPanel" type="ColorRect" parent="."]
 anchors_preset = 1
@@ -198,7 +198,7 @@ offset_top = -112.0
 offset_right = 184.0
 offset_bottom = -96.0
 scale = Vector2(4, 4)
-texture = ExtResource("5_108e7")
+texture = ExtResource("5_y71lx")
 
 [node name="AttackPic" type="TextureRect" parent="UpperPanel"]
 texture_filter = 1
@@ -206,7 +206,7 @@ layout_mode = 1
 offset_right = 16.0
 offset_bottom = 16.0
 scale = Vector2(4, 4)
-texture = ExtResource("5_34rcb")
+texture = ExtResource("6_4ophl")
 
 [node name="TImerPic" type="TextureRect" parent="UpperPanel"]
 texture_filter = 1
@@ -215,7 +215,7 @@ offset_top = 64.0
 offset_right = 16.0
 offset_bottom = 80.0
 scale = Vector2(4, 4)
-texture = ExtResource("5_u6g7o")
+texture = ExtResource("7_dtlhl")
 
 [node name="DownPanel" type="ColorRect" parent="."]
 anchors_preset = 2
@@ -325,7 +325,7 @@ offset_right = 16.0
 offset_bottom = 64.0
 grow_vertical = 0
 scale = Vector2(4, 4)
-texture = ExtResource("7_jnu60")
+texture = ExtResource("8_u1muo")
 
 [node name="NextPic" type="TextureRect" parent="DownPanel"]
 texture_filter = 1
@@ -342,7 +342,7 @@ offset_bottom = 64.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(4, 4)
-texture = ExtResource("8_cb88c")
+texture = ExtResource("9_txn78")
 
 [node name="RoundPic" type="TextureRect" parent="DownPanel"]
 texture_filter = 1
@@ -350,7 +350,7 @@ layout_mode = 1
 offset_right = 16.0
 offset_bottom = 16.0
 scale = Vector2(4, 4)
-texture = ExtResource("7_wlhp6")
+texture = ExtResource("10_6lca8")
 
 [node name="ThornPic" type="TextureRect" parent="DownPanel"]
 texture_filter = 1
@@ -359,7 +359,7 @@ offset_top = 64.0
 offset_right = 16.0
 offset_bottom = 80.0
 scale = Vector2(4, 4)
-texture = ExtResource("5_b53ss")
+texture = ExtResource("11_a7v3e")
 
 [node name="MenuPanel" type="ColorRect" parent="."]
 visible = false

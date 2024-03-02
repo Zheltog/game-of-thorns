@@ -6,5 +6,10 @@
 	"NextAttacksNameLabel": "attacks",
 	"TimerNameLabel": "remaining",
 	"RoundNameLabel": "round",
-	"ThornsNameLabel": "thorns"
+	"ThornsNameLabel": "thorns",
+	"PlayQuickButton": "play (quick)",
+	"PlayLongButton": "play (long)",
+	"StatsButton": "stats",
+	"SettingsButton": "settings",
+	"ExitButton": "exit"
 }

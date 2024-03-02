@@ -6,5 +6,10 @@
 	"NextAttacksNameLabel": "аттаки",
 	"TimerNameLabel": "тик-так",
 	"RoundNameLabel": "раунд",
-	"ThornsNameLabel": "шипов"
+	"ThornsNameLabel": "шипов",
+	"PlayQuickButton": "играть (мало)",
+	"PlayLongButton": "играть (много)",
+	"StatsButton": "статы",
+	"SettingsButton": "настройки",
+	"ExitButton": "выход"
 }
