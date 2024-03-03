@@ -6,14 +6,15 @@ var version_label_prefix = "ver. "
 func _ready():
 	var version = MetaManager.meta_data.version
 	($BasePanel/VersionLabel).text = version_label_prefix + version
-	_localize_buttons()
+	_localize_stuff()
 
-func _localize_buttons():
-	LocalManager.try_localize_button(get_node("BasePanel/PlayQuickButton"))
-	LocalManager.try_localize_button(get_node("BasePanel/PlayLongButton"))
-	LocalManager.try_localize_button(get_node("BasePanel/StatsButton"))
-	LocalManager.try_localize_button(get_node("BasePanel/SettingsButton"))
-	LocalManager.try_localize_button(get_node("BasePanel/ExitButton"))
+func _localize_stuff():
+	var localizable = get_tree().get_nodes_in_group(LocalManager.localizable_group_name)
+	for node in localizable:
+		var node_class = node.get_class()
+		match node_class:
+			"Button":
+				LocalManager.try_localize_button(node)
 
 func _on_play_quick_button_pressed():
 	_play(GameSettings.Mode.QUICK)

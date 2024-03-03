@@ -128,7 +128,7 @@ text = "game of thorns"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayQuickButton" type="Button" parent="BasePanel"]
+[node name="PlayQuickButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,7 +149,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_7d24i")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pvmui")
 text = "play (quick)"
 
-[node name="PlayLongButton" type="Button" parent="BasePanel"]
+[node name="PlayLongButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,7 +170,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_hc4dk")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fp8w8")
 text = "play (long)"
 
-[node name="StatsButton" type="Button" parent="BasePanel"]
+[node name="StatsButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -191,7 +191,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_h24la")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jvatg")
 text = "stats"
 
-[node name="SettingsButton" type="Button" parent="BasePanel"]
+[node name="SettingsButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -212,7 +212,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_j618e")
 theme_override_styles/focus = SubResource("StyleBoxFlat_bgayj")
 text = "settings"
 
-[node name="ExitButton" type="Button" parent="BasePanel"]
+[node name="ExitButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -122,7 +122,7 @@ offset_bottom = 288.0
 grow_horizontal = 0
 color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[node name="MenuButton" type="Button" parent="UpperPanel"]
+[node name="MenuButton" type="Button" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -143,7 +143,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_tn880")
 text = "menu "
 alignment = 2
 
-[node name="NextAttacksNameLabel" type="Label" parent="UpperPanel"]
+[node name="NextAttacksNameLabel" type="Label" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 offset_left = 64.0
 offset_right = 223.0
@@ -163,7 +163,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
-[node name="TimerNameLabel" type="Label" parent="UpperPanel"]
+[node name="TimerNameLabel" type="Label" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -228,7 +228,7 @@ offset_bottom = -160.0
 grow_vertical = 0
 color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[node name="RoundNameLabel" type="Label" parent="DownPanel"]
+[node name="RoundNameLabel" type="Label" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 offset_left = 64.0
 offset_right = 200.0
@@ -248,7 +248,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
-[node name="ThornsNameLabel" type="Label" parent="DownPanel"]
+[node name="ThornsNameLabel" type="Label" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -275,7 +275,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
-[node name="ReplayButton" type="Button" parent="DownPanel"]
+[node name="ReplayButton" type="Button" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -293,7 +293,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
 text = "new "
 alignment = 2
 
-[node name="NextButton" type="Button" parent="DownPanel"]
+[node name="NextButton" type="Button" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -370,7 +370,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayButton" type="Button" parent="MenuPanel"]
+[node name="PlayButton" type="Button" parent="MenuPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -391,7 +391,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_1gwml")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jus0x")
 text = "play"
 
-[node name="MenuButton" type="Button" parent="MenuPanel"]
+[node name="MenuButton" type="Button" parent="MenuPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

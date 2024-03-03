@@ -1,5 +1,6 @@
 extends Node
 
+static var localizable_group_name: String = "localizable"
 static var langs_file_name: String = "res://Jsons/l.json"
 
 var localization: Dictionary = {}
@@ -20,6 +21,16 @@ func set_localization(lang: String):
 	var local_file_name = str("res://Jsons/", code, ".json")
 	localization = StorageManager.read_from(local_file_name)
 	pass
+
+func try_localize(node: Node, text_postfix: String = ""):
+	var node_class = node.get_class()
+	match node_class:
+		"Button":
+			try_localize_button(node, text_postfix)
+		"Label":
+			try_localize_label(node, text_postfix)
+		_:
+			print("Error! Could not localize node of type: ", node_class)
 
 func try_localize_button(button: Button, text_postfix: String = ""):
 	var localization_str = _get_value_for(button)

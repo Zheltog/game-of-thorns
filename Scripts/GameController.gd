@@ -54,8 +54,7 @@ func _ready():
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
 	_save_data = SaveManager.load()
-	_localize_buttons()
-	_localize_labels()
+	_localize_stuff()
 	_process_mode()
 	_init_directions_array()
 	_open_menu("protect salami with your thorns!")
@@ -198,18 +197,15 @@ func _restart_timer():
 	_timer.wait_time = _current_init_timer_sec
 	_timer.start()
 
-func _localize_buttons():
-	LocalManager.try_localize_button(get_node("UpperPanel/MenuButton"), " ")
-	LocalManager.try_localize_button(get_node("DownPanel/ReplayButton"), " ")
-	LocalManager.try_localize_button(get_node("DownPanel/NextButton"), " ")
-	LocalManager.try_localize_button(get_node("MenuPanel/PlayButton"), " ")
-	LocalManager.try_localize_button(get_node("MenuPanel/MenuButton"), " ")
-
-func _localize_labels():
-	LocalManager.try_localize_label(get_node("UpperPanel/NextAttacksNameLabel"), ":")
-	LocalManager.try_localize_label(get_node("UpperPanel/TimerNameLabel"), ":")
-	LocalManager.try_localize_label(get_node("DownPanel/RoundNameLabel"), ":")
-	LocalManager.try_localize_label(get_node("DownPanel/ThornsNameLabel"), ":")
+func _localize_stuff():
+	var localizable = get_tree().get_nodes_in_group(LocalManager.localizable_group_name)
+	for node in localizable:
+		var node_class = node.get_class()
+		match node_class:
+			"Button":
+				LocalManager.try_localize_button(node, " ")
+			"Label":
+				LocalManager.try_localize_label(node, ":")
 
 func _process_timer_timeout():
 	_finish_round()
