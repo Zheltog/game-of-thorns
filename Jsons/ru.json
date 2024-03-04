@@ -1,15 +1,19 @@
 {
-	"MenuButton" : "меню",
-	"PlayButton": "играть",
-	"NextButton": "всё",
-	"ReplayButton": "ещё",
-	"NextAttacksNameLabel": "аттаки",
-	"TimerNameLabel": "тик-так",
-	"RoundNameLabel": "раунд",
-	"ThornsNameLabel": "шипов",
+	"MenuButton" : "меню ",
+	"PlayButton": "играть ",
+	"NextButton": "всё ",
+	"ReplayButton": "ещё ",
+	"NextAttacksNameLabel": "аттаки:",
+	"TimerNameLabel": "тик-так:",
+	"RoundNameLabel": "раунд:",
+	"ThornsNameLabel": "шипов:",
 	"PlayQuickButton": "играть (мало)",
 	"PlayLongButton": "играть (много)",
 	"StatsButton": "статы",
 	"SettingsButton": "настройки",
-	"ExitButton": "выход"
+	"ExitButton": "выход",
+	"StatsLabel": "статистика",
+	"StatsQuickNameLabel": "макс. раунд (мало):",
+	"StatsLongNameLabel": "макс. раунд (много):",
+	"BackButton": "назад"
 }

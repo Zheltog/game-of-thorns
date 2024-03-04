@@ -1,6 +1,6 @@
 class_name GameController
 
-extends CanvasLayer
+extends LocalizableCanvasLayer
 
 @export var init_thorns_num_quick: int = 10
 @export var init_thorns_num_long: int = 20
@@ -196,16 +196,6 @@ func _restart_timer():
 	_timer_value_label.text = str(_current_init_timer_sec)
 	_timer.wait_time = _current_init_timer_sec
 	_timer.start()
-
-func _localize_stuff():
-	var localizable = get_tree().get_nodes_in_group(LocalManager.localizable_group_name)
-	for node in localizable:
-		var node_class = node.get_class()
-		match node_class:
-			"Button":
-				LocalManager.try_localize_button(node, " ")
-			"Label":
-				LocalManager.try_localize_label(node, ":")
 
 func _process_timer_timeout():
 	_finish_round()

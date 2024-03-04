@@ -1,9 +1,10 @@
-extends CanvasLayer
+extends LocalizableCanvasLayer
 
 func _ready():
 	var save_data: SaveData = SaveManager.load()
 	($BasePanel/StatsQuickValueLabel).text = str(save_data.record_round_quick)
 	($BasePanel/StatsLongValueLabel).text = str(save_data.record_round_long)
+	_localize_stuff()
 
 func _on_back_button_pressed():
 	_back()

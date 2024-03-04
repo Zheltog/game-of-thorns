@@ -43,7 +43,7 @@ text = "game of thorns"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatsLabel" type="Label" parent="BasePanel"]
+[node name="StatsLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ text = "stats"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatsQuickNameLabel" type="Label" parent="BasePanel"]
+[node name="StatsQuickNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -93,7 +93,7 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="StatsLongNameLabel" type="Label" parent="BasePanel"]
+[node name="StatsLongNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -125,7 +125,7 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="BasePanel"]
+[node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

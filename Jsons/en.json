@@ -1,15 +1,19 @@
 {
-	"MenuButton" : "menu",
-	"PlayButton": "play",
-	"NextButton": "skip",
-	"ReplayButton": "new",
-	"NextAttacksNameLabel": "attacks",
-	"TimerNameLabel": "remaining",
-	"RoundNameLabel": "round",
-	"ThornsNameLabel": "thorns",
+	"MenuButton" : "menu ",
+	"PlayButton": "play ",
+	"NextButton": "skip ",
+	"ReplayButton": "new ",
+	"NextAttacksNameLabel": "attacks:",
+	"TimerNameLabel": "remaining:",
+	"RoundNameLabel": "round:",
+	"ThornsNameLabel": "thorns:",
 	"PlayQuickButton": "play (quick)",
 	"PlayLongButton": "play (long)",
 	"StatsButton": "stats",
 	"SettingsButton": "settings",
-	"ExitButton": "exit"
+	"ExitButton": "exit",
+	"StatsLabel": "stats",
+	"StatsQuickNameLabel": "max round (quick):",
+	"StatsLongNameLabel": "max round (long):",
+	"BackButton": "back"
 }

@@ -22,25 +22,25 @@ func set_localization(lang: String):
 	localization = StorageManager.read_from(local_file_name)
 	pass
 
-func try_localize(node: Node, text_postfix: String = ""):
+func try_localize(node: Node):
 	var node_class = node.get_class()
 	match node_class:
 		"Button":
-			try_localize_button(node, text_postfix)
+			try_localize_button(node)
 		"Label":
-			try_localize_label(node, text_postfix)
+			try_localize_label(node)
 		_:
 			print("Error! Could not localize node of type: ", node_class)
 
-func try_localize_button(button: Button, text_postfix: String = ""):
+func try_localize_button(button: Button):
 	var localization_str = _get_value_for(button)
 	if localization_str != null:
-		button.text = localization_str + text_postfix
+		button.text = localization_str
 
-func try_localize_label(label: Label, text_postfix: String = ""):
+func try_localize_label(label: Label):
 	var localization_str = _get_value_for(label)
 	if localization_str != null:
-		label.text = localization_str + text_postfix
+		label.text = localization_str
 
 func _get_value_for(node: Node) -> String:
 	return localization.get(node.name)
