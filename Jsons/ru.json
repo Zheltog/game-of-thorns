@@ -15,5 +15,8 @@
 	"StatsLabel": "статистика",
 	"StatsQuickNameLabel": "макс. раунд (мало):",
 	"StatsLongNameLabel": "макс. раунд (много):",
-	"BackButton": "назад"
+	"BackButton": "назад",
+	"SettingsLabel": "настройки",
+	"LangNameLabel": "язык:",
+	"AdsNameLabel": "реклама:"
 }

@@ -43,7 +43,7 @@ text = "game of thorns"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsLabel" type="Label" parent="BasePanel"]
+[node name="SettingsLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ text = "settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LangNameLabel" type="Label" parent="BasePanel"]
+[node name="LangNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -89,14 +89,8 @@ offset_bottom = 167.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-item_count = 2
-selected = 0
-popup/item_0/text = "English"
-popup/item_0/id = 0
-popup/item_1/text = "Русский"
-popup/item_1/id = 1
 
-[node name="AdsNameLabel" type="Label" parent="BasePanel"]
+[node name="AdsNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -124,7 +118,7 @@ offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="BackButton" type="Button" parent="BasePanel"]
+[node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -13,6 +13,9 @@ func _ready():
 	if lang != null:
 		set_localization(lang)
 
+func lang_names() -> Array:
+	return langs.keys()
+
 func set_localization(lang: String):
 	var code = langs.get(lang)
 	if code == null:

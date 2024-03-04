@@ -15,5 +15,8 @@
 	"StatsLabel": "stats",
 	"StatsQuickNameLabel": "max round (quick):",
 	"StatsLongNameLabel": "max round (long):",
-	"BackButton": "back"
+	"BackButton": "back",
+	"SettingsLabel": "settings",
+	"LangNameLabel": "language:",
+	"AdsNameLabel": "ads:"
 }
