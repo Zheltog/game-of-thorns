@@ -18,5 +18,7 @@
 	"BackButton": "back",
 	"SettingsLabel": "settings",
 	"LangNameLabel": "language:",
-	"AdsNameLabel": "ads:"
+	"AdsNameLabel": "ads:",
+	"MessageLabel.Start": "protect salami with your thorns!",
+	"MessageLabel.Finish": "game over\nyou reached round "
 }

@@ -412,7 +412,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_t4wjt")
 theme_override_styles/focus = SubResource("StyleBoxFlat_gpcsi")
 text = "menu"
 
-[node name="MessageLabel" type="Label" parent="MenuPanel"]
+[node name="MessageLabel" type="Label" parent="MenuPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

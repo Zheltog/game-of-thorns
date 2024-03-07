@@ -45,5 +45,5 @@ func try_localize_label(label: Label):
 	if localization_str != null:
 		label.text = localization_str
 
-func _get_value_for(node: Node) -> String:
+func _get_value_for(node: Node):
 	return localization.get(node.name)

@@ -17,6 +17,8 @@ extends LocalizableCanvasLayer
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
 @export var before_attack_pause_sec: float = 1.0
+@export var message_label_start_localization_key: String = "MessageLabel.Start"
+@export var message_label_finish_localization_key: String = "MessageLabel.Finish"
 
 var _init_thorns_num: int
 var _cells_num_hor: int
@@ -57,7 +59,7 @@ func _ready():
 	_localize_stuff()
 	_process_mode()
 	_init_directions_array()
-	_open_menu("protect salami with your thorns!")
+	_open_menu(_localization(message_label_start_localization_key))
 
 func _process(delta: float):
 	_timer_value_label.text = str(_timer.time_left as int)
@@ -158,7 +160,8 @@ func _next_round():
 		_finish_round()
 
 func _process_game_over():
-	var result_string = str("game over\nyou reached round ", _round_number)
+	var localization = _localization(message_label_finish_localization_key)
+	var result_string = str(localization, _round_number)
 	var record_round: int
 	match GameSettings.current_mode:
 		GameSettings.Mode.QUICK:
@@ -196,6 +199,9 @@ func _restart_timer():
 	_timer_value_label.text = str(_current_init_timer_sec)
 	_timer.wait_time = _current_init_timer_sec
 	_timer.start()
+
+func _localization(key: String):
+	return LocalManager.localization.get(key)
 
 func _process_timer_timeout():
 	_finish_round()

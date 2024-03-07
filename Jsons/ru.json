@@ -18,5 +18,7 @@
 	"BackButton": "назад",
 	"SettingsLabel": "настройки",
 	"LangNameLabel": "язык:",
-	"AdsNameLabel": "реклама:"
+	"AdsNameLabel": "реклама:",
+	"MessageLabel.Start": "защищай салями своими шипами!",
+	"MessageLabel.Finish": "игра окончена\nдостигнут раунд "
 }
