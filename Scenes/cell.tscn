@@ -29,4 +29,6 @@ modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 texture = ExtResource("4_fnwnk")
 
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="on_button_pressed"]

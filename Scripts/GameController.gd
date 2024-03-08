@@ -42,6 +42,10 @@ var _all_directions: Array
 var _can_move: bool
 var _save_data: SaveData
 var _timer: Timer
+var _is_mouse_button_pressed: bool = false
+var _current_cell_processing: CellProcessingType = CellProcessingType.NONE
+
+enum CellProcessingType { SET, REMOVE, NONE }
 
 func _ready():
 	EventBus.set_thorn_request.connect(_try_set_thorn)
@@ -63,6 +67,12 @@ func _ready():
 
 func _process(delta: float):
 	_timer_value_label.text = str(_timer.time_left as int)
+
+func _input(event: InputEvent):
+	if event is InputEventMouseButton:
+		_is_mouse_button_pressed = event.pressed
+		if not _is_mouse_button_pressed:
+			_current_cell_processing = CellProcessingType.NONE
 
 func _process_mode():
 	match GameSettings.current_mode:
@@ -103,13 +113,23 @@ func _new_game():
 func _back_to_menu():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
-func _try_set_thorn(x: int, y: int):
+func _try_set_thorn(x: int, y: int, is_strong: bool):
+	if _current_cell_processing == CellProcessingType.REMOVE:
+		return
+	if not is_strong and not _is_mouse_button_pressed:
+		return
 	if _current_thorns_num > 0 and _can_move:
+		_current_cell_processing = CellProcessingType.SET
 		_take_thorn()
 		EventBus.set_thorn.emit(x, y)
 
-func _try_remove_thorn(x: int, y: int):
+func _try_remove_thorn(x: int, y: int, is_strong: bool):
+	if _current_cell_processing == CellProcessingType.SET:
+		return
+	if not is_strong and not _is_mouse_button_pressed:
+		return
 	if _can_move:
+		_current_cell_processing = CellProcessingType.REMOVE
 		_return_thorn()
 		EventBus.remove_thorn.emit(x, y)
 

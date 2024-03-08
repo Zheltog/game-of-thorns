@@ -47,7 +47,16 @@ func set_thorn():
 	_thorn.modulate.a = 1
 
 func on_button_pressed():
+	pass
+
+func _on_button_button_down():
 	if current_status == Status.SALAMI:
-		EventBus.set_thorn_request.emit(_x, _y)
+		EventBus.set_thorn_request.emit(_x, _y, true)
 	elif current_status == Status.THORNED:
-		EventBus.remove_thorn_request.emit(_x, _y)
+		EventBus.remove_thorn_request.emit(_x, _y, true)
+
+func _on_button_mouse_entered():
+	if current_status == Status.SALAMI:
+		EventBus.set_thorn_request.emit(_x, _y, false)
+	elif current_status == Status.THORNED:
+		EventBus.remove_thorn_request.emit(_x, _y, false)
