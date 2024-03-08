@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=37 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_uihb3"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_uiuq2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyiw75f4vagnc" path="res://Sprites/exit.png" id="5_y71lx"]
 [ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="6_4ophl"]
 [ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="7_dtlhl"]
+[ext_resource type="PackedScene" uid="uid://gfyin82mbht3" path="res://Scenes/direction_sign.tscn" id="7_wi8oq"]
 [ext_resource type="Texture2D" uid="uid://ctsl1b1ls62mx" path="res://Sprites/reset.png" id="8_u1muo"]
 [ext_resource type="Texture2D" uid="uid://dg3a83o8vb2iv" path="res://Sprites/next.png" id="9_txn78"]
 [ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="10_6lca8"]
@@ -247,28 +248,12 @@ offset_bottom = 16.0
 scale = Vector2(4, 4)
 texture = ExtResource("6_4ophl")
 
-[node name="NextAttackPicSecond" type="TextureRect" parent="UpperPanel"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_right = -48.0
-offset_bottom = 16.0
-grow_horizontal = 0
+[node name="DirectionSignFirst" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
+position = Vector2(240, 0)
 scale = Vector2(4, 4)
 
-[node name="NextAttackPicFirst" type="TextureRect" parent="UpperPanel"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_right = -112.0
-offset_bottom = 16.0
-grow_horizontal = 0
+[node name="DirectionSignSecond" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
+position = Vector2(304, 0)
 scale = Vector2(4, 4)
 
 [node name="TImerPic" type="TextureRect" parent="UpperPanel"]
