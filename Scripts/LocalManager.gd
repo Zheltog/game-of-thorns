@@ -2,6 +2,7 @@ extends Node
 
 static var localizable_group_name: String = "localizable"
 static var langs_file_name: String = "res://Jsons/l.json"
+static var default_lang_name: String = "English"
 
 var localization: Dictionary = {}
 var langs: Dictionary

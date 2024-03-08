@@ -3,7 +3,7 @@ class_name SaveData
 var record_round_quick: int = 0
 var record_round_long: int = 0
 var ads_enabled: bool = true
-var lang: String
+var lang: String = LocalManager.default_lang_name
 
 func to_dictionary() -> Dictionary:
 	return {
