@@ -46,6 +46,8 @@ var _current_cell_processing: CellProcessingType = CellProcessingType.NONE
 var _direction_pics: Dictionary = {}
 var _next_attack_pic_first: TextureRect
 var _next_attack_pic_second: TextureRect
+var _por_anim_player: AnimationPlayer
+var _cat_anim_player: AnimationPlayer
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -62,6 +64,8 @@ func _ready():
 	_menu = get_node("MenuPanel")
 	_next_attack_pic_first = get_node("UpperPanel/NextAttackPicFirst")
 	_next_attack_pic_second = get_node("UpperPanel/NextAttackPicSecond")
+	_por_anim_player = get_node("Porcupine/AnimationPlayer")
+	_cat_anim_player = get_node("Cat/AnimationPlayer")
 	_save_data = SaveManager.load()
 	_localize_stuff()
 	_process_mode()
@@ -112,6 +116,8 @@ func _new_game():
 	_thorns_remaining = 0
 	_round_number = 0
 	_current_init_timer_sec = _init_timer_sec
+	_por_anim_player.play("porcupine_nodding")
+	_cat_anim_player.play("cat_nodding")
 	_next_round()
 	
 func _back_to_menu():
@@ -187,6 +193,8 @@ func _next_round():
 		_finish_round()
 
 func _process_game_over():
+	_por_anim_player.stop()
+	_cat_anim_player.stop()
 	var localization = _localization(message_label_finish_localization_key)
 	var result_string = str(localization, _round_number)
 	var record_round: int
