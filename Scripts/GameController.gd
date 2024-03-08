@@ -32,7 +32,6 @@ var _thorns_remaining: int
 var _round_number: int = 0
 var _round_value_label: Label
 var _thorns_value_label: Label
-var _next_attacks_value_label: Label
 var _timer_value_label: Label
 var _message_label: Label
 var _field: Field
@@ -44,6 +43,9 @@ var _save_data: SaveData
 var _timer: Timer
 var _is_mouse_button_pressed: bool = false
 var _current_cell_processing: CellProcessingType = CellProcessingType.NONE
+var _direction_pics: Dictionary = {}
+var _next_attack_pic_first: TextureRect
+var _next_attack_pic_second: TextureRect
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -53,16 +55,17 @@ func _ready():
 	EventBus.no_cells_for_thorns.connect(_finish_round)
 	_round_value_label = get_node("DownPanel/RoundValueLabel")
 	_thorns_value_label = get_node("DownPanel/ThornsValueLabel")
-	_next_attacks_value_label = get_node("UpperPanel/NextAttacksValueLabel")
 	_timer_value_label = get_node("UpperPanel/TimerValueLabel")
 	_message_label = get_node("MenuPanel/MessageLabel")
 	_timer = get_node("Timer")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
+	_next_attack_pic_first = get_node("UpperPanel/NextAttackPicFirst")
+	_next_attack_pic_second = get_node("UpperPanel/NextAttackPicSecond")
 	_save_data = SaveManager.load()
 	_localize_stuff()
 	_process_mode()
-	_init_directions_array()
+	_init_directions_stuff()
 	_open_menu(_localization(message_label_start_localization_key))
 
 func _process(delta: float):
@@ -99,7 +102,8 @@ func _open_menu(text: String):
 func _new_game():
 	_round_value_label.text = ""
 	_thorns_value_label.text = ""
-	_next_attacks_value_label.text = ""
+	_next_attack_pic_first.texture = null
+	_next_attack_pic_second.texture = null
 	_field.show()
 	_field.init(_cells_num_hor, _cells_num_ver, remove_all_pause_sec, remove_thorn_pause_sec)
 	_field.reset_cells_thorned()
@@ -143,9 +147,12 @@ func _return_thorn():
 	_current_thorns_num += 1
 	_thorns_value_label.text = str(_current_thorns_num)
 
-func _init_directions_array():
+func _init_directions_stuff():
 	for direction in Field.AttackDirection:
 		_all_directions.push_back(direction)
+		var dir_str = str(direction)
+		var pic_path = str("res://Sprites/", direction.to_lower(), ".png")
+		_direction_pics[direction] = load(pic_path)
 		
 func _finish_round():
 	_can_move = false
@@ -201,15 +208,16 @@ func _process_game_over():
 func _update_statuses():
 	_round_value_label.text = str(_round_number)
 	_thorns_value_label.text = str(_current_thorns_num)
-	var next_attacks_str = ""
-	for i in range(_next_attacks.size()):
-		var attack = _next_attacks[i]
-		var attack_str = (Field.AttackDirection.keys()[attack] as String).substr(0, 1)
-		if i == 0:
-			next_attacks_str += attack_str
-		else:
-			next_attacks_str += "+" + attack_str
-	_next_attacks_value_label.text = next_attacks_str
+	_next_attack_pic_first.texture = null
+	_next_attack_pic_second.texture = null
+	if _next_attacks.size() == 1:
+		var first = Field.AttackDirection.keys()[_next_attacks[0]]
+		_next_attack_pic_second.texture = _direction_pics[first]
+	elif _next_attacks.size() == 2:
+		var first = Field.AttackDirection.keys()[_next_attacks[0]]
+		var second = Field.AttackDirection.keys()[_next_attacks[1]]
+		_next_attack_pic_first.texture = _direction_pics[first]
+		_next_attack_pic_second.texture = _direction_pics[second]
 
 func _update_timer():
 	if _round_number % 4 == 0:

@@ -151,18 +151,6 @@ offset_bottom = 61.0
 theme_override_font_sizes/font_size = 42
 text = "attacks:"
 
-[node name="NextAttacksValueLabel" type="Label" parent="UpperPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -116.0
-offset_right = -16.0
-offset_bottom = 61.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 42
-horizontal_alignment = 2
-
 [node name="TimerNameLabel" type="Label" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
@@ -207,6 +195,30 @@ offset_right = 16.0
 offset_bottom = 16.0
 scale = Vector2(4, 4)
 texture = ExtResource("6_4ophl")
+
+[node name="NextAttackPicSecond" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_right = -48.0
+offset_bottom = 16.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
+
+[node name="NextAttackPicFirst" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_right = -112.0
+offset_bottom = 16.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
 
 [node name="TImerPic" type="TextureRect" parent="UpperPanel"]
 texture_filter = 1
