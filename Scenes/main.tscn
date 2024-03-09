@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=45 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_uihb3"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_uiuq2"]
@@ -31,8 +31,25 @@ tracks/0/keys = {
 "values": [2, 1, 0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_1d7kt"]
+resource_name = "cat_brrr"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i5n2l"]
 _data = {
+"cat_brrr": SubResource("Animation_1d7kt"),
 "cat_nodding": SubResource("Animation_d7lti")
 }
 
@@ -53,8 +70,25 @@ tracks/0/keys = {
 "values": [2, 1, 0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_ewrkx"]
+resource_name = "porcupine_brrr"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xaafc"]
 _data = {
+"porcupine_brrr": SubResource("Animation_ewrkx"),
 "porcupine_nodding": SubResource("Animation_ihus2")
 }
 

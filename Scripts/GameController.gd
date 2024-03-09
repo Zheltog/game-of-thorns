@@ -117,8 +117,6 @@ func _new_game():
 	_thorns_remaining = 0
 	_round_number = 0
 	_current_init_timer_sec = _init_timer_sec
-	_por_anim_player.play("porcupine_nodding")
-	_cat_anim_player.play("cat_nodding")
 	_next_round()
 	
 func _back_to_menu():
@@ -159,6 +157,8 @@ func _init_directions_stuff():
 		_all_directions.push_back(direction)
 		
 func _finish_round():
+	_por_anim_player.play("porcupine_brrr")
+	_cat_anim_player.play("cat_brrr")
 	_can_move = false
 	_timer.stop()
 	_thorns_remaining = _current_thorns_num
@@ -178,6 +178,8 @@ func _generate_next_attacks():
 		_next_attacks[i] = random_direction
 	
 func _next_round():
+	_por_anim_player.play("porcupine_nodding")
+	_cat_anim_player.play("cat_nodding")
 	_current_thorns_num = _thorns_remaining + max(_init_thorns_num - _round_number, 0)
 	if (!_field.has_salami_left()):
 		_process_game_over()
