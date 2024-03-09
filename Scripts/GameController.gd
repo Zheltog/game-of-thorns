@@ -47,6 +47,7 @@ var _direction_sign_first: DirectionSign
 var _direction_sign_second: DirectionSign
 var _por_anim_player: AnimationPlayer
 var _cat_anim_player: AnimationPlayer
+var _big_paw_anim_player: AnimationPlayer
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -65,6 +66,7 @@ func _ready():
 	_direction_sign_second = get_node("UpperPanel/DirectionSignSecond")
 	_por_anim_player = get_node("Porcupine/AnimationPlayer")
 	_cat_anim_player = get_node("Cat/AnimationPlayer")
+	_big_paw_anim_player = get_node("BigPaw/AnimationPlayer")
 	_save_data = SaveManager.load()
 	_localize_stuff()
 	_process_mode()
@@ -162,6 +164,8 @@ func _finish_round():
 	_thorns_remaining = _current_thorns_num
 	await get_tree().create_timer(before_attack_pause_sec).timeout
 	for attack in _next_attacks:
+		var anim_name = str(Field.AttackDirection.keys()[attack]).to_lower()
+		_big_paw_anim_player.play(anim_name)
 		await _field.attack_on_salami(attack)
 	_next_round()
 	
