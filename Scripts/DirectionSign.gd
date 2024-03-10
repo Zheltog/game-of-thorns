@@ -1,6 +1,6 @@
 class_name DirectionSign
 
-extends Node2D
+extends Control
 
 var _direction_pics: Dictionary = {}
 var _current_direction: Field.AttackDirection

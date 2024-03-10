@@ -14,6 +14,22 @@
 [ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="10_6lca8"]
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="11_a7v3e"]
 
+[sub_resource type="Animation" id="Animation_1d7kt"]
+resource_name = "cat_brrr"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="Animation" id="Animation_d7lti"]
 resource_name = "cat_nodding"
 length = 2.0
@@ -31,8 +47,14 @@ tracks/0/keys = {
 "values": [2, 1, 0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_1d7kt"]
-resource_name = "cat_brrr"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5n2l"]
+_data = {
+"cat_brrr": SubResource("Animation_1d7kt"),
+"cat_nodding": SubResource("Animation_d7lti")
+}
+
+[sub_resource type="Animation" id="Animation_ewrkx"]
+resource_name = "porcupine_brrr"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,12 +67,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5n2l"]
-_data = {
-"cat_brrr": SubResource("Animation_1d7kt"),
-"cat_nodding": SubResource("Animation_d7lti")
 }
 
 [sub_resource type="Animation" id="Animation_ihus2"]
@@ -70,26 +86,50 @@ tracks/0/keys = {
 "values": [2, 1, 0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_ewrkx"]
-resource_name = "porcupine_brrr"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xaafc"]
 _data = {
 "porcupine_brrr": SubResource("Animation_ewrkx"),
 "porcupine_nodding": SubResource("Animation_ihus2")
+}
+
+[sub_resource type="Animation" id="Animation_1x31x"]
+resource_name = "down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(360, 432), Vector2(360, 832)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_t4bsi"]
@@ -98,19 +138,19 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(640, 640), Vector2(224, 640)]
+"values": [Vector2(576, 640), Vector2(160, 640)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -122,7 +162,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:visible")
+tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -138,19 +178,19 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(208, 640), Vector2(608, 640)]
+"values": [Vector2(144, 640), Vector2(560, 640)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -162,47 +202,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_1x31x"]
-resource_name = "down"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(432, 416), Vector2(432, 832)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:visible")
+tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -218,19 +218,19 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(432, 848), Vector2(432, 464)]
+"update": 1,
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -242,14 +242,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:visible")
+tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Vector2(360, 848), Vector2(360, 448)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqnv4"]
@@ -334,11 +334,13 @@ grow_vertical = 2
 [node name="Field" type="Node2D" parent="."]
 script = ExtResource("2_uiuq2")
 
-[node name="Cat" type="Node2D" parent="."]
-position = Vector2(160, 160)
+[node name="Cat" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Sprite" type="Sprite2D" parent="Cat"]
 texture_filter = 1
+position = Vector2(160, 160)
 scale = Vector2(4, 4)
 texture = ExtResource("3_kaltp")
 hframes = 5
@@ -350,29 +352,41 @@ libraries = {
 "": SubResource("AnimationLibrary_i5n2l")
 }
 
-[node name="Porcupine" type="Node2D" parent="."]
-position = Vector2(560, 1120)
+[node name="Porcupine" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Sprite" type="Sprite2D" parent="Porcupine"]
 texture_filter = 1
+position = Vector2(-160, -160)
 scale = Vector2(4, 4)
 texture = ExtResource("4_2x2f0")
 hframes = 5
 vframes = 5
-frame = 2
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Porcupine"]
 libraries = {
 "": SubResource("AnimationLibrary_xaafc")
 }
 
-[node name="BigPaw" type="Node2D" parent="."]
-position = Vector2(-64, 0)
+[node name="BigPaw" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 832.0
+offset_right = 360.0
+offset_bottom = 832.0
 
 [node name="Sprite" type="Sprite2D" parent="BigPaw"]
-visible = false
 texture_filter = 1
-position = Vector2(432, 832)
 scale = Vector2(4, 4)
 texture = ExtResource("5_niolc")
 
@@ -467,11 +481,13 @@ scale = Vector2(4, 4)
 texture = ExtResource("6_4ophl")
 
 [node name="DirectionSignFirst" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
-position = Vector2(240, 0)
+offset_left = 240.0
+offset_right = 240.0
 scale = Vector2(4, 4)
 
 [node name="DirectionSignSecond" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
-position = Vector2(304, 0)
+offset_left = 304.0
+offset_right = 304.0
 scale = Vector2(4, 4)
 
 [node name="TImerPic" type="TextureRect" parent="UpperPanel"]
