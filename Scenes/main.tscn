@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=46 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_uihb3"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_uiuq2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cr0mx0est6ts4" path="res://Sprites/porcupine_sheet.png" id="4_2x2f0"]
 [ext_resource type="Texture2D" uid="uid://dlk6k7m15v48f" path="res://Sprites/big_paw.png" id="5_niolc"]
 [ext_resource type="Texture2D" uid="uid://dyiw75f4vagnc" path="res://Sprites/exit.png" id="5_y71lx"]
+[ext_resource type="Texture2D" uid="uid://dikw5dwnmnbk2" path="res://Sprites/question.png" id="6_1cijc"]
 [ext_resource type="Texture2D" uid="uid://34o0fqij0rwu" path="res://Sprites/paw.png" id="6_4ophl"]
 [ext_resource type="Texture2D" uid="uid://ilnc2q06wwwd" path="res://Sprites/sandclock.png" id="7_dtlhl"]
 [ext_resource type="PackedScene" uid="uid://gfyin82mbht3" path="res://Scenes/direction_sign.tscn" id="7_wi8oq"]
@@ -411,6 +412,28 @@ offset_bottom = 288.0
 grow_horizontal = 0
 color = Color(0.137255, 0.243137, 0.243137, 1)
 
+[node name="RulesButton" type="Button" parent="UpperPanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = -256.0
+offset_right = -232.0
+offset_bottom = -160.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_6dphu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1hbww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g2u87")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xay18")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tn880")
+text = "??? "
+alignment = 2
+
 [node name="MenuButton" type="Button" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 3
@@ -466,6 +489,14 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
+
+[node name="RulesPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+offset_top = -112.0
+offset_right = 16.0
+offset_bottom = -96.0
+scale = Vector2(4, 4)
+texture = ExtResource("6_1cijc")
 
 [node name="ExitPic" type="TextureRect" parent="UpperPanel"]
 texture_filter = 1
@@ -649,7 +680,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("11_a7v3e")
 
 [node name="MenuPanel" type="ColorRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 0.25098)
 anchors_preset = 15
 anchor_right = 1.0
@@ -699,6 +729,27 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_t4wjt")
 theme_override_styles/focus = SubResource("StyleBoxFlat_gpcsi")
 text = "menu"
 
+[node name="HowToPlayButton" type="Button" parent="MenuPanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 210.0
+offset_right = 150.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_npuni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_st6p5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7xkob")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t4wjt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gpcsi")
+text = "how to play"
+
 [node name="MessageLabel" type="Label" parent="MenuPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
@@ -721,9 +772,11 @@ autowrap_mode = 3
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="pressed" from="UpperPanel/RulesButton" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="UpperPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="DownPanel/ReplayButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="DownPanel/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="MenuPanel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MenuPanel/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

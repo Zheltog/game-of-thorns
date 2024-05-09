@@ -3,6 +3,7 @@
 	"PlayButton": "play ",
 	"NextButton": "skip ",
 	"ReplayButton": "new ",
+	"HowToPlayButton": "how to play",
 	"NextAttacksNameLabel": "attacks:",
 	"TimerNameLabel": "remaining:",
 	"RoundNameLabel": "round:",
@@ -20,5 +21,6 @@
 	"LangNameLabel": "language:",
 	"AdsNameLabel": "ads:",
 	"MessageLabel.Start": "protect salami with your thorns!",
-	"MessageLabel.Finish": "game over\nyou reached round "
+	"MessageLabel.Finish": "game over\nyou reached round ",
+	"RulesLabel": "1) you are porcupine\n2) cat is your opponent\n3) field is full of salami\n4) cat wants to get salami\n5) you should resist\n\n\"attacks\" - next attacks directions\n\"remaining\" - seconds until next attack\n\"round\" - current round number\n\"thorns\" - available thorns number\n\n\"new\" - restart game\n\"skip\" - finish turn ahead of time\n\n- salami click sets thorn\n- thorn click removes thorn"
 }

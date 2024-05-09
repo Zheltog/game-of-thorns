@@ -118,10 +118,13 @@ func _new_game():
 	_round_number = 0
 	_current_init_timer_sec = _init_timer_sec
 	_next_round()
-	
+
 func _back_to_menu():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-	
+
+func _open_rules():
+	get_tree().change_scene_to_file("res://Scenes/rules.tscn")
+
 func _try_set_thorn(x: int, y: int, is_strong: bool):
 	if _current_cell_processing == CellProcessingType.REMOVE:
 		return
@@ -259,6 +262,12 @@ func _on_play_button_pressed():
 
 func _on_menu_button_pressed():
 	_back_to_menu()
+
+func _on_rules_button_pressed():
+	_open_rules()
+
+func _on_how_to_play_button_pressed():
+	_open_rules()
 
 func _on_timer_timeout():
 	_process_timer_timeout()
