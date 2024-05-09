@@ -66,7 +66,7 @@ func _ready():
 	_direction_sign_second = get_node("UpperPanel/DirectionSignSecond")
 	_por_anim_player = get_node("Porcupine/AnimationPlayer")
 	_cat_anim_player = get_node("Cat/AnimationPlayer")
-	_big_paw_anim_player = get_node("BigPaw/AnimationPlayer")
+	_big_paw_anim_player = get_node("BigPaw/Base/AnimationPlayer")
 	_save_data = SaveManager.load()
 	_localize_stuff()
 	_process_mode()
@@ -176,7 +176,7 @@ func _generate_next_attacks():
 	var attacks_num = 2 if _round_number % 4 == 0 else 1
 	_next_attacks.resize(attacks_num)
 	for i in range(attacks_num):
-		var random_index: int = randi() % (_all_directions.size() - 1)
+		var random_index: int = randi() % _all_directions.size()
 		var random_direction: Field.AttackDirection = Field.AttackDirection.get(_all_directions[random_index])
 		_next_attacks[i] = random_direction
 	
