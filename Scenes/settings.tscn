@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b25fwrn84xib4"]
+[gd_scene load_steps=32 format=3 uid="uid://b25fwrn84xib4"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_hj3wi"]
 [ext_resource type="Texture2D" uid="uid://dsrijfuwektr2" path="res://Sprites/checkbox_yes.png" id="2_gs0b7"]
@@ -47,6 +47,39 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht6s2"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvpol"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ojbj"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m08an"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2he0"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4lqy"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkkjh"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi18n"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqeum"]
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhtjh"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eokja"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj8c1"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Settings" type="CanvasLayer"]
@@ -202,13 +235,25 @@ offset_bottom = 162.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_yvpol")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ojbj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m08an")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_u2he0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h4lqy")
 text = "sample"
 
 [node name="LangPopupMenu" type="PopupMenu" parent="BasePanel"]
 theme_override_font_sizes/font_size = 42
+theme_override_styles/panel = SubResource("StyleBoxFlat_tkkjh")
+theme_override_styles/panel_disabled = SubResource("StyleBoxFlat_xi18n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqeum")
+theme_override_styles/separator = SubResource("StyleBoxFlat_uhtjh")
+theme_override_styles/labeled_separator_left = SubResource("StyleBoxFlat_eokja")
+theme_override_styles/labeled_separator_right = SubResource("StyleBoxFlat_qj8c1")
 
 [connection signal="item_selected" from="BasePanel/LangOptionButton" to="." method="_on_lang_option_button_item_selected"]
 [connection signal="toggled" from="BasePanel/AdsCheckBox" to="." method="_on_ads_check_box_toggled"]
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BasePanel/LangButton" to="." method="_on_lang_button_pressed"]
 [connection signal="index_pressed" from="BasePanel/LangPopupMenu" to="." method="_on_lang_popup_menu_index_pressed"]
+[connection signal="popup_hide" from="BasePanel/LangPopupMenu" to="." method="_on_lang_popup_menu_popup_hide"]
