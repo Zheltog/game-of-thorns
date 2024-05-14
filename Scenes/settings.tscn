@@ -76,13 +76,14 @@ text = "language:"
 vertical_alignment = 1
 
 [node name="LangOptionButton" type="OptionButton" parent="BasePanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -310.0
+offset_left = -336.0
 offset_top = 101.0
 offset_right = -96.0
 offset_bottom = 167.0
@@ -140,6 +141,27 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ht6s2")
 text = "back
 "
 
+[node name="LangButton" type="Button" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = 96.0
+offset_right = -96.0
+offset_bottom = 162.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "sample"
+
+[node name="LangPopupMenu" type="PopupMenu" parent="BasePanel"]
+theme_override_font_sizes/font_size = 42
+
 [connection signal="item_selected" from="BasePanel/LangOptionButton" to="." method="_on_lang_option_button_item_selected"]
 [connection signal="toggled" from="BasePanel/AdsCheckBox" to="." method="_on_ads_check_box_toggled"]
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BasePanel/LangButton" to="." method="_on_lang_button_pressed"]
+[connection signal="index_pressed" from="BasePanel/LangPopupMenu" to="." method="_on_lang_popup_menu_index_pressed"]
