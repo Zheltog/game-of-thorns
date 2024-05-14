@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bcl2cdu08j88h"]
+[gd_scene load_steps=47 format=3 uid="uid://bcl2cdu08j88h"]
 
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_uihb3"]
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="2_uiuq2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dg3a83o8vb2iv" path="res://Sprites/next.png" id="9_txn78"]
 [ext_resource type="Texture2D" uid="uid://dfvmtrsbgeky" path="res://Sprites/flag.png" id="10_6lca8"]
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="11_a7v3e"]
+[ext_resource type="PackedScene" uid="uid://bb7bj22b2v6yr" path="res://Scenes/ad.tscn" id="15_4fety"]
 
 [sub_resource type="Animation" id="Animation_1d7kt"]
 resource_name = "cat_brrr"
@@ -775,6 +776,8 @@ autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Ad" parent="." instance=ExtResource("15_4fety")]
 
 [connection signal="pressed" from="UpperPanel/RulesButton" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="UpperPanel/MenuButton" to="." method="_on_menu_button_pressed"]

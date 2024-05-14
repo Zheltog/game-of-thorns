@@ -48,6 +48,8 @@ var _direction_sign_second: DirectionSign
 var _por_anim_player: AnimationPlayer
 var _cat_anim_player: AnimationPlayer
 var _big_paw_anim_player: AnimationPlayer
+var _ad: Ad
+var _ads_enabled: bool
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -55,6 +57,7 @@ func _ready():
 	EventBus.set_thorn_request.connect(_try_set_thorn)
 	EventBus.remove_thorn_request.connect(_try_remove_thorn)
 	EventBus.no_cells_for_thorns.connect(_finish_round)
+	EventBus.close_ad.connect(_close_ad)
 	_round_value_label = get_node("DownPanel/RoundValueLabel")
 	_thorns_value_label = get_node("DownPanel/ThornsValueLabel")
 	_timer_value_label = get_node("UpperPanel/TimerValueLabel")
@@ -72,6 +75,9 @@ func _ready():
 	_process_mode()
 	_init_directions_stuff()
 	_open_menu(_localization(message_label_start_localization_key))
+	_ad = get_node("Ad")
+	_ad.hide()
+	_ads_enabled = _save_data.ads_enabled
 
 func _process(delta: float):
 	_timer_value_label.text = str(_timer.time_left as int)
@@ -103,6 +109,19 @@ func _open_menu(text: String):
 	_message_label.text = text
 	_menu.show()
 	_field.hide()
+
+func _show_ad():
+	_ad.show()
+
+func _close_ad():
+	_ad.hide()
+	_new_game()
+
+func _restart_game():
+	if _ads_enabled:
+		_show_ad()
+	else:
+		_new_game()
 
 func _new_game():
 	_round_value_label.text = ""
@@ -252,13 +271,16 @@ func _process_timer_timeout():
 	_finish_round()
 
 func _on_replay_button_pressed():
-	_new_game()
+	_restart_game()
 
 func _on_next_button_pressed():
 	_finish_round()
 
 func _on_play_button_pressed():
-	_new_game()
+	if _round_number > 0:
+		_restart_game()
+	else:
+		_new_game()
 
 func _on_menu_button_pressed():
 	_back_to_menu()
