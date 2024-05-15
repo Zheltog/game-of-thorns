@@ -19,6 +19,7 @@ extends LocalizableCanvasLayer
 @export var before_attack_pause_sec: float = 1.0
 @export var message_label_start_localization_key: String = "MessageLabel.Start"
 @export var message_label_finish_localization_key: String = "MessageLabel.Finish"
+@export var message_label_record_localization_key: String = "MessageLabel.Record"
 
 var _init_thorns_num: int
 var _cells_num_hor: int
@@ -221,8 +222,8 @@ func _process_game_over():
 	_cat_anim_player.stop()
 	_direction_sign_first.stop_animation()
 	_direction_sign_second.stop_animation()
-	var localization = _localization(message_label_finish_localization_key)
-	var result_string = str(localization, _round_number)
+	var finish_localization = _localization(message_label_finish_localization_key)
+	var result_string = str(finish_localization, _round_number)
 	var record_round: int
 	match GameSettings.current_mode:
 		GameSettings.Mode.QUICK:
@@ -230,7 +231,8 @@ func _process_game_over():
 		GameSettings.Mode.LONG:
 			record_round = _save_data.record_round_long
 	if _round_number > record_round:
-		result_string = str(result_string, "\nrecord!")
+		var record_localization = _localization(message_label_record_localization_key)
+		result_string = str(result_string, "\n", record_localization)
 		match GameSettings.current_mode:
 			GameSettings.Mode.QUICK:
 				_save_data.record_round_quick = _round_number
