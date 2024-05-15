@@ -7,6 +7,7 @@ var _stats_reset_button: Button
 var _save_data: SaveData
 
 func _ready():
+	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	_stats_quick_value_label = get_node("BasePanel/StatsQuickValueLabel")
 	_stats_long_value_label = get_node("BasePanel/StatsLongValueLabel")
 	_stats_reset_button = get_node("BasePanel/StatsResetButton")

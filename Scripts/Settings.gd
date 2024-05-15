@@ -7,6 +7,7 @@ var lang_popup: PopupMenu
 var ads_check_box: CheckBox
 
 func _ready():
+	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	save_data = SaveManager.load()
 	lang_options = get_node("BasePanel/LangOptionButton")
 	lang_button = get_node("BasePanel/LangButton")

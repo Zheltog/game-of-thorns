@@ -1,6 +1,7 @@
 extends LocalizableCanvasLayer
 
 func _ready():
+	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	_localize_stuff()
 
 func _on_back_button_pressed():

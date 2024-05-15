@@ -6,6 +6,7 @@ var version_label_prefix = "ver. "
 func _ready():
 	var version = MetaManager.meta_data.version
 	($BasePanel/VersionLabel).text = version_label_prefix + version
+	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	_localize_stuff()
 
 func _on_play_quick_button_pressed():

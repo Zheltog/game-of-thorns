@@ -1,6 +1,96 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl1kvs37wvr8t"]
+[gd_scene load_steps=17 format=3 uid="uid://dl1kvs37wvr8t"]
 
 [ext_resource type="Script" path="res://Scripts/Rules.gd" id="1_0o2us"]
+[ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_n6avf"]
+[ext_resource type="Texture2D" uid="uid://cu6gg81mj6o1q" path="res://Sprites/logo_thorns.png" id="3_8ecnh"]
+[ext_resource type="Texture2D" uid="uid://csuguvemqcocw" path="res://Sprites/logo_salami_right.png" id="4_lhyrj"]
+[ext_resource type="Texture2D" uid="uid://q4r4cl0u5773" path="res://Sprites/logo_salami_left.png" id="5_y7ph4"]
+[ext_resource type="Texture2D" uid="uid://durupb0x3dcso" path="res://Sprites/logo_cat.png" id="6_kqfhh"]
+[ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_ug0af"]
+[ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="8_u5h08"]
+[ext_resource type="Texture2D" uid="uid://c241iftl0fxm2" path="res://Sprites/logo_no_back.png" id="9_fvpo6"]
+
+[sub_resource type="Animation" id="Animation_70m1t"]
+resource_name = "logo_anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoPaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-192, 72), Vector2(-192, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LogoThorns:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-192, 88), Vector2(-192, 80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LogoSalamiRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-184, 80), Vector2(-192, 80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LogoSalamiLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-200, 80), Vector2(-192, 80)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LogoCat:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-192, 76), Vector2(-192, 80)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LogoPorcupine:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, 80), Vector2(-192, 84), Vector2(-192, 80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1xc0"]
+_data = {
+"logo_anim": SubResource("Animation_70m1t")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh8w8"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -28,20 +118,132 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.12549, 0.12549, 1)
 
-[node name="TitleLabel" type="Label" parent="BasePanel"]
+[node name="LogoBase" type="Control" parent="BasePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -231.0
-offset_top = 126.0
-offset_right = 231.0
-offset_bottom = 216.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 63
-text = "game of thorns"
-horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="LogoPaw" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("2_n6avf")
+
+[node name="LogoThorns" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("3_8ecnh")
+
+[node name="LogoSalamiRight" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("4_lhyrj")
+
+[node name="LogoSalamiLeft" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("5_y7ph4")
+
+[node name="LogoCat" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("6_kqfhh")
+
+[node name="LogoPorcupine" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("7_ug0af")
+
+[node name="LogoCover" type="TextureRect" parent="BasePanel/LogoBase"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("8_u5h08")
+
+[node name="Logo" type="TextureRect" parent="BasePanel/LogoBase"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 80.0
+offset_right = -96.5
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+texture = ExtResource("9_fvpo6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BasePanel/LogoBase"]
+libraries = {
+"": SubResource("AnimationLibrary_j1xc0")
+}
 
 [node name="RulesLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
