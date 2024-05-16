@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcig5ddyqrngx"]
+[gd_scene load_steps=23 format=3 uid="uid://dcig5ddyqrngx"]
 
 [ext_resource type="Script" path="res://Scripts/Stats.gd" id="1_owyxa"]
 [ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_v10rd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_rhgen"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="8_8ejnf"]
 [ext_resource type="Texture2D" uid="uid://c241iftl0fxm2" path="res://Sprites/logo_no_back.png" id="9_3bu0c"]
+[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="10_dkalv"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -107,8 +108,8 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o14wl"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2d80"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6mcu"]
+texture = ExtResource("10_dkalv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72hnc"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -364,6 +365,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_o14wl")
 text = "reset"
 
 [node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -377,7 +379,7 @@ offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxFlat_b2d80")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y6mcu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_72hnc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ib2u5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_uuolf")
