@@ -51,6 +51,7 @@ var _cat_anim_player: AnimationPlayer
 var _big_paw_anim_player: AnimationPlayer
 var _ad: Ad
 var _ads_enabled: bool
+var _ad_pic_initialized: bool = false
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -79,6 +80,15 @@ func _ready():
 	_ad = get_node("Ad")
 	_ad.hide()
 	_ads_enabled = _save_data.ads_enabled
+	if _ads_enabled:
+		var ad_config_dict = StorageManager.read_from(Ad.ad_config_json_name)
+		var ad_config = AdConfig.new(ad_config_dict)
+		_save_data.ad_pic_link = ad_config.pic_link
+		_save_data.ad_click_link = ad_config.click_link
+		SaveManager.save(_save_data)
+		var ad_pic_link = _save_data.ad_pic_link
+		var ad_click_link = _save_data.ad_click_link
+		_download(ad_pic_link, Ad.ad_pic_name)
 
 func _process(delta: float):
 	_timer_value_label.text = str(_timer.time_left as int)
@@ -112,6 +122,9 @@ func _open_menu(text: String):
 	_field.hide()
 
 func _show_ad():
+	if not _ad_pic_initialized:
+		_ad.update_pic()
+		_ad_pic_initialized = true
 	_ad.show()
 
 func _close_ad():

@@ -11,3 +11,9 @@ func _localize_stuff():
 				LocalManager.try_localize_button(node)
 			"Label":
 				LocalManager.try_localize_label(node)
+
+func _download(url : String, file_name : String):
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.set_download_file(file_name)
+	http.request(url)

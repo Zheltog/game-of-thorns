@@ -1,5 +1,6 @@
 extends LocalizableCanvasLayer
 
+var _save_data: SaveData
 var _main_scene: PackedScene = load("res://Scenes/main.tscn")
 var version_label_prefix = "ver. "
 
@@ -8,6 +9,9 @@ func _ready():
 	($BasePanel/VersionLabel).text = version_label_prefix + version
 	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	_localize_stuff()
+	_save_data = SaveManager.load()
+	if _save_data.ads_enabled:
+		_download(_save_data.ad_config_link, Ad.ad_config_json_name)
 
 func _on_play_quick_button_pressed():
 	_play(GameSettings.Mode.QUICK)
