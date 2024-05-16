@@ -778,6 +778,7 @@ autowrap_mode = 3
 one_shot = true
 
 [node name="Ad" parent="." instance=ExtResource("15_4fety")]
+visible = false
 
 [connection signal="pressed" from="UpperPanel/RulesButton" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="UpperPanel/MenuButton" to="." method="_on_menu_button_pressed"]
