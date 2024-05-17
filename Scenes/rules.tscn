@@ -96,7 +96,7 @@ _data = {
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfp34"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no32e"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -126,6 +126,7 @@ anchor_right = 0.5
 offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
+scale = Vector2(1.25, 1.25)
 
 [node name="LogoPaw" type="TextureRect" parent="BasePanel/LogoBase"]
 texture_filter = 1
@@ -251,9 +252,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -264.0
-offset_top = 312.0
+offset_top = 384.0
 offset_right = 264.0
-offset_bottom = 896.0
+offset_bottom = 968.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Sample text"
@@ -268,9 +269,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 340.0
+offset_top = 428.0
 offset_right = 100.0
-offset_bottom = 440.0
+offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42

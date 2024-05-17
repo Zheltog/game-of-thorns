@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://durupb0x3dcso" path="res://Sprites/logo_cat.png" id="6_fcust"]
 [ext_resource type="Texture2D" uid="uid://q4r4cl0u5773" path="res://Sprites/logo_salami_left.png" id="6_qai86"]
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_6fe5k"]
-[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="10_jeqsf"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -97,7 +96,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+"values": [Vector2(1.25, 1.25), Vector2(1.33, 1.33), Vector2(1.25, 1.25)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j1xc0"]
@@ -105,11 +104,11 @@ _data = {
 "logo_anim": SubResource("Animation_70m1t")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fhbat"]
-texture = ExtResource("10_jeqsf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn6es"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgh17"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jp00y"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -120,11 +119,11 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvmui"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a3oj0"]
-texture = ExtResource("10_jeqsf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3g2jj"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ml5yd"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34mpr"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -135,11 +134,11 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp8w8"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8stps"]
-texture = ExtResource("10_jeqsf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i21ys"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhrcp"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80vtm"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -150,11 +149,11 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvatg"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ag5sh"]
-texture = ExtResource("10_jeqsf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvgy3"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txx6j"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbay5"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -165,11 +164,11 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgayj"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k81em"]
-texture = ExtResource("10_jeqsf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmdnx"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygt2u"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuls4"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -178,6 +177,9 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgidg"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7lam"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Menu" type="CanvasLayer"]
@@ -199,6 +201,7 @@ anchor_right = 0.5
 offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
+scale = Vector2(1.25, 1.25)
 
 [node name="LogoPaw" type="TextureRect" parent="BasePanel/LogoBase"]
 texture_filter = 1
@@ -279,7 +282,7 @@ anchor_right = 0.5
 offset_left = -192.5
 offset_top = 80.0
 offset_right = -96.5
-offset_bottom = 128.0
+offset_bottom = 128.001
 grow_horizontal = 2
 scale = Vector2(4, 4)
 texture = ExtResource("7_6fe5k")
@@ -319,28 +322,51 @@ libraries = {
 }
 
 [node name="VersionLabel" type="Label" parent="BasePanel"]
+self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -368.0
-offset_top = 256.0
-offset_right = -168.0
-offset_bottom = 346.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -100.0
+offset_right = -96.0
 grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "ver. 0.1"
-horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SlashLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -100.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "/"
 vertical_alignment = 1
 
 [node name="AuthorLabel" type="Label" parent="BasePanel"]
+self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
 layout_mode = 1
-offset_left = 168.0
-offset_top = 256.0
-offset_right = 368.0
-offset_bottom = 346.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -100.0
+offset_right = 336.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "by belog"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PlayQuickButton" type="Button" parent="BasePanel" groups=["localizable"]]
@@ -352,13 +378,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -180.0
+offset_top = -232.0
 offset_right = 200.0
-offset_bottom = -80.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_fhbat")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn6es")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tgh17")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jp00y")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_7d24i")
@@ -374,13 +400,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -50.0
+offset_top = -100.0
 offset_right = 200.0
-offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_a3oj0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3g2jj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ml5yd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_34mpr")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hc4dk")
@@ -396,13 +421,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 80.0
+offset_top = 32.0
 offset_right = 200.0
-offset_bottom = 180.0
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_8stps")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i21ys")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nhrcp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_80vtm")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_h24la")
@@ -418,13 +443,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 210.0
+offset_top = 164.0
 offset_right = 200.0
-offset_bottom = 310.0
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_ag5sh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jvgy3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_txx6j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xbay5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_j618e")
@@ -440,21 +465,44 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 340.0
+offset_top = 296.0
 offset_right = 200.0
-offset_bottom = 440.0
+offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_k81em")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kmdnx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ygt2u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fuls4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_yiivi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rgidg")
 text = "exit"
 
+[node name="ShopButton" type="Button" parent="BasePanel" groups=["localizable"]]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 428.0
+offset_right = 200.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_m7lam")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ygt2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fuls4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yiivi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rgidg")
+text = "shop"
+
 [connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]
 [connection signal="pressed" from="BasePanel/PlayLongButton" to="." method="_on_play_long_button_pressed"]
 [connection signal="pressed" from="BasePanel/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="BasePanel/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="BasePanel/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BasePanel/ShopButton" to="." method="_on_exit_button_pressed"]

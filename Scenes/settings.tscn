@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b25fwrn84xib4"]
+[gd_scene load_steps=42 format=3 uid="uid://b25fwrn84xib4"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_hj3wi"]
 [ext_resource type="Texture2D" uid="uid://dsrijfuwektr2" path="res://Sprites/checkbox_yes.png" id="2_gs0b7"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_0spf8"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="8_xpnks"]
 [ext_resource type="Texture2D" uid="uid://c241iftl0fxm2" path="res://Sprites/logo_no_back.png" id="9_uanqb"]
-[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="12_yj87w"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -125,11 +124,11 @@ texture = ExtResource("3_5tc4k")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpk2v"]
 texture = ExtResource("3_5tc4k")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7tem"]
-texture = ExtResource("12_yj87w")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0inwg"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dovy"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk4yg"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -140,11 +139,11 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht6s2"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svveh"]
-texture = ExtResource("12_yj87w")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmv12"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ojbj"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m08an"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -192,6 +191,7 @@ anchor_right = 0.5
 offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
+scale = Vector2(1.25, 1.25)
 
 [node name="LogoPaw" type="TextureRect" parent="BasePanel/LogoBase"]
 texture_filter = 1
@@ -318,10 +318,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -192.0
-offset_right = 100.0
-offset_bottom = -102.0
+offset_left = -120.5
+offset_top = -100.0
+offset_right = 120.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 63
@@ -335,9 +334,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 96.0
-offset_top = 85.0
+offset_top = 164.0
 offset_right = 477.0
-offset_bottom = 175.0
+offset_bottom = 254.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "language:"
@@ -364,10 +363,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 94.0
-offset_top = -45.0
-offset_right = 475.0
-offset_bottom = 45.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 477.0
+offset_bottom = 132.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "ads:"
@@ -382,9 +381,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -32.0
+offset_top = 50.0
 offset_right = -96.0
-offset_bottom = 32.0
+offset_bottom = 114.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_icons/checked = ExtResource("2_gs0b7")
@@ -411,13 +410,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 340.0
+offset_top = 428.0
 offset_right = 100.0
-offset_bottom = 440.0
+offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_e7tem")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0inwg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3dovy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qk4yg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_dtnyj")
@@ -434,13 +433,13 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -336.0
-offset_top = 96.0
+offset_top = 176.0
 offset_right = -96.0
-offset_bottom = 162.0
+offset_bottom = 242.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_svveh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmv12")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3ojbj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_m08an")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_u2he0")
