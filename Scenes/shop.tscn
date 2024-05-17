@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6x4j3pu8eonn"]
+[gd_scene load_steps=41 format=3 uid="uid://b6x4j3pu8eonn"]
 
 [ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_h26wk"]
 [ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_ygko4"]
@@ -9,10 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_a24jj"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="8_neews"]
 [ext_resource type="Texture2D" uid="uid://c241iftl0fxm2" path="res://Sprites/logo_no_back.png" id="9_fdgj8"]
+[ext_resource type="Texture2D" uid="uid://dsrijfuwektr2" path="res://Sprites/checkbox_yes.png" id="10_ik63x"]
 [ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="10_roaoq"]
 [ext_resource type="Texture2D" uid="uid://bb1x3vp2eafla" path="res://Sprites/star.png" id="11_brr6w"]
+[ext_resource type="Texture2D" uid="uid://bmwxbklbkgq6f" path="res://Sprites/checkbox_no.png" id="11_jbl2a"]
 [ext_resource type="Texture2D" uid="uid://c3ewnw7d0htvs" path="res://Sprites/plus.png" id="12_l6moq"]
 [ext_resource type="Texture2D" uid="uid://byswmymxctjjp" path="res://Sprites/minus.png" id="13_s8npn"]
+[ext_resource type="Texture2D" uid="uid://b0cgrrkj36r5d" path="res://Sprites/cross.png" id="14_mjghg"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -96,6 +99,36 @@ _data = {
 "logo_anim": SubResource("Animation_70m1t")
 }
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_jydch"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uccns"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pwr4s"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_or8gs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1500i"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0ckc7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpihs"]
+texture = ExtResource("11_jbl2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1csm"]
+texture = ExtResource("11_jbl2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojfqe"]
+texture = ExtResource("11_jbl2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6d6w3"]
+texture = ExtResource("11_jbl2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vt8of"]
+texture = ExtResource("11_jbl2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7i2uq"]
+texture = ExtResource("11_jbl2a")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd2b1"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
@@ -110,6 +143,21 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g0sg"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uoyy"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s28x"]
+bg_color = Color(0.494118, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kihf"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn8nw"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxe2y"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_h26wk")
@@ -258,8 +306,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -120.5
-offset_top = -100.0
+offset_top = -232.0
 offset_right = 120.5
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 63
@@ -267,70 +316,169 @@ text = "shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ThornCheckBox" type="CheckBox" parent="BasePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -624.0
+offset_top = -82.0
+offset_right = -560.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_icons/checked = ExtResource("10_ik63x")
+theme_override_icons/checked_disabled = ExtResource("10_ik63x")
+theme_override_icons/unchecked = SubResource("CanvasTexture_jydch")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_uccns")
+theme_override_icons/radio_checked = SubResource("CanvasTexture_pwr4s")
+theme_override_icons/radio_checked_disabled = SubResource("CanvasTexture_or8gs")
+theme_override_icons/radio_unchecked = SubResource("CanvasTexture_1500i")
+theme_override_icons/radio_unchecked_disabled = SubResource("CanvasTexture_0ckc7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fpihs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d1csm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ojfqe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6d6w3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vt8of")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7i2uq")
+
 [node name="ThornPic" type="TextureRect" parent="BasePanel"]
 texture_filter = 1
-offset_left = 96.0
-offset_top = 690.0
-offset_right = 112.0
-offset_bottom = 706.0
+layout_mode = 0
+offset_left = 160.0
+offset_top = 558.0
+offset_right = 176.0
+offset_bottom = 574.0
 scale = Vector2(4, 4)
 texture = ExtResource("10_roaoq")
 
-[node name="ThornsNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+[node name="ThornNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 160.0
-offset_top = 32.0
-offset_right = 360.0
-offset_bottom = 132.0
+offset_left = 224.0
+offset_top = -100.0
+offset_right = 424.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "thorns:"
+text = "thorn:"
 vertical_alignment = 1
 
-[node name="ThornsPriceLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+[node name="ThornPriceLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 452.0
-offset_top = 32.0
+offset_top = -100.0
 offset_right = 552.0
-offset_bottom = 132.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "99"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="StarPic" type="TextureRect" parent="BasePanel"]
+[node name="ThornStarPic" type="TextureRect" parent="BasePanel"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 560.0
-offset_top = 690.0
+offset_top = 558.0
 offset_right = 576.0
-offset_bottom = 706.0
+offset_bottom = 574.0
 scale = Vector2(4, 4)
 texture = ExtResource("11_brr6w")
 
-[node name="ThornsCountLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+[node name="ZeroButton" type="TextureButton" parent="BasePanel"]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 96.0
+offset_top = 954.0
+offset_right = 160.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("14_mjghg")
+texture_pressed = ExtResource("14_mjghg")
+texture_hover = ExtResource("14_mjghg")
+texture_disabled = ExtResource("14_mjghg")
+texture_focused = ExtResource("14_mjghg")
+stretch_mode = 0
+
+[node name="MinusButton" type="TextureButton" parent="BasePanel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 954.0
+offset_right = 240.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("13_s8npn")
+texture_pressed = ExtResource("13_s8npn")
+texture_hover = ExtResource("13_s8npn")
+texture_disabled = ExtResource("13_s8npn")
+texture_focused = ExtResource("13_s8npn")
+stretch_mode = 0
+
+[node name="CountLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = 132.0
-offset_right = 50.0
-offset_bottom = 232.0
+offset_left = -120.0
+offset_top = 296.0
+offset_right = -20.0
+offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "999"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlusButton" type="TextureButton" parent="BasePanel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 340.0
+offset_top = 954.0
+offset_right = 404.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("12_l6moq")
+texture_pressed = ExtResource("12_l6moq")
+texture_hover = ExtResource("12_l6moq")
+texture_disabled = ExtResource("12_l6moq")
+texture_focused = ExtResource("12_l6moq")
+stretch_mode = 0
+
+[node name="CheckLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 296.0
+offset_right = 192.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalStarPic" type="TextureRect" parent="BasePanel"]
+texture_filter = 1
+offset_left = 560.0
+offset_top = 954.0
+offset_right = 576.0
+offset_bottom = 970.0
+scale = Vector2(4, 4)
+texture = ExtResource("11_brr6w")
 
 [node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
 texture_filter = 1
@@ -340,9 +488,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -264.0
 offset_top = 428.0
-offset_right = 100.0
+offset_right = -64.0
 offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -355,21 +503,31 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_4g0sg")
 text = "back
 "
 
-[node name="PlusButton" type="TextureRect" parent="BasePanel"]
-texture_filter = 1
-offset_left = 410.0
-offset_top = 790.0
-offset_right = 474.0
-offset_bottom = 854.0
-texture = ExtResource("12_l6moq")
+[node name="BuyButton" type="Button" parent="BasePanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 428.0
+offset_right = 264.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uoyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5s28x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0kihf")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xn8nw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gxe2y")
+text = "buy
+"
 
-[node name="MinusButton" type="TextureRect" parent="BasePanel"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 246.0
-offset_top = 790.0
-offset_right = 310.0
-offset_bottom = 854.0
-texture = ExtResource("13_s8npn")
-
+[connection signal="toggled" from="BasePanel/ThornCheckBox" to="." method="_on_thorn_check_box_toggled"]
+[connection signal="pressed" from="BasePanel/ZeroButton" to="." method="_on_zero_button_pressed"]
+[connection signal="pressed" from="BasePanel/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="pressed" from="BasePanel/PlusButton" to="." method="_on_plus_button_pressed"]
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BasePanel/BuyButton" to="." method="_on_buy_button_pressed"]
