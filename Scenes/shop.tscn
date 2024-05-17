@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6x4j3pu8eonn"]
+[gd_scene load_steps=45 format=3 uid="uid://b6x4j3pu8eonn"]
 
 [ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_h26wk"]
 [ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_ygko4"]
@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bb1x3vp2eafla" path="res://Sprites/star.png" id="11_brr6w"]
 [ext_resource type="Texture2D" uid="uid://bmwxbklbkgq6f" path="res://Sprites/checkbox_no.png" id="11_jbl2a"]
 [ext_resource type="Texture2D" uid="uid://c3ewnw7d0htvs" path="res://Sprites/plus.png" id="12_l6moq"]
+[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="12_q3gvh"]
 [ext_resource type="Texture2D" uid="uid://byswmymxctjjp" path="res://Sprites/minus.png" id="13_s8npn"]
+[ext_resource type="Texture2D" uid="uid://dikw5dwnmnbk2" path="res://Sprites/question.png" id="13_ymqsd"]
+[ext_resource type="Texture2D" uid="uid://3sp2ibjt8vmj" path="res://Sprites/down.png" id="14_f311e"]
 [ext_resource type="Texture2D" uid="uid://b0cgrrkj36r5d" path="res://Sprites/cross.png" id="14_mjghg"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
@@ -99,6 +102,21 @@ _data = {
 "logo_anim": SubResource("Animation_70m1t")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uoyy"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s28x"]
+bg_color = Color(0.494118, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kihf"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn8nw"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxe2y"]
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_jydch"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_uccns"]
@@ -144,20 +162,7 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g0sg"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uoyy"]
-bg_color = Color(0.243137, 0.243137, 0.513726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s28x"]
-bg_color = Color(0.494118, 0.156863, 0.156863, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kihf"]
-bg_color = Color(0.243137, 0.243137, 0.513726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn8nw"]
-bg_color = Color(0.243137, 0.243137, 0.513726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxe2y"]
-bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+[sub_resource type="CanvasTexture" id="CanvasTexture_s7c5w"]
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_h26wk")
@@ -298,6 +303,121 @@ libraries = {
 "": SubResource("AnimationLibrary_j1xc0")
 }
 
+[node name="BuyingComponents" type="Control" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ZeroButton" type="TextureButton" parent="BasePanel/BuyingComponents"]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
+texture_filter = 1
+offset_left = 96.0
+offset_top = 954.0
+offset_right = 160.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("14_mjghg")
+texture_pressed = ExtResource("14_mjghg")
+texture_hover = ExtResource("14_mjghg")
+texture_disabled = ExtResource("14_mjghg")
+texture_focused = ExtResource("14_mjghg")
+stretch_mode = 0
+
+[node name="MinusButton" type="TextureButton" parent="BasePanel/BuyingComponents"]
+texture_filter = 1
+offset_left = 176.0
+offset_top = 954.0
+offset_right = 240.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("13_s8npn")
+texture_pressed = ExtResource("13_s8npn")
+texture_hover = ExtResource("13_s8npn")
+texture_disabled = ExtResource("13_s8npn")
+texture_focused = ExtResource("13_s8npn")
+stretch_mode = 0
+
+[node name="CountLabel" type="Label" parent="BasePanel/BuyingComponents" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 296.0
+offset_right = -20.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlusButton" type="TextureButton" parent="BasePanel/BuyingComponents"]
+texture_filter = 1
+offset_left = 340.0
+offset_top = 954.0
+offset_right = 404.0
+offset_bottom = 1018.0
+texture_normal = ExtResource("12_l6moq")
+texture_pressed = ExtResource("12_l6moq")
+texture_hover = ExtResource("12_l6moq")
+texture_disabled = ExtResource("12_l6moq")
+texture_focused = ExtResource("12_l6moq")
+stretch_mode = 0
+
+[node name="CashLabel" type="Label" parent="BasePanel/BuyingComponents" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 296.0
+offset_right = 192.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalStarPic" type="TextureRect" parent="BasePanel/BuyingComponents"]
+texture_filter = 1
+offset_left = 560.0
+offset_top = 954.0
+offset_right = 576.0
+offset_bottom = 970.0
+scale = Vector2(4, 4)
+texture = ExtResource("11_brr6w")
+
+[node name="BuyButton" type="Button" parent="BasePanel/BuyingComponents" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 428.0
+offset_right = 264.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uoyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5s28x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0kihf")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xn8nw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gxe2y")
+text = "buy
+"
+
 [node name="ShopLabel" type="Label" parent="BasePanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 8
@@ -315,6 +435,20 @@ theme_override_font_sizes/font_size = 63
 text = "shop"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarkerPic" type="TextureButton" parent="BasePanel"]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
+texture_filter = 1
+offset_left = 96.0
+offset_top = 488.0
+offset_right = 160.0
+offset_bottom = 552.0
+texture_normal = ExtResource("14_f311e")
+texture_pressed = ExtResource("14_f311e")
+texture_hover = ExtResource("14_f311e")
+texture_disabled = ExtResource("14_f311e")
+texture_focused = ExtResource("14_f311e")
+stretch_mode = 0
 
 [node name="ThornCheckBox" type="CheckBox" parent="BasePanel"]
 texture_filter = 1
@@ -345,12 +479,35 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6d6w3")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vt8of")
 theme_override_styles/focus = SubResource("StyleBoxTexture_7i2uq")
 
+[node name="ThornInfoBack" type="TextureRect" parent="BasePanel"]
+texture_filter = 1
+offset_left = 176.0
+offset_top = 558.0
+offset_right = 192.0
+offset_bottom = 574.0
+scale = Vector2(4, 4)
+texture = ExtResource("12_q3gvh")
+
+[node name="ThornInfoButton" type="TextureButton" parent="BasePanel"]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
+texture_filter = 1
+offset_left = 176.0
+offset_top = 558.0
+offset_right = 240.0
+offset_bottom = 622.0
+texture_normal = ExtResource("13_ymqsd")
+texture_pressed = ExtResource("13_ymqsd")
+texture_hover = ExtResource("13_ymqsd")
+texture_disabled = ExtResource("13_ymqsd")
+texture_focused = ExtResource("13_ymqsd")
+stretch_mode = 0
+
 [node name="ThornPic" type="TextureRect" parent="BasePanel"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 160.0
+offset_left = 240.0
 offset_top = 558.0
-offset_right = 176.0
+offset_right = 256.0
 offset_bottom = 574.0
 scale = Vector2(4, 4)
 texture = ExtResource("10_roaoq")
@@ -360,9 +517,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 224.0
+offset_left = 304.0
 offset_top = -100.0
-offset_right = 424.0
+offset_right = 504.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "thorn:"
@@ -392,94 +549,6 @@ offset_bottom = 574.0
 scale = Vector2(4, 4)
 texture = ExtResource("11_brr6w")
 
-[node name="ZeroButton" type="TextureButton" parent="BasePanel"]
-self_modulate = Color(0.878431, 0, 0.247059, 1)
-texture_filter = 1
-layout_mode = 0
-offset_left = 96.0
-offset_top = 954.0
-offset_right = 160.0
-offset_bottom = 1018.0
-texture_normal = ExtResource("14_mjghg")
-texture_pressed = ExtResource("14_mjghg")
-texture_hover = ExtResource("14_mjghg")
-texture_disabled = ExtResource("14_mjghg")
-texture_focused = ExtResource("14_mjghg")
-stretch_mode = 0
-
-[node name="MinusButton" type="TextureButton" parent="BasePanel"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 176.0
-offset_top = 954.0
-offset_right = 240.0
-offset_bottom = 1018.0
-texture_normal = ExtResource("13_s8npn")
-texture_pressed = ExtResource("13_s8npn")
-texture_hover = ExtResource("13_s8npn")
-texture_disabled = ExtResource("13_s8npn")
-texture_focused = ExtResource("13_s8npn")
-stretch_mode = 0
-
-[node name="CountLabel" type="Label" parent="BasePanel" groups=["localizable"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = 296.0
-offset_right = -20.0
-offset_bottom = 396.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "999"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlusButton" type="TextureButton" parent="BasePanel"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 340.0
-offset_top = 954.0
-offset_right = 404.0
-offset_bottom = 1018.0
-texture_normal = ExtResource("12_l6moq")
-texture_pressed = ExtResource("12_l6moq")
-texture_hover = ExtResource("12_l6moq")
-texture_disabled = ExtResource("12_l6moq")
-texture_focused = ExtResource("12_l6moq")
-stretch_mode = 0
-
-[node name="CheckLabel" type="Label" parent="BasePanel" groups=["localizable"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = 296.0
-offset_right = 192.0
-offset_bottom = 396.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "999"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="TotalStarPic" type="TextureRect" parent="BasePanel"]
-texture_filter = 1
-offset_left = 560.0
-offset_top = 954.0
-offset_right = 576.0
-offset_bottom = 970.0
-scale = Vector2(4, 4)
-texture = ExtResource("11_brr6w")
-
 [node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
 texture_filter = 1
 layout_mode = 1
@@ -503,31 +572,54 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_4g0sg")
 text = "back
 "
 
-[node name="BuyButton" type="Button" parent="BasePanel" groups=["localizable"]]
+[node name="InfoPanel" type="TextureRect" parent="BasePanel"]
+visible = false
+self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 64.0
-offset_top = 428.0
+offset_left = -264.0
+offset_top = -112.0
 offset_right = 264.0
-offset_bottom = 528.0
+offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxFlat_1uoyy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5s28x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0kihf")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_xn8nw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxe2y")
-text = "buy
-"
+texture = SubResource("CanvasTexture_s7c5w")
 
+[node name="CloseButton" type="TextureButton" parent="BasePanel/InfoPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("14_mjghg")
+texture_pressed = ExtResource("14_mjghg")
+texture_hover = ExtResource("14_mjghg")
+texture_disabled = ExtResource("14_mjghg")
+texture_focused = ExtResource("14_mjghg")
+stretch_mode = 0
+
+[node name="InfoLabel" type="Label" parent="BasePanel/InfoPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 448.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 36
+text = "sample text"
+
+[connection signal="pressed" from="BasePanel/BuyingComponents/ZeroButton" to="." method="_on_zero_button_pressed"]
+[connection signal="pressed" from="BasePanel/BuyingComponents/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="pressed" from="BasePanel/BuyingComponents/PlusButton" to="." method="_on_plus_button_pressed"]
+[connection signal="pressed" from="BasePanel/BuyingComponents/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="BasePanel/MarkerPic" to="." method="_on_zero_button_pressed"]
 [connection signal="toggled" from="BasePanel/ThornCheckBox" to="." method="_on_thorn_check_box_toggled"]
-[connection signal="pressed" from="BasePanel/ZeroButton" to="." method="_on_zero_button_pressed"]
-[connection signal="pressed" from="BasePanel/MinusButton" to="." method="_on_minus_button_pressed"]
-[connection signal="pressed" from="BasePanel/PlusButton" to="." method="_on_plus_button_pressed"]
+[connection signal="pressed" from="BasePanel/ThornInfoButton" to="." method="_on_thorn_info_button_pressed"]
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="BasePanel/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="BasePanel/InfoPanel/CloseButton" to="." method="_on_close_button_pressed"]
