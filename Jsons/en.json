@@ -13,6 +13,7 @@
 	"StatsButton": "stats",
 	"SettingsButton": "settings",
 	"ExitButton": "exit",
+	"ShopButton": "shop",
 	"StatsLabel": "stats",
 	"StatsQuickNameLabel": "max round (quick):",
 	"StatsLongNameLabel": "max round (long):",
@@ -24,5 +25,6 @@
 	"MessageLabel.Start": "protect salami with your thorns!",
 	"MessageLabel.Finish": "game over\nyou reached round ",
 	"MessageLabel.Record": "record!",
-	"RulesLabel": "1) you are porcupine\n2) cat is your opponent\n3) field is full of salami\n4) cat wants to get salami\n5) you should resist\n\n\"attacks\" - next attacks directions\n\"remaining\" - seconds until next attack\n\"round\" - current round number\n\"thorns\" - available thorns number\n\n\"new\" - restart game\n\"skip\" - finish turn ahead of time\n\n- salami click sets thorn\n- thorn click removes thorn"
+	"RulesLabel": "1) you are porcupine\n2) cat is your opponent\n3) field is full of salami\n4) cat wants to get salami\n5) you should resist\n\n\"attacks\" - next attacks directions\n\"remaining\" - seconds until next attack\n\"round\" - current round number\n\"thorns\" - available thorns number\n\n\"new\" - restart game\n\"skip\" - finish turn ahead of time\n\n- salami click sets thorn\n- thorn click removes thorn",
+	"ShopLabel": "shop"
 }

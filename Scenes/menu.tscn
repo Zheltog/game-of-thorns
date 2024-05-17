@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d06lanv8p7jhy"]
+[gd_scene load_steps=39 format=3 uid="uid://d06lanv8p7jhy"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_xh13t"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="2_oo61m"]
@@ -180,7 +180,10 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7lam"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+bg_color = Color(0.243137, 0.243137, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8ncg"]
+bg_color = Color(0.494118, 0.156863, 0.156863, 1)
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_xh13t")
@@ -494,7 +497,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7lam")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ygt2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t8ncg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fuls4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_yiivi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rgidg")
@@ -505,4 +508,4 @@ text = "shop"
 [connection signal="pressed" from="BasePanel/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="BasePanel/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="BasePanel/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="BasePanel/ShopButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="BasePanel/ShopButton" to="." method="_on_shop_button_pressed"]
