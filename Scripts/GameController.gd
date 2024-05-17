@@ -20,6 +20,7 @@ extends LocalizableCanvasLayer
 @export var message_label_start_localization_key: String = "MessageLabel.Start"
 @export var message_label_finish_localization_key: String = "MessageLabel.Finish"
 @export var message_label_record_localization_key: String = "MessageLabel.Record"
+@export var ad_view_price: int = 1
 
 var _init_thorns_num: int
 var _cells_num_hor: int
@@ -126,6 +127,8 @@ func _show_ad():
 		_ad.update_pic()
 		_ad_pic_initialized = true
 	_ad.show()
+	_save_data.cash += ad_view_price
+	SaveManager.save(_save_data)
 
 func _close_ad():
 	_ad.hide()
