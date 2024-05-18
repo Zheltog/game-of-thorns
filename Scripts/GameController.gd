@@ -38,6 +38,8 @@ var _timer_value_label: Label
 var _message_label: Label
 var _field: Field
 var _menu: ColorRect
+var _items_info: ColorRect
+var _items_info_label: Label
 var _next_attacks: Array[Field.AttackDirection]
 var _all_directions: Array
 var _can_move: bool
@@ -53,6 +55,8 @@ var _big_paw_anim_player: AnimationPlayer
 var _ad: Ad
 var _ads_enabled: bool
 var _ad_pic_initialized: bool = false
+var _items: Dictionary
+var _extra_thorns: int = 0
 
 enum CellProcessingType { SET, REMOVE, NONE }
 
@@ -68,6 +72,9 @@ func _ready():
 	_timer = get_node("Timer")
 	_field = get_node("Field")
 	_menu = get_node("MenuPanel")
+	_items_info = get_node("ItemsInfoPanel")
+	_items_info_label = get_node("ItemsInfoPanel/ItemsInfoLabel")
+	_items_info.hide()
 	_direction_sign_first = get_node("UpperPanel/DirectionSignFirst")
 	_direction_sign_second = get_node("UpperPanel/DirectionSignSecond")
 	_por_anim_player = get_node("Porcupine/AnimationPlayer")
@@ -82,6 +89,7 @@ func _ready():
 	_ad.hide()
 	_ads_enabled = _save_data.ads_enabled
 	if _ads_enabled:
+		_items = _save_data.items
 		var ad_config_dict = StorageManager.read_from(Ad.ad_config_json_name)
 		var ad_config = AdConfig.new(ad_config_dict)
 		_save_data.ad_pic_link = ad_config.pic_link
@@ -93,6 +101,20 @@ func _ready():
 
 func _process(delta: float):
 	_timer_value_label.text = str(_timer.time_left as int)
+
+func _process_items():
+	_items_info.show()
+	var _items_string: String
+	for _item_name in _items:
+		var count = _items[_item_name]
+		if _item_name == "thorn":
+			_extra_thorns = count
+		_items_string += _item_name + ": " + str(count) + "\n"
+	var _original_info_text = _items_info_label.text
+	_items_info_label.text += str("\n\n", _items_string)
+	_items.clear()
+	_save_data.items = _items
+	SaveManager.save(_save_data)
 
 func _input(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -141,6 +163,9 @@ func _restart_game():
 		_new_game()
 
 func _new_game():
+	if not _items.is_empty():
+		_process_items()
+		return
 	_round_value_label.text = ""
 	_thorns_value_label.text = ""
 	_direction_sign_first.clear()
@@ -148,9 +173,9 @@ func _new_game():
 	_field.show()
 	_field.init(_cells_num_hor, _cells_num_ver, remove_all_pause_sec, remove_thorn_pause_sec)
 	_field.reset_cells_thorned()
-	_menu.hide()
 	_current_thorns_num = _init_thorns_num
-	_thorns_remaining = 0
+	_thorns_remaining = _extra_thorns
+	_extra_thorns = 0
 	_round_number = 0
 	_current_init_timer_sec = _init_timer_sec
 	_next_round()
@@ -295,6 +320,8 @@ func _on_next_button_pressed():
 	_finish_round()
 
 func _on_play_button_pressed():
+	if _menu.visible:
+		_menu.hide()
 	if _round_number > 0:
 		_restart_game()
 	else:
@@ -311,3 +338,7 @@ func _on_how_to_play_button_pressed():
 
 func _on_timer_timeout():
 	_process_timer_timeout()
+
+func _on_ok_button_pressed():
+	_items_info.hide()
+	_new_game()

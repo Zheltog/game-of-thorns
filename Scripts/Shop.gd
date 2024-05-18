@@ -2,6 +2,7 @@ extends LocalizableCanvasLayer
 
 static var goods_file_name: String = "res://Jsons/goods.json"
 static var thorn_name: String = "thorn"
+static var info_postfix: String = ".info"
 
 var _save_data: SaveData
 var _thorn_price_label: Label
@@ -49,7 +50,7 @@ func _process(delta):
 	pass
 
 func _update_count_stuff():
-	_count_label.text = str(_total_count + _extra_count)
+	_count_label.text = str("x", _total_count + _extra_count)
 	if _extra_count == 0:
 		if _zero_button.visible:
 			_zero_button.hide()
@@ -117,7 +118,8 @@ func _on_plus_button_pressed():
 		_update_count_stuff()
 
 func _on_thorn_info_button_pressed():
-	_info_label.text = "sample text"
+	var localization_name = str(thorn_name, info_postfix)
+	_info_label.text = LocalManager.localization.get(localization_name)
 	_info_panel.show()
 
 func _on_close_button_pressed():

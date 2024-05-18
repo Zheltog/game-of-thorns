@@ -292,21 +292,6 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8wj8"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioiu3"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biid6"]
-bg_color = Color(0.305882, 0.505882, 0.505882, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy66"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gwml"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jus0x"]
-bg_color = Color(0.137255, 0.243137, 0.243137, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npuni"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
@@ -320,6 +305,21 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpcsi"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioiu3"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biid6"]
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywy66"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gwml"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jus0x"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [node name="Base" type="CanvasLayer"]
@@ -683,6 +683,55 @@ offset_bottom = 80.0
 scale = Vector2(4, 4)
 texture = ExtResource("11_a7v3e")
 
+[node name="ItemsInfoPanel" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 0.25098)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OkButton" type="Button" parent="ItemsInfoPanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 164.0
+offset_right = 150.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_npuni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_st6p5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7xkob")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t4wjt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gpcsi")
+text = "ok"
+
+[node name="ItemsInfoLabel" type="Label" parent="ItemsInfoPanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -352.0
+offset_right = 296.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "sample text!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="MenuPanel" type="ColorRect" parent="."]
 self_modulate = Color(0, 0, 0, 0.25098)
 anchors_preset = 15
@@ -782,6 +831,7 @@ visible = false
 [connection signal="pressed" from="UpperPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="DownPanel/ReplayButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="DownPanel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="ItemsInfoPanel/OkButton" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="MenuPanel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="MenuPanel/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]

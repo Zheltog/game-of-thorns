@@ -28,5 +28,7 @@
 	"RulesLabel": "1) you are porcupine\n2) cat is your opponent\n3) field is full of salami\n4) cat wants to get salami\n5) you should resist\n\n\"attacks\" - next attacks directions\n\"remaining\" - seconds until next attack\n\"round\" - current round number\n\"thorns\" - available thorns number\n\n\"new\" - restart game\n\"skip\" - finish turn ahead of time\n\n- salami click sets thorn\n- thorn click removes thorn",
 	"ShopLabel": "shop",
 	"BuyButton": "buy",
-	"ThornNameLabel": "thorn:"
+	"ThornNameLabel": "thorn:",
+	"thorn.info": "additional simple thorn (applies only for the next started battle)",
+	"ItemsInfoLabel": "you got extra items!\nthey will be applied for this battle only!"
 }
