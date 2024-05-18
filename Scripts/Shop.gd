@@ -2,10 +2,10 @@ extends LocalizableCanvasLayer
 
 static var goods_file_name: String = "res://Jsons/goods.json"
 static var thorn_name: String = "thorn"
+static var name_postfix: String = ".name"
 static var info_postfix: String = ".info"
 
 var _save_data: SaveData
-var _thorn_price_label: Label
 var _info_panel: TextureRect
 var _info_label: Label
 var _buying_components: Node
@@ -23,16 +23,19 @@ var _current_price: int
 var _current_good: String
 var _goods: Dictionary
 var _items: Dictionary
+var _thorn_good: Good
 
 func _ready():
 	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
+	EventBus.choose_good.connect(_choose_good)
+	EventBus.unchoose_good.connect(_unchoose_good)
 	_save_data = SaveManager.load()
 	_total_cash = _save_data.cash
 	_items = _save_data.items
 	print(_items)
 	_goods = StorageManager.read_from(goods_file_name)
-	_thorn_price_label = get_node("BasePanel/ThornPriceLabel")
-	_thorn_price_label.text = str(_goods[thorn_name])
+	_thorn_good = $BasePanel/ThornGood
+	_thorn_good.initialize(LocalManager.localization.get(str(thorn_name, name_postfix)), _goods[thorn_name])
 	_info_panel = get_node("BasePanel/InfoPanel")
 	_info_panel.hide()
 	_info_label = get_node("BasePanel/InfoPanel/InfoLabel")
@@ -48,6 +51,12 @@ func _ready():
 
 func _process(delta):
 	pass
+
+func _choose_good(name: String):
+	_on_thorn_check_box_toggled(true)
+
+func _unchoose_good(name: String):
+	_on_thorn_check_box_toggled(false)
 
 func _update_count_stuff():
 	_count_label.text = str("x", _total_count + _extra_count)

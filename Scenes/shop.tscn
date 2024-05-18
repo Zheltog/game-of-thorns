@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b6x4j3pu8eonn"]
+[gd_scene load_steps=46 format=3 uid="uid://b6x4j3pu8eonn"]
 
 [ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_h26wk"]
 [ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_ygko4"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dikw5dwnmnbk2" path="res://Sprites/question.png" id="13_ymqsd"]
 [ext_resource type="Texture2D" uid="uid://3sp2ibjt8vmj" path="res://Sprites/down.png" id="14_f311e"]
 [ext_resource type="Texture2D" uid="uid://b0cgrrkj36r5d" path="res://Sprites/cross.png" id="14_mjghg"]
+[ext_resource type="PackedScene" uid="uid://cybwt7wkvv4rt" path="res://Scenes/good.tscn" id="20_fk6xt"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -456,18 +457,16 @@ texture_focused = ExtResource("14_f311e")
 stretch_mode = 0
 
 [node name="ThornCheckBox" type="CheckBox" parent="BasePanel"]
+visible = false
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -624.0
+offset_left = 96.0
 offset_top = -82.0
-offset_right = -560.0
+offset_right = 160.0
 offset_bottom = -18.0
-grow_horizontal = 0
 grow_vertical = 2
 theme_override_icons/checked = ExtResource("10_ik63x")
 theme_override_icons/checked_disabled = ExtResource("10_ik63x")
@@ -485,23 +484,33 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vt8of")
 theme_override_styles/focus = SubResource("StyleBoxTexture_7i2uq")
 
 [node name="ThornInfoBack" type="TextureRect" parent="BasePanel"]
+visible = false
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 176.0
-offset_top = 558.0
+offset_top = -82.0
 offset_right = 192.0
-offset_bottom = 574.0
+offset_bottom = -66.0
+grow_vertical = 2
 scale = Vector2(4, 4)
 texture = ExtResource("12_q3gvh")
 
 [node name="ThornInfoButton" type="TextureButton" parent="BasePanel"]
+visible = false
 self_modulate = Color(0.878431, 0, 0.247059, 1)
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 176.0
-offset_top = 558.0
+offset_top = -82.0
 offset_right = 240.0
-offset_bottom = 622.0
+offset_bottom = -18.0
+grow_vertical = 2
 texture_normal = ExtResource("13_ymqsd")
 texture_pressed = ExtResource("13_ymqsd")
 texture_hover = ExtResource("13_ymqsd")
@@ -510,16 +519,22 @@ texture_focused = ExtResource("13_ymqsd")
 stretch_mode = 0
 
 [node name="ThornPic" type="TextureRect" parent="BasePanel"]
+visible = false
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
 offset_left = 240.0
-offset_top = 558.0
+offset_top = -82.0
 offset_right = 256.0
-offset_bottom = 574.0
+offset_bottom = -66.0
+grow_vertical = 2
 scale = Vector2(4, 4)
 texture = ExtResource("10_roaoq")
 
 [node name="ThornNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -533,13 +548,17 @@ text = "thorn:"
 vertical_alignment = 1
 
 [node name="ThornPriceLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+visible = false
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 452.0
+offset_left = -268.0
 offset_top = -100.0
-offset_right = 552.0
+offset_right = -168.0
+grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "99"
@@ -547,12 +566,20 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ThornStarPic" type="TextureRect" parent="BasePanel"]
+visible = false
 texture_filter = 1
-layout_mode = 0
-offset_left = 560.0
-offset_top = 558.0
-offset_right = 576.0
-offset_bottom = 574.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -82.0
+offset_right = -144.0
+offset_bottom = -66.0
+grow_horizontal = 0
+grow_vertical = 2
 scale = Vector2(4, 4)
 texture = ExtResource("11_brr6w")
 
@@ -621,6 +648,11 @@ offset_bottom = 392.0
 theme_override_font_sizes/font_size = 36
 text = "sample text"
 autowrap_mode = 2
+
+[node name="ThornGood" parent="BasePanel" instance=ExtResource("20_fk6xt")]
+layout_mode = 1
+offset_top = 540.0
+offset_bottom = -640.0
 
 [connection signal="pressed" from="BasePanel/BuyingComponents/ZeroButton" to="." method="_on_zero_button_pressed"]
 [connection signal="pressed" from="BasePanel/BuyingComponents/MinusButton" to="." method="_on_minus_button_pressed"]

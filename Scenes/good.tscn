@@ -1,0 +1,173 @@
+[gd_scene load_steps=20 format=3 uid="uid://cybwt7wkvv4rt"]
+
+[ext_resource type="Script" path="res://Scripts/Good.gd" id="1_lafwh"]
+[ext_resource type="Texture2D" uid="uid://dsrijfuwektr2" path="res://Sprites/checkbox_yes.png" id="1_xlxre"]
+[ext_resource type="Texture2D" uid="uid://bmwxbklbkgq6f" path="res://Sprites/checkbox_no.png" id="2_xql10"]
+[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="3_sevub"]
+[ext_resource type="Texture2D" uid="uid://dikw5dwnmnbk2" path="res://Sprites/question.png" id="4_pimfb"]
+[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="5_e3iru"]
+[ext_resource type="Texture2D" uid="uid://bb1x3vp2eafla" path="res://Sprites/star.png" id="6_3so6t"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gt826"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4w0l4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x04nq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3igdf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rxq5e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nhyic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pg2f1"]
+texture = ExtResource("2_xql10")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drxit"]
+texture = ExtResource("2_xql10")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eu61g"]
+texture = ExtResource("2_xql10")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dxjku"]
+texture = ExtResource("2_xql10")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyvt2"]
+texture = ExtResource("2_xql10")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_boltj"]
+texture = ExtResource("2_xql10")
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lafwh")
+
+[node name="CheckBox" type="CheckBox" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = -32.0
+offset_right = 160.0
+offset_bottom = 32.0
+grow_vertical = 2
+theme_override_icons/checked = ExtResource("1_xlxre")
+theme_override_icons/checked_disabled = ExtResource("1_xlxre")
+theme_override_icons/unchecked = SubResource("CanvasTexture_gt826")
+theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_4w0l4")
+theme_override_icons/radio_checked = SubResource("CanvasTexture_x04nq")
+theme_override_icons/radio_checked_disabled = SubResource("CanvasTexture_3igdf")
+theme_override_icons/radio_unchecked = SubResource("CanvasTexture_rxq5e")
+theme_override_icons/radio_unchecked_disabled = SubResource("CanvasTexture_nhyic")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pg2f1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_drxit")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_eu61g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dxjku")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kyvt2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_boltj")
+
+[node name="InfoBack" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = -32.0
+offset_right = 192.0
+offset_bottom = -16.0
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("3_sevub")
+
+[node name="InfoButton" type="TextureButton" parent="."]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = -32.0
+offset_right = 240.0
+offset_bottom = 32.0
+grow_vertical = 2
+texture_normal = ExtResource("4_pimfb")
+texture_pressed = ExtResource("4_pimfb")
+texture_hover = ExtResource("4_pimfb")
+texture_disabled = ExtResource("4_pimfb")
+texture_focused = ExtResource("4_pimfb")
+stretch_mode = 0
+
+[node name="Pic" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = -32.0
+offset_right = 256.0
+offset_bottom = -16.0
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("5_e3iru")
+
+[node name="NameLabel" type="Label" parent="." groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -50.0
+offset_right = 504.0
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "good:"
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="." groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -50.0
+offset_right = -168.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StarPic" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -32.0
+offset_right = -144.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("6_3so6t")
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
