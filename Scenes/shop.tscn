@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b6x4j3pu8eonn"]
+[gd_scene load_steps=29 format=3 uid="uid://b6x4j3pu8eonn"]
 
 [ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_h26wk"]
 [ext_resource type="Texture2D" uid="uid://y8ktum23l0xy" path="res://Sprites/logo_paw.png" id="2_ygko4"]
@@ -9,14 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_a24jj"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="8_neews"]
 [ext_resource type="Texture2D" uid="uid://c241iftl0fxm2" path="res://Sprites/logo_no_back.png" id="9_fdgj8"]
-[ext_resource type="Texture2D" uid="uid://dsrijfuwektr2" path="res://Sprites/checkbox_yes.png" id="10_ik63x"]
-[ext_resource type="Texture2D" uid="uid://dhiwskk6mp05p" path="res://Sprites/thorn.png" id="10_roaoq"]
 [ext_resource type="Texture2D" uid="uid://bb1x3vp2eafla" path="res://Sprites/star.png" id="11_brr6w"]
-[ext_resource type="Texture2D" uid="uid://bmwxbklbkgq6f" path="res://Sprites/checkbox_no.png" id="11_jbl2a"]
 [ext_resource type="Texture2D" uid="uid://c3ewnw7d0htvs" path="res://Sprites/plus.png" id="12_l6moq"]
-[ext_resource type="Texture2D" uid="uid://ok0difxqjo0i" path="res://Sprites/cell.png" id="12_q3gvh"]
 [ext_resource type="Texture2D" uid="uid://byswmymxctjjp" path="res://Sprites/minus.png" id="13_s8npn"]
-[ext_resource type="Texture2D" uid="uid://dikw5dwnmnbk2" path="res://Sprites/question.png" id="13_ymqsd"]
 [ext_resource type="Texture2D" uid="uid://3sp2ibjt8vmj" path="res://Sprites/down.png" id="14_f311e"]
 [ext_resource type="Texture2D" uid="uid://b0cgrrkj36r5d" path="res://Sprites/cross.png" id="14_mjghg"]
 [ext_resource type="PackedScene" uid="uid://cybwt7wkvv4rt" path="res://Scenes/good.tscn" id="20_fk6xt"]
@@ -118,35 +113,7 @@ bg_color = Color(0.243137, 0.243137, 0.513726, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxe2y"]
 bg_color = Color(0.243137, 0.243137, 0.513726, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_jydch"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_uccns"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_pwr4s"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_or8gs"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_1500i"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_0ckc7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpihs"]
-texture = ExtResource("11_jbl2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1csm"]
-texture = ExtResource("11_jbl2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojfqe"]
-texture = ExtResource("11_jbl2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6d6w3"]
-texture = ExtResource("11_jbl2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vt8of"]
-texture = ExtResource("11_jbl2a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7i2uq"]
-texture = ExtResource("11_jbl2a")
+[sub_resource type="CanvasTexture" id="CanvasTexture_s7c5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd2b1"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
@@ -162,8 +129,6 @@ bg_color = Color(0.137255, 0.243137, 0.243137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g0sg"]
 bg_color = Color(0.137255, 0.243137, 0.243137, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_s7c5w"]
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_h26wk")
@@ -456,155 +421,10 @@ texture_disabled = ExtResource("14_f311e")
 texture_focused = ExtResource("14_f311e")
 stretch_mode = 0
 
-[node name="ThornCheckBox" type="CheckBox" parent="BasePanel"]
-visible = false
-texture_filter = 1
+[node name="ThornGood" parent="BasePanel" instance=ExtResource("20_fk6xt")]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = -82.0
-offset_right = 160.0
-offset_bottom = -18.0
-grow_vertical = 2
-theme_override_icons/checked = ExtResource("10_ik63x")
-theme_override_icons/checked_disabled = ExtResource("10_ik63x")
-theme_override_icons/unchecked = SubResource("CanvasTexture_jydch")
-theme_override_icons/unchecked_disabled = SubResource("CanvasTexture_uccns")
-theme_override_icons/radio_checked = SubResource("CanvasTexture_pwr4s")
-theme_override_icons/radio_checked_disabled = SubResource("CanvasTexture_or8gs")
-theme_override_icons/radio_unchecked = SubResource("CanvasTexture_1500i")
-theme_override_icons/radio_unchecked_disabled = SubResource("CanvasTexture_0ckc7")
-theme_override_styles/normal = SubResource("StyleBoxTexture_fpihs")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_d1csm")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ojfqe")
-theme_override_styles/hover = SubResource("StyleBoxTexture_6d6w3")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vt8of")
-theme_override_styles/focus = SubResource("StyleBoxTexture_7i2uq")
-
-[node name="ThornInfoBack" type="TextureRect" parent="BasePanel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 176.0
-offset_top = -82.0
-offset_right = 192.0
-offset_bottom = -66.0
-grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("12_q3gvh")
-
-[node name="ThornInfoButton" type="TextureButton" parent="BasePanel"]
-visible = false
-self_modulate = Color(0.878431, 0, 0.247059, 1)
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 176.0
-offset_top = -82.0
-offset_right = 240.0
-offset_bottom = -18.0
-grow_vertical = 2
-texture_normal = ExtResource("13_ymqsd")
-texture_pressed = ExtResource("13_ymqsd")
-texture_hover = ExtResource("13_ymqsd")
-texture_disabled = ExtResource("13_ymqsd")
-texture_focused = ExtResource("13_ymqsd")
-stretch_mode = 0
-
-[node name="ThornPic" type="TextureRect" parent="BasePanel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 240.0
-offset_top = -82.0
-offset_right = 256.0
-offset_bottom = -66.0
-grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("10_roaoq")
-
-[node name="ThornNameLabel" type="Label" parent="BasePanel" groups=["localizable"]]
-visible = false
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 304.0
-offset_top = -100.0
-offset_right = 504.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "thorn:"
-vertical_alignment = 1
-
-[node name="ThornPriceLabel" type="Label" parent="BasePanel" groups=["localizable"]]
-visible = false
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -268.0
-offset_top = -100.0
-offset_right = -168.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "99"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ThornStarPic" type="TextureRect" parent="BasePanel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -82.0
-offset_right = -144.0
-offset_bottom = -66.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("11_brr6w")
-
-[node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -264.0
-offset_top = 428.0
-offset_right = -64.0
-offset_bottom = 528.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxFlat_pd2b1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7lr31")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6rrdb")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_adher")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4g0sg")
-text = "back
-"
+offset_top = 540.0
+offset_bottom = -640.0
 
 [node name="InfoPanel" type="TextureRect" parent="BasePanel"]
 visible = false
@@ -649,17 +469,33 @@ theme_override_font_sizes/font_size = 36
 text = "sample text"
 autowrap_mode = 2
 
-[node name="ThornGood" parent="BasePanel" instance=ExtResource("20_fk6xt")]
+[node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
+texture_filter = 1
 layout_mode = 1
-offset_top = 540.0
-offset_bottom = -640.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = 428.0
+offset_right = -64.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_pd2b1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lr31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6rrdb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_adher")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4g0sg")
+text = "back
+"
 
 [connection signal="pressed" from="BasePanel/BuyingComponents/ZeroButton" to="." method="_on_zero_button_pressed"]
 [connection signal="pressed" from="BasePanel/BuyingComponents/MinusButton" to="." method="_on_minus_button_pressed"]
 [connection signal="pressed" from="BasePanel/BuyingComponents/PlusButton" to="." method="_on_plus_button_pressed"]
 [connection signal="pressed" from="BasePanel/BuyingComponents/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="BasePanel/MarkerPic" to="." method="_on_zero_button_pressed"]
-[connection signal="toggled" from="BasePanel/ThornCheckBox" to="." method="_on_thorn_check_box_toggled"]
-[connection signal="pressed" from="BasePanel/ThornInfoButton" to="." method="_on_thorn_info_button_pressed"]
-[connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BasePanel/InfoPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]

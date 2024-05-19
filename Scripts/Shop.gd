@@ -2,7 +2,6 @@ extends LocalizableCanvasLayer
 
 static var goods_file_name: String = "res://Jsons/goods.json"
 static var thorn_name: String = "thorn"
-static var name_postfix: String = ".name"
 static var info_postfix: String = ".info"
 
 var _save_data: SaveData
@@ -29,13 +28,14 @@ func _ready():
 	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	EventBus.choose_good.connect(_choose_good)
 	EventBus.unchoose_good.connect(_unchoose_good)
+	EventBus.open_good_info.connect(_open_good_info)
 	_save_data = SaveManager.load()
 	_total_cash = _save_data.cash
 	_items = _save_data.items
 	print(_items)
 	_goods = StorageManager.read_from(goods_file_name)
 	_thorn_good = $BasePanel/ThornGood
-	_thorn_good.initialize(LocalManager.localization.get(str(thorn_name, name_postfix)), _goods[thorn_name])
+	_thorn_good.initialize(thorn_name, _goods[thorn_name])
 	_info_panel = get_node("BasePanel/InfoPanel")
 	_info_panel.hide()
 	_info_label = get_node("BasePanel/InfoPanel/InfoLabel")
@@ -53,10 +53,22 @@ func _process(delta):
 	pass
 
 func _choose_good(name: String):
-	_on_thorn_check_box_toggled(true)
+	_current_good = name
+	_current_price = _goods[name]
+	_total_count = _items.get(name, 0)
+	_extra_count = 0
+	_update_cash_stuff()
+	_update_count_stuff()
+	_buying_components.show()
 
 func _unchoose_good(name: String):
-	_on_thorn_check_box_toggled(false)
+	_current_good = ""
+	_buying_components.hide()
+
+func _open_good_info(name: String):
+	var localization_name = str(name, info_postfix)
+	_info_label.text = LocalManager.localization.get(localization_name)
+	_info_panel.show()
 
 func _update_count_stuff():
 	_count_label.text = str("x", _total_count + _extra_count)
@@ -95,19 +107,6 @@ func _on_buy_button_pressed():
 	_save_data.items[_current_good] = _total_count
 	SaveManager.save(_save_data)
 
-func _on_thorn_check_box_toggled(button_pressed):
-	if button_pressed:
-		_current_price = _goods[thorn_name]
-		_total_count = _items.get(thorn_name, 0)
-		_extra_count = 0
-		_current_good = thorn_name
-		_update_cash_stuff()
-		_update_count_stuff()
-		_buying_components.show()
-	else:
-		_current_good = ""
-		_buying_components.hide()
-
 func _on_zero_button_pressed():
 	_extra_count = 0
 	_current_cash = _total_cash
@@ -125,11 +124,6 @@ func _on_plus_button_pressed():
 		_extra_count += 1
 		_update_cash_stuff()
 		_update_count_stuff()
-
-func _on_thorn_info_button_pressed():
-	var localization_name = str(thorn_name, info_postfix)
-	_info_label.text = LocalManager.localization.get(localization_name)
-	_info_panel.show()
 
 func _on_close_button_pressed():
 	_info_panel.hide()

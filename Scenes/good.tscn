@@ -171,3 +171,4 @@ scale = Vector2(4, 4)
 texture = ExtResource("6_3so6t")
 
 [connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
