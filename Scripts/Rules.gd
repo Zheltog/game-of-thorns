@@ -1,11 +1,18 @@
+class_name Rules
+
 extends LocalizableCanvasLayer
 
+static var logo_anim_name = "logo_anim"
+static var main_scene_name = "res://Scenes/main.tscn"
+
+@onready var _animation_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+
 func _ready():
-	($BasePanel/LogoBase/AnimationPlayer).play("logo_anim")
 	_localize_stuff()
+	_animation_player.play(logo_anim_name)
 
 func _on_back_button_pressed():
 	_back()
 
 func _back():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file(main_scene_name)

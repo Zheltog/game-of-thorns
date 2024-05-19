@@ -2,14 +2,13 @@ class_name DirectionSign
 
 extends Control
 
+@onready var _texture_rect: TextureRect = $TextureRect
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 var _direction_pics: Dictionary = {}
 var _current_direction: Field.AttackDirection
-var _anim_player: AnimationPlayer
-var _texture_rect: TextureRect
 
 func _ready():
-	_anim_player = get_node("AnimationPlayer")
-	_texture_rect = get_node("TextureRect")
 	for direction in Field.AttackDirection:
 		var dir_str = str(direction)
 		var pic_path = str("res://Sprites/", direction.to_lower(), ".png")
@@ -24,7 +23,7 @@ func clear():
 
 func play_animation():
 	var anim_name = (Field.AttackDirection.keys()[_current_direction]).to_lower()
-	_anim_player.play(anim_name)
+	_animation_player.play(anim_name)
 
 func stop_animation():
-	_anim_player.stop()
+	_animation_player.stop()

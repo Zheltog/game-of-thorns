@@ -24,7 +24,6 @@ func set_localization(lang: String):
 		return
 	var local_file_name = str("res://Jsons/", code, ".json")
 	localization = StorageManager.read_from(local_file_name)
-	pass
 
 func try_localize(node: Node):
 	var node_class = node.get_class()

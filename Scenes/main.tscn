@@ -437,6 +437,15 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_tn880")
 text = "??? "
 alignment = 2
 
+[node name="RulesPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 0
+offset_top = -112.0
+offset_right = 16.0
+offset_bottom = -96.0
+scale = Vector2(4, 4)
+texture = ExtResource("6_1cijc")
+
 [node name="MenuButton" type="Button" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 3
@@ -458,6 +467,16 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_tn880")
 text = "menu "
 alignment = 2
 
+[node name="ExitPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = -112.0
+offset_right = 184.0
+offset_bottom = -96.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_y71lx")
+
 [node name="NextAttacksNameLabel" type="Label" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
 offset_left = 64.0
@@ -465,6 +484,24 @@ offset_right = 223.0
 offset_bottom = 61.0
 theme_override_font_sizes/font_size = 42
 text = "attacks:"
+
+[node name="DirectionSignFirst" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
+offset_left = 240.0
+offset_right = 240.0
+scale = Vector2(4, 4)
+
+[node name="DirectionSignSecond" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
+offset_left = 304.0
+offset_right = 304.0
+scale = Vector2(4, 4)
+
+[node name="AttackPic" type="TextureRect" parent="UpperPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+texture = ExtResource("6_4ophl")
 
 [node name="TimerNameLabel" type="Label" parent="UpperPanel" groups=["localizable"]]
 layout_mode = 1
@@ -492,43 +529,6 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
-
-[node name="RulesPic" type="TextureRect" parent="UpperPanel"]
-texture_filter = 1
-layout_mode = 0
-offset_top = -112.0
-offset_right = 16.0
-offset_bottom = -96.0
-scale = Vector2(4, 4)
-texture = ExtResource("6_1cijc")
-
-[node name="ExitPic" type="TextureRect" parent="UpperPanel"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 168.0
-offset_top = -112.0
-offset_right = 184.0
-offset_bottom = -96.0
-scale = Vector2(4, 4)
-texture = ExtResource("5_y71lx")
-
-[node name="AttackPic" type="TextureRect" parent="UpperPanel"]
-texture_filter = 1
-layout_mode = 1
-offset_right = 16.0
-offset_bottom = 16.0
-scale = Vector2(4, 4)
-texture = ExtResource("6_4ophl")
-
-[node name="DirectionSignFirst" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
-offset_left = 240.0
-offset_right = 240.0
-scale = Vector2(4, 4)
-
-[node name="DirectionSignSecond" parent="UpperPanel" instance=ExtResource("7_wi8oq")]
-offset_left = 304.0
-offset_right = 304.0
-scale = Vector2(4, 4)
 
 [node name="TImerPic" type="TextureRect" parent="UpperPanel"]
 texture_filter = 1
@@ -570,6 +570,14 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
+[node name="RoundPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+texture = ExtResource("10_6lca8")
+
 [node name="ThornsNameLabel" type="Label" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
@@ -597,6 +605,15 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 horizontal_alignment = 2
 
+[node name="ThornPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = 80.0
+scale = Vector2(4, 4)
+texture = ExtResource("11_a7v3e")
+
 [node name="ReplayButton" type="Button" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
 anchors_preset = 2
@@ -614,6 +631,19 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_7h2sm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
 text = "new "
 alignment = 2
+
+[node name="ResetPic" type="TextureRect" parent="DownPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 64.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("8_u1muo")
 
 [node name="NextButton" type="Button" parent="DownPanel" groups=["localizable"]]
 layout_mode = 1
@@ -636,19 +666,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_n8wj8")
 text = "skip "
 alignment = 2
 
-[node name="ResetPic" type="TextureRect" parent="DownPanel"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = 48.0
-offset_right = 16.0
-offset_bottom = 64.0
-grow_vertical = 0
-scale = Vector2(4, 4)
-texture = ExtResource("8_u1muo")
-
 [node name="NextPic" type="TextureRect" parent="DownPanel"]
 texture_filter = 1
 layout_mode = 1
@@ -665,23 +682,6 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(4, 4)
 texture = ExtResource("9_txn78")
-
-[node name="RoundPic" type="TextureRect" parent="DownPanel"]
-texture_filter = 1
-layout_mode = 1
-offset_right = 16.0
-offset_bottom = 16.0
-scale = Vector2(4, 4)
-texture = ExtResource("10_6lca8")
-
-[node name="ThornPic" type="TextureRect" parent="DownPanel"]
-texture_filter = 1
-layout_mode = 1
-offset_top = 64.0
-offset_right = 16.0
-offset_bottom = 80.0
-scale = Vector2(4, 4)
-texture = ExtResource("11_a7v3e")
 
 [node name="ItemsInfoPanel" type="ColorRect" parent="."]
 visible = false

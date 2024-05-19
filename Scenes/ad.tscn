@@ -30,6 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CloseButton" type="TextureButton" parent="."]
+self_modulate = Color(0.878431, 0, 0.247059, 1)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
