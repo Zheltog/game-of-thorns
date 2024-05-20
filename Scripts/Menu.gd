@@ -11,7 +11,7 @@ static var logo_anim_name = "logo_anim"
 
 @onready var _shop_button: Button = $BasePanel/ShopButton
 @onready var _version_label: Label = $BasePanel/VersionLabel
-@onready var _animation_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
 
 var _save_data: SaveData
 
@@ -27,7 +27,7 @@ func _ready():
 	else:
 		_shop_button.hide()
 	
-	_animation_player.play(logo_anim_name)
+	_anim_player.play(logo_anim_name)
 
 func _on_play_quick_button_pressed():
 	_play(GameSettings.Mode.QUICK)

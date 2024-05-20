@@ -3,12 +3,12 @@ class_name Shop
 extends LocalizableCanvasLayer
 
 static var menu_scene_name = "res://Scenes/menu.tscn"
-static var goods_file_name: String = "res://Jsons/goods.json"
-static var thorn_name: String = "thorn"
-static var info_postfix: String = ".info"
+static var goods_file_name = "res://Jsons/goods.json"
+static var thorn_name = "thorn"
+static var info_postfix = ".info"
 static var logo_anim_name = "logo_anim"
 
-@onready var _animation_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
 @onready var _info_panel: TextureRect = $BasePanel/InfoPanel
 @onready var _info_label: Label = $BasePanel/InfoPanel/InfoLabel
 @onready var _buying_components: Control = $BasePanel/BuyingComponents
@@ -42,7 +42,7 @@ func _ready():
 	_info_panel.hide()
 	_buying_components.hide()
 	_localize_stuff()
-	_animation_player.play(logo_anim_name)
+	_anim_player.play(logo_anim_name)
 
 func _choose_good(name: String):
 	_current_good = name
@@ -88,6 +88,7 @@ func _on_buy_button_pressed():
 	_save_data.cash = _total_cash
 	_save_data.items[_current_good] = _total_count
 	SaveManager.save(_save_data)
+	_unchoose_good(_current_good)
 
 func _on_close_button_pressed():
 	_info_panel.hide()

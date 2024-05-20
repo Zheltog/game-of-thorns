@@ -1,6 +1,6 @@
 class_name SaveManager
 
-static var save_file_name: String = "user://save.data"
+static var save_file_name = "user://save.data"
 
 static func save(data: SaveData):
 	StorageManager.write_to(save_file_name, data.to_dictionary())

@@ -5,7 +5,7 @@ extends LocalizableCanvasLayer
 static var logo_anim_name = "logo_anim"
 static var menu_scene_name = "res://Scenes/menu.tscn"
 
-@onready var _animation_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
 @onready var _stats_quick_value_label: Label = $BasePanel/StatsQuickValueLabel
 @onready var _stats_long_value_label: Label = $BasePanel/StatsLongValueLabel
 @onready var _stats_reset_button: Button = $BasePanel/StatsResetButton
@@ -17,7 +17,7 @@ func _ready():
 	_save_data = SaveManager.load()
 	_update_value_labels()
 	_localize_stuff()
-	_animation_player.play(logo_anim_name)
+	_anim_player.play(logo_anim_name)
 
 func _update_value_labels():
 	_stats_quick_value_label.text = str(_save_data.record_round_quick)

@@ -7,7 +7,7 @@ static var logo_anim_name = "logo_anim"
 @onready var _ads_check_box: CheckBox = $BasePanel/AdsCheckBox
 @onready var _lang_button: Button = $BasePanel/LangButton
 @onready var _lang_popup: PopupMenu = $BasePanel/LangPopupMenu
-@onready var _animation_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
 
 var _save_data: SaveData
 
@@ -16,7 +16,7 @@ func _ready():
 	_ads_check_box.button_pressed = _save_data.ads_enabled
 	_init_lang_options()
 	_localize_stuff()
-	_animation_player.play(logo_anim_name)
+	_anim_player.play(logo_anim_name)
 
 func _init_lang_options():
 	var lang_names = LocalManager.lang_names()

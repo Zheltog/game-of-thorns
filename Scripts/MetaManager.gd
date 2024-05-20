@@ -1,6 +1,6 @@
 extends Node
 
-static var meta_file_name: String = "res://Jsons/meta.json"
+static var meta_file_name = "res://Jsons/meta.json"
 
 var meta_data: MetaData
 

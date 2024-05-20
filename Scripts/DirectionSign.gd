@@ -3,7 +3,7 @@ class_name DirectionSign
 extends Control
 
 @onready var _texture_rect: TextureRect = $TextureRect
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 var _direction_pics: Dictionary = {}
 var _current_direction: Field.AttackDirection
@@ -23,7 +23,7 @@ func clear():
 
 func play_animation():
 	var anim_name = (Field.AttackDirection.keys()[_current_direction]).to_lower()
-	_animation_player.play(anim_name)
+	_anim_player.play(anim_name)
 
 func stop_animation():
-	_animation_player.stop()
+	_anim_player.stop()

@@ -2,7 +2,7 @@ class_name Good
 
 extends Control
 
-static var name_postfix: String = ".name"
+static var name_postfix = ".name"
 
 @onready var _name_label: Label = $NameLabel
 @onready var _price_label: Label = $PriceLabel

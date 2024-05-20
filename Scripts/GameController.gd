@@ -2,15 +2,16 @@ class_name GameController
 
 extends LocalizableCanvasLayer
 
-static var message_label_start_localization_key: String = "MessageLabel.Start"
-static var message_label_finish_localization_key: String = "MessageLabel.Finish"
-static var message_label_record_localization_key: String = "MessageLabel.Record"
+static var message_label_start_localization_key = "MessageLabel.Start"
+static var message_label_finish_localization_key = "MessageLabel.Finish"
+static var message_label_record_localization_key = "MessageLabel.Record"
 static var menu_scene_name = "res://Scenes/menu.tscn"
 static var rules_scene_name = "res://Scenes/rules.tscn"
 static var cat_nodding_anim_name = "cat_nodding"
 static var porcupine_nodding_anim_name = "porcupine_nodding"
 static var cat_brrr_anim_name = "cat_brrr"
 static var porcupine_brrr_anim_name = "porcupine_brrr"
+static var thorn_name = "thorn"
 
 @export var init_thorns_num_quick: int = 10
 @export var init_thorns_num_long: int = 20
@@ -166,10 +167,12 @@ func _process_items():
 	_items_info.show()
 	var _items_string: String
 	for _item_name in _items:
+		var localization_name = str(_item_name, Good.name_postfix)
+		var localization = LocalManager.localization.get(localization_name)
 		var count = _items[_item_name]
-		if _item_name == "thorn":
+		if _item_name == thorn_name:
 			_extra_thorns = count
-		_items_string += _item_name + ": " + str(count) + "\n"
+		_items_string += localization + ": " + str(count) + "\n"
 	var _original_info_text = _items_info_label.text
 	_items_info_label.text += str("\n\n", _items_string)
 	_items.clear()
