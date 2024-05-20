@@ -13,7 +13,9 @@ func _ready():
 	_save_data = SaveManager.load()
 
 func update_pic():
-	_pic.texture = load(str("res://", ad_pic_name))
+	var image = Image.load_from_file(str("res://", ad_pic_name))
+	var texture = ImageTexture.create_from_image(image)
+	_pic.texture = texture
 
 func _on_close_button_pressed():
 	EventBus.close_ad.emit()

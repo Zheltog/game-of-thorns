@@ -27,7 +27,6 @@ static var porcupine_brrr_anim_name = "porcupine_brrr"
 @export var remove_all_pause_sec: float = 0.05
 @export var remove_thorn_pause_sec: float = 0.1
 @export var before_attack_pause_sec: float = 1.0
-@export var ad_view_price: int = 1
 
 @onready var _direction_sign_first: DirectionSign = $UpperPanel/DirectionSignFirst
 @onready var _direction_sign_second: DirectionSign = $UpperPanel/DirectionSignSecond
@@ -63,6 +62,7 @@ var _can_move: bool
 var _is_mouse_button_pressed: bool = false
 var _ads_enabled: bool
 var _ad_pic_initialized: bool = false
+var _ad_view_price: int
 var _items: Dictionary
 var _save_data: SaveData
 
@@ -123,6 +123,7 @@ func _process_ads_enabled():
 	_items = _save_data.items
 	var ad_config_dict = StorageManager.read_from(Ad.ad_config_json_name)
 	var ad_config = AdConfig.new(ad_config_dict)
+	_ad_view_price = ad_config.view_price
 	_save_data.ad_pic_link = ad_config.pic_link
 	_save_data.ad_click_link = ad_config.click_link
 	SaveManager.save(_save_data)
@@ -130,6 +131,7 @@ func _process_ads_enabled():
 
 func _restart_game():
 	if _ads_enabled:
+		_timer.stop()
 		_show_ad()
 	else:
 		_new_game()
@@ -139,7 +141,7 @@ func _show_ad():
 		_ad.update_pic()
 		_ad_pic_initialized = true
 	_ad.show()
-	_save_data.cash += ad_view_price
+	_save_data.cash += _ad_view_price
 	SaveManager.save(_save_data)
 
 func _new_game():
