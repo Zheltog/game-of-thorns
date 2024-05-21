@@ -5,7 +5,7 @@ extends LocalizableCanvasLayer
 static var settings_scene_name = "res://Scenes/settings.tscn"
 static var log_file_name = "user://logs/godot.log"
 
-@onready var _log_text: Label = $BasePanel/LogText
+@onready var _log_text: Label = $BasePanel/ScrollContainer/VBoxContainer/LogText
 
 func _ready():
 	var log_text = StorageManager.read_from_as_string(log_file_name)

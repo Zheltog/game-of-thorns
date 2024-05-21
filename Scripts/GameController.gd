@@ -128,7 +128,7 @@ func _process_ads_enabled():
 	_save_data.ad_pic_link = ad_config.pic_link
 	_save_data.ad_click_link = ad_config.click_link
 	SaveManager.save(_save_data)
-	print("[GameController._process_ads_enabled] _save_data=", _save_data)
+	print("[GameController._process_ads_enabled] _save_data=", _save_data, "\n")
 	_download(ad_config.pic_link, Ad.ad_pic_name)
 
 func _restart_game():

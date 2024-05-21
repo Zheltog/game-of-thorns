@@ -14,7 +14,7 @@ func _localize_stuff():
 
 func _download(url : String, file_name : String):
 	print("[LocalizableCanvasLayer._download] url=",
-		url, ", file_name=", file_name)
+		url, ", file_name=", file_name, "\n")
 	var http = HTTPRequest.new()
 	add_child(http)
 	http.set_download_file(file_name)
