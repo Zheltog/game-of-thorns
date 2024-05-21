@@ -30,5 +30,7 @@
 	"BuyButton": "buy",
 	"thorn.name": "thorn",
 	"thorn.info": "additional simple thorn (applies only for the next started battle)",
-	"ItemsInfoLabel": "you got extra items!\nthey will be applied for this battle only!"
+	"ItemsInfoLabel": "you got extra items!\nthey will be applied for this battle only!",
+	"LogButton": "log",
+	"LogLabel": "log"
 }

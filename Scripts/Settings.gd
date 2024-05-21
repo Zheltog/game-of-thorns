@@ -3,6 +3,8 @@ class_name Settings
 extends LocalizableCanvasLayer
 
 static var logo_anim_name = "logo_anim"
+static var menu_scene_name = "res://Scenes/menu.tscn"
+static var log_scene_name = "res://Scenes/log.tscn"
 
 @onready var _ads_check_box: CheckBox = $BasePanel/AdsCheckBox
 @onready var _lang_button: Button = $BasePanel/LangButton
@@ -42,7 +44,7 @@ func _on_back_button_pressed():
 	_back()
 
 func _back():
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().change_scene_to_file(menu_scene_name)
 
 func _on_lang_popup_menu_index_pressed(index):
 	var lang = _lang_popup.get_item_text(index)
@@ -55,3 +57,6 @@ func _on_lang_popup_menu_index_pressed(index):
 
 func _on_lang_popup_menu_popup_hide():
 	_lang_button.show()
+
+func _on_log_button_pressed():
+	get_tree().change_scene_to_file(log_scene_name)

@@ -21,6 +21,7 @@ func _ready():
 	_localize_stuff()
 	
 	_save_data = SaveManager.load()
+	print("[Menu._ready] _save_data=", _save_data)
 	if _save_data.ads_enabled:
 		_shop_button.show()
 		_download(_save_data.ad_config_link, Ad.ad_config_json_name)

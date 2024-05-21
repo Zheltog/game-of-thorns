@@ -13,6 +13,12 @@ static func read_from(file_name: String) -> Dictionary:
 	var dictionary = json.get_data()
 	return dictionary
 
+static func read_from_as_string(file_name: String) -> String:
+	var file = FileAccess.open(file_name, FileAccess.READ)
+	if file == null:
+		return ""
+	return file.get_as_text()
+
 static func write_to(file_name: String, data: Dictionary):
 	var file = FileAccess.open(file_name, FileAccess.WRITE)
 	var json_string = JSON.stringify(data)

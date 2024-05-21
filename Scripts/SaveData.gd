@@ -44,3 +44,6 @@ func _init(source: Dictionary = {}):
 	lang = l if l != null else lang
 	items = i if i != null else items
 	cash = c if c != null else cash
+
+func _to_string() -> String:
+	return str(to_dictionary())

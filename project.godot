@@ -21,6 +21,10 @@ EventBus="*res://Scripts/EventBus.gd"
 LocalManager="*res://Scripts/LocalManager.gd"
 MetaManager="*res://Scripts/MetaManager.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=720

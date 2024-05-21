@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4jfxfkcnqnou"]
+
+[ext_resource type="Script" path="res://Scripts/Log.gd" id="1_gjguh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xx1xf"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlc8v"]
+bg_color = Color(0.305882, 0.505882, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpvbx"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jll5l"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igj2r"]
+bg_color = Color(0.137255, 0.243137, 0.243137, 1)
+
+[node name="Log" type="CanvasLayer"]
+script = ExtResource("1_gjguh")
+
+[node name="BasePanel" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.12549, 0.12549, 1)
+
+[node name="LogLabel" type="Label" parent="BasePanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_top = 144.0
+offset_right = 120.5
+offset_bottom = 244.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 63
+text = "log"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LogText" type="Label" parent="BasePanel" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 276.0
+offset_right = -96.0
+offset_bottom = -244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "sample text"
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="BasePanel" groups=["localizable"]]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -212.0
+offset_right = 100.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_xx1xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlc8v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gpvbx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jll5l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_igj2r")
+text = "back
+"
+
+[connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]
