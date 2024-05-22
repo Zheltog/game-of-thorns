@@ -19,3 +19,4 @@ func _download(url : String, file_name : String):
 	add_child(http)
 	http.set_download_file(file_name)
 	http.request(url)
+	print("[LocalizableCanvasLayer._download] http=", http, "\n")

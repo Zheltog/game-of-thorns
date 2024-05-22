@@ -2,8 +2,8 @@ class_name Ad
 
 extends ColorRect
 
-static var ad_config_json_name = "adconf.json"
-static var ad_pic_name = "adpic.jpg"
+static var ad_config_json_name = "res://adconf.json"
+static var ad_pic_name = "res://adpic.jpg"
 
 @onready var _pic: TextureRect = $Pic
 
@@ -13,8 +13,10 @@ func _ready():
 	_save_data = SaveManager.load()
 
 func update_pic():
-	var image = Image.load_from_file(str("res://", ad_pic_name))
+	var image = Image.load_from_file(ad_pic_name)
+	print("[Ad.update_pic] image=", image)
 	var texture = ImageTexture.create_from_image(image)
+	print("[Ad.update_pic] texture=", texture)
 	_pic.texture = texture
 
 func _on_close_button_pressed():
