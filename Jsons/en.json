@@ -32,5 +32,9 @@
 	"thorn.info": "additional simple thorn (applies only for the next started battle)",
 	"ItemsInfoLabel": "you got extra items!\nthey will be applied for this battle only!",
 	"LogButton": "log",
-	"LogLabel": "log"
+	"LogLabel": "log",
+	"info.by": "> game by belog",
+	"info.contacts": "> tg/vk: @zheltog",
+	"info.version.prefix": "> version: ",
+	"info.news": "> news:"
 }

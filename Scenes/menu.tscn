@@ -324,54 +324,6 @@ libraries = {
 "": SubResource("AnimationLibrary_j1xc0")
 }
 
-[node name="VersionLabel" type="Label" parent="BasePanel"]
-self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -336.0
-offset_top = -100.0
-offset_right = -96.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 42
-text = "ver. 0.1"
-vertical_alignment = 1
-
-[node name="SlashLabel" type="Label" parent="BasePanel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -100.0
-offset_right = 8.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 42
-text = "/"
-vertical_alignment = 1
-
-[node name="AuthorLabel" type="Label" parent="BasePanel"]
-self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 136.0
-offset_top = -100.0
-offset_right = 336.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 42
-text = "by belog"
-horizontal_alignment = 2
-vertical_alignment = 1
-
 [node name="PlayQuickButton" type="Button" parent="BasePanel" groups=["localizable"]]
 texture_filter = 1
 layout_mode = 1
@@ -502,6 +454,54 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fuls4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_yiivi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rgidg")
 text = "shop"
+
+[node name="AuthorLabel" type="Label" parent="BasePanel"]
+self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -100.0
+offset_right = 336.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "by belog"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SlashLabel" type="Label" parent="BasePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -100.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "/"
+vertical_alignment = 1
+
+[node name="VersionLabel" type="Label" parent="BasePanel"]
+self_modulate = Color(0.305882, 0.505882, 0.505882, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -100.0
+offset_right = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "ver. 0.1"
+vertical_alignment = 1
 
 [connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]
 [connection signal="pressed" from="BasePanel/PlayLongButton" to="." method="_on_play_long_button_pressed"]
