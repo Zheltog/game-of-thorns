@@ -45,6 +45,7 @@ static var thorn_name = "thorn"
 @onready var _field: Field = $Field
 @onready var _ad: Ad = $Ad
 @onready var _downloader: Downloader = $Downloader
+@onready var _audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var _init_thorns_num: int
 var _cells_num_hor: int
