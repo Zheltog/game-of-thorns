@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d06lanv8p7jhy"]
+[gd_scene load_steps=40 format=3 uid="uid://d06lanv8p7jhy"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_xh13t"]
 [ext_resource type="Texture2D" uid="uid://il1yweqbb7v1" path="res://Sprites/logo_cover.png" id="2_oo61m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://durupb0x3dcso" path="res://Sprites/logo_cat.png" id="6_fcust"]
 [ext_resource type="Texture2D" uid="uid://q4r4cl0u5773" path="res://Sprites/logo_salami_left.png" id="6_qai86"]
 [ext_resource type="Texture2D" uid="uid://dy58visek1mw5" path="res://Sprites/logo_porcupine.png" id="7_6fe5k"]
+[ext_resource type="PackedScene" uid="uid://d203pqpmfmc2k" path="res://Scenes/downloader.tscn" id="10_aohj2"]
 
 [sub_resource type="Animation" id="Animation_70m1t"]
 resource_name = "logo_anim"
@@ -502,6 +503,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "ver. 0.1"
 vertical_alignment = 1
+
+[node name="Downloader" parent="." instance=ExtResource("10_aohj2")]
 
 [connection signal="pressed" from="BasePanel/PlayQuickButton" to="." method="_on_play_quick_button_pressed"]
 [connection signal="pressed" from="BasePanel/PlayLongButton" to="." method="_on_play_long_button_pressed"]

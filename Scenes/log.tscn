@@ -88,6 +88,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 text = "sample text"
-autowrap_mode = 2
+autowrap_mode = 1
 
 [connection signal="pressed" from="BasePanel/BackButton" to="." method="_on_back_button_pressed"]

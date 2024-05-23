@@ -14,6 +14,7 @@ static var logo_anim_name = "logo_anim"
 @onready var _author_label: Label = $BasePanel/AuthorLabel
 @onready var _version_label: Label = $BasePanel/VersionLabel
 @onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _downloader: Downloader = $Downloader
 
 var _save_data: SaveData
 
@@ -26,7 +27,7 @@ func _ready():
 	print("[Menu._ready] _save_data=", _save_data, "\n")
 	if _save_data.ads_enabled:
 		_shop_button.show()
-		_download(_save_data.ad_config_link, Ad.ad_config_json_name)
+		_downloader.download(_save_data.ad_config_link, Ad.ad_config_json_name)
 	else:
 		_shop_button.hide()
 	

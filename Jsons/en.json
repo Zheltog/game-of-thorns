@@ -36,5 +36,6 @@
 	"info.by": "> game by belog",
 	"info.contacts": "> tg/vk: @zheltog",
 	"info.version.prefix": "> version: ",
-	"info.news": "> news:"
+	"info.news": "> news:",
+	"NoAdLabel": "some ad should be here...\n\nmaybe it wasn't loaded...\n\nmaybe there was nothing to load...\n\ncontact me...\n\ntg: @zheltog..."
 }

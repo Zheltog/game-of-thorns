@@ -10,6 +10,7 @@ static var log_scene_name = "res://Scenes/log.tscn"
 @onready var _lang_button: Button = $BasePanel/LangButton
 @onready var _lang_popup: PopupMenu = $BasePanel/LangPopupMenu
 @onready var _anim_player: AnimationPlayer = $BasePanel/LogoBase/AnimationPlayer
+@onready var _settings_label: Label = $BasePanel/SettingsLabel
 
 var _save_data: SaveData
 
@@ -60,3 +61,12 @@ func _on_lang_popup_menu_popup_hide():
 
 func _on_log_button_pressed():
 	get_tree().change_scene_to_file(log_scene_name)
+
+# TODO?
+func _input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed:
+		var settings_bounds = Rect2(
+			_settings_label.position, _settings_label.size)
+		if settings_bounds.has_point(event.position) or settings_bounds.has_point(event.position):
+			var new_save_data = SaveData.new({})
+			SaveManager.save(new_save_data)

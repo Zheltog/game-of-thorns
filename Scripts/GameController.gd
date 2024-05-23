@@ -44,6 +44,7 @@ static var thorn_name = "thorn"
 @onready var _timer: Timer = $Timer
 @onready var _field: Field = $Field
 @onready var _ad: Ad = $Ad
+@onready var _downloader: Downloader = $Downloader
 
 var _init_thorns_num: int
 var _cells_num_hor: int
@@ -129,7 +130,7 @@ func _process_ads_enabled():
 	_save_data.ad_click_link = ad_config.click_link
 	SaveManager.save(_save_data)
 	print("[GameController._process_ads_enabled] _save_data=", _save_data, "\n")
-	_download(ad_config.pic_link, Ad.ad_pic_name)
+	_downloader.download(ad_config.pic_link, Ad.ad_pic_name)
 
 func _restart_game():
 	if _ads_enabled:

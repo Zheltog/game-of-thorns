@@ -3,17 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Ad.gd" id="1_1kiue"]
 [ext_resource type="Texture2D" uid="uid://b0cgrrkj36r5d" path="res://Sprites/cross.png" id="2_stwfm"]
 
-[node name="Base" type="ColorRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
+[node name="Base" type="CanvasLayer"]
 script = ExtResource("1_1kiue")
 
 [node name="Pic" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,17 +15,40 @@ grow_vertical = 2
 expand_mode = 5
 
 [node name="PicButton" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="NoAdRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.12549, 0.12549, 1)
+
+[node name="NoAdLabel" type="Label" parent="NoAdRect" groups=["localizable"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = -96.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "sample text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="CloseButton" type="TextureButton" parent="."]
 self_modulate = Color(0.878431, 0, 0.247059, 1)
 texture_filter = 1
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
