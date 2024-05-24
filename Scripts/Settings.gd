@@ -13,6 +13,8 @@ static var log_scene_name = "res://Scenes/log.tscn"
 @onready var _settings_label: Label = $BasePanel/SettingsLabel
 
 var _save_data: SaveData
+var _rm_clicks: int = 0
+var _rm_clicks_to_rm: int = 3
 
 func _ready():
 	_save_data = SaveManager.load()
@@ -62,11 +64,65 @@ func _on_lang_popup_menu_popup_hide():
 func _on_log_button_pressed():
 	get_tree().change_scene_to_file(log_scene_name)
 
-# TODO?
+# DEV STUFF
 func _input(event: InputEvent):
 	if event is InputEventMouseButton and event.pressed:
 		var settings_bounds = Rect2(
 			_settings_label.position, _settings_label.size)
 		if settings_bounds.has_point(event.position) or settings_bounds.has_point(event.position):
-			var new_save_data = SaveData.new({})
-			SaveManager.save(new_save_data)
+			_rm_clicks += 1
+			if _rm_clicks == _rm_clicks_to_rm:
+				_rm_clicks = 0
+				_clear_user_data()
+
+# DEV STUFF
+func _clear_user_data():
+	print("[Settings._clear_user_data]")
+	var new_save_data = SaveData.new({})
+	SaveManager.save(new_save_data)
+	_delete_file("res://adconf.json")
+	_delete_file("res://adpic.jpg")
+	_delete_file("res://adpic.jpg.import")
+	_delete_file("user://adconf.json")
+	_delete_file("user://adpic.jpg")
+	_delete_file("user://adpic.jpg.import")
+	_process_res_content()
+	_process_user_content()
+
+# DEV STUFF
+func _delete_file(path: String):
+	print("[Settings._delete_file] path=", path)
+	var error = DirAccess.remove_absolute(path)
+	print("[Settings._delete_file] error=", error)
+
+# DEV STUFF
+func _process_res_content():
+	print("[Settings._process_res_content]")
+	var dir = DirAccess.open("res://")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("[Settings._process_res_content] dir: " + file_name)
+			else:
+				print("[Settings._process_res_content] file: " + file_name)
+			file_name = dir.get_next()
+	else:
+		print("[Settings._process_res_content] ERROR")
+
+# DEV STUFF
+func _process_user_content():
+	print("[Settings._process_user_content]")
+	var dir = DirAccess.open("user://")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("[Settings._process_user_content] dir: " + file_name)
+			else:
+				print("[Settings._process_user_content] file: " + file_name)
+			file_name = dir.get_next()
+	else:
+		print("[Settings._process_user_content] ERROR")

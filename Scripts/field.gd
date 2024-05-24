@@ -17,6 +17,17 @@ var _center: Vector2
 var _cells: Array
 var _scene: PackedScene = load(cell_scene_name)
 
+static func opposite_attack_for(attack: AttackDirection):
+	match attack:
+		AttackDirection.UP:
+			return AttackDirection.DOWN
+		AttackDirection.DOWN:
+			return AttackDirection.UP
+		AttackDirection.LEFT:
+			return AttackDirection.RIGHT
+		AttackDirection.RIGHT:
+			return AttackDirection.LEFT
+
 func _ready():
 	EventBus.set_thorn.connect(_set_thorn)
 	EventBus.remove_thorn.connect(_remove_thorn)

@@ -2,8 +2,8 @@ class_name Ad
 
 extends LocalizableCanvasLayer
 
-static var ad_config_json_name = "res://adconf.json"
-static var ad_pic_name = "res://adpic.jpg"
+static var ad_config_json_name = "user://adconf.json"
+static var ad_pic_name = "user://adpic.jpg"
 
 @onready var _pic: TextureRect = $Pic
 @onready var _no_ad_rect: ColorRect = $NoAdRect

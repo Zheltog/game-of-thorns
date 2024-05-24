@@ -230,10 +230,16 @@ func _update_timer():
 func _generate_next_attacks():
 	var attacks_num = 2 if _round_number % 4 == 0 else 1
 	_next_attacks.resize(attacks_num)
-	for i in range(attacks_num):
-		var random_index: int = randi() % _all_directions.size()
-		var random_direction: Field.AttackDirection = Field.AttackDirection.get(_all_directions[random_index])
-		_next_attacks[i] = random_direction
+	if attacks_num == 1:
+		_next_attacks[0] = _generate_direction()
+	elif attacks_num == 2:
+		_next_attacks[0] = _generate_direction()
+		_next_attacks[1] = Field.opposite_attack_for(_next_attacks[0])
+
+func _generate_direction() -> Field.AttackDirection:
+	var random_index: int = randi() % _all_directions.size()
+	var random_direction: Field.AttackDirection = Field.AttackDirection.get(_all_directions[random_index])
+	return random_direction
 
 func _update_statuses():
 	_round_value_label.text = str(_round_number)
