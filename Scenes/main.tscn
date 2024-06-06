@@ -373,7 +373,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("4_2x2f0")
 hframes = 5
 vframes = 5
-frame = 7
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Porcupine"]
 libraries = {
